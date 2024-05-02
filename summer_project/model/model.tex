@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\usepackage{natbib}
+\bibliographystyle{ecta}
+\usepackage[T1]{fontenc}
+\usepackage{titling}
+\usepackage{amsmath}
+\setlength{\droptitle}{-7em}
+\addtolength\abovedisplayskip{-3in}
+\addtolength\belowdisplayskip{-3in}
+
+\title{City Location Choice and Productivity}
+\preauthor{}
+\postauthor{}
+\author{Tan Sein Jone}
+\predate{}
+\postdate{}
+\date{}
+%\Today
+
+\begin{document}
+\doublespacing
+\maketitle
+
+\section{Joint distribution of productivity across cities}
+
+\begin{align}
+    P[Z_c \leq z]                    & = e^{-G^c T_c z^{-\theta}}                                                            \\
+    P[Z_1 \leq z, \dots, Z_c \leq z] & = exp[-\sum_{c = 1}^{N}(G^c T_c Z_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]^{1 - \sigma}
+\end{align}
+
+$G^c$ is the tail dependence correlation funciton. $\sigma$ determines the substitutability between cities. $T_c$ is the scale parameter that can be subtituted for amenities later on. $\theta$ is the shapre parameter.
+
+\section{Tail dependence correlation function}
+
+\begin{align}
+    G^c(x_1, \dots, x_c) = \sum_{k = 1}^{K}[\sum_{s = 1}^{N}(w_{sk}x_{sc})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+\end{align}
+
+$w_{sk}$ is the weight of technology $k$ for sector $s$ which is common between cities. $\rho_k$ is the substitutability of technologies. $x_{s}^{c}$ is the expenditure in sector $s$ for city $c$, this can be analogous to endowments for each city.
+
+\section{Individual distributions}
+
+\begin{align}
+    P[Z_{csk} \leq z] = exp [-((w_{sk} x_{sc})^{\frac{1}{1 - \rho_k}} T_c Z_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]
+\end{align}
+
+Specific Fréchet distribution for city $c$, sector $s$ and technology $k$.
+
+\begin{equation}
+    \phi_c =
+    \begin{pmatrix}
+        z_{11} & \cdots & z_{1k} \\
+        \vdots & \ddots & \vdots \\
+        z_{s1} & \cdots & z_{sk}
+    \end{pmatrix}
+\end{equation}
+
+$\phi_c$ is the matrix of productivity draws from their respective Frechet distributions for each sector and technology in city $c$.
+
+\section{Individual specific technology endowments}
+
+\begin{equation}
+    \omega_p =
+    \begin{pmatrix}
+        v_{1}  & \\
+        \vdots & \\
+        v_{k}  &
+    \end{pmatrix}
+\end{equation}
+
+$\omega_p$ is the vector of technology endowments for each person $p$. For now, each endowment is assumed to be drawn from a normal distribution.
+
+\section{Wage realization}
+
+\begin{align}
+    \tilde{w_{cp}} & = \phi_c \omega_p \\
+                   & = \begin{pmatrix}
+                           w_{1}  & \\
+                           \vdots & \\
+                           w_{s}  &
+                       \end{pmatrix}
+\end{align}
+
+Realised wage for each sector in city $c$.
+
+\section{Worker problem}
+
+\begin{align}
+    \max_{w} [\tilde{w_1}, \dots, \tilde{w_c} | \omega_p]
+\end{align}
+
+\end{document}
