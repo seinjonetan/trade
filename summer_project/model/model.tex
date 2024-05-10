@@ -77,23 +77,22 @@ $\phi_c$ is the matrix of productivity draws from their respective Frechet distr
 
 $\omega_p$ is the vector of technology endowments for each person $p$. For now, each endowment is assumed to be drawn from a normal distribution.
 
-\section{Wage realization}
+\section{Expected City Wage Realization}
 
 \begin{align}
-    \tilde{w_{cp}} & = \phi_c \omega_p \\
-                   & = \begin{pmatrix}
-                           w_{1}  & \\
-                           \vdots & \\
-                           w_{s}  &
-                       \end{pmatrix}
+    E[w_c | \omega_p, \phi_c] = A_c[\sum_{s}^{}(T_s \sum_{k}^{} v_{sk} z_{sk})^{\frac{\eta}{\eta - 1}}]^{\frac{\eta - 1}{\eta}}
 \end{align}
 
-Realised wage for each sector in city $c$.
+Realised wage for person $p$ in city $c$ given their technology draws and the productivity draws for the city.
+
+$T_s$ will be a sector specific scale parameter that is analogous to a city's amenities which is determined by a person's preference towards a specific sector. $A_c$ is a city specific amenity shifter.
 
 \section{Worker problem}
 
 \begin{align}
-    \max_{w} [\tilde{w_1}, \dots, \tilde{w_c} | \omega_p]
+    \max_{w} [E[w_1 | \omega_p, \phi_1], \dots, E[w_N | \omega_p, \phi_N]]
 \end{align}
+
+The worker will choose the city that maximizes their expected wage.
 
 \end{document}
