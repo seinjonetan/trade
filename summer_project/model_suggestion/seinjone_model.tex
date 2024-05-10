@@ -1,0 +1,70 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=0.9in]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{multicol}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\linespread{1.5}
+\usepackage{setspace}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%\usepackage[pdftex]{geometry}
+%\usepackage{cite}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\author{}
+\begin{document}
+Title: \textbf{Location Choice with Correlated Productivities} \\
+\section{Microfoundation Attempt}
+The world consists of some continuum of workers $\nu\in[0,1]$. Workers exhibit some productivity for a range of occupations/tasks, denoted $k\in{K}$. For worker $\nu$, their productivity in $k$ is $Z_{k}(\nu)$. The economy consists of $s\in{S}$ sectors which employ occupations/tasks according to a Cobb-Douglas production function, such that output for sector $s$, when produced in city $o$, is the following:
+\begin{equation}
+    Y_{s\mid{o}}={T_{os}}\prod\limits_{k}{Q^{\omega_{sk}}_{sk}}
+\end{equation}
+where $\omega_{sk}$ are the cost shares accruing to each occupation $k$ in production of good $s$ with the restriction that $\sum\limits_{k}{\omega_{sk}}=1$ for each sector $s$. $T_{os}$ is some exogenous productivity associated with a city-sector pair (Detroit and auto manufacturing, for example). Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $o$ of:
+\begin{equation}
+    {MRP}_{osk}(\nu) = {p_{s}}{T_{os}}{\omega_{sk}}{Z_{k}(\nu)}
+\end{equation}
+$p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when workers choose a city $o$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{os}$. Notice that $\phi_{os}$ is related to $T_{os}$, and for now we make the simplifying assumption that:
+\begin{equation}
+    \phi_{os}=\frac{T_{os}}{\sum\limits_{s'}{T_{os'}}}
+\end{equation}
+The marginal revenue product of being employed in occupation $k$ in city $o$ for household $\nu$ is therefore the following:
+\begin{equation}
+    {MRP}_{ok}(\nu) = {Z_{k}(\nu)}\sum\limits_{s}{p_{s}}{\phi_{os}}{T_{os}}{\omega_{sk}}
+\end{equation}
+Finally, we separate $T_{os}$ into a city-specific component which applies to all sectors, $T_{o}$, and an idiosyncratic component that is city-sector specific, $\tilde{T}_{os}$. We can therefore re-write our expected marginal revenue product of worker $\nu$ working in occupation $k$ in city $o$ as:
+\begin{equation}
+    {MRP}_{ok}(\nu) = {Z_{k}(\nu)}{T_{o}}{B_{ok}}
+\end{equation}
+where $B_{ok}=\sum\limits_{s}{p_{s}}{\phi_{os}}{\tilde{T}_{os}}{\omega_{sk}}$ and captures the employment structure in city $o$ and how attractive this structure is to a worker in occupation $k$.
+
+We now assume that the distribution of this marginal revenue product, or wage, in city $o$ and occupation $k$ is distributed max-stable multivariate Fr{\'e}chet with scale parameter $T_{o}{B_{ok}}$, shape parameter $\theta$, and correlation parameter $\rho$.\footnote{We assume that $0\leq\rho{<}1$.} That is, a worker with the average productivity draw can expect to earn the average wage in city $o$ and occupation $k$ of $T_{o}{B_{ok}}$. The worker-specific productivity $Z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$. 
+
+We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $o$ for worker $\nu$ as the following:
+\begin{equation}
+    {Pr}[w_{o1}(\nu)<w, . . ., w_{oK}(\nu)<w]={exp}\Big[-\Big(\sum\limits_{k}({T_{o}}{B_{ok}}{w^{-\theta}})^{\frac{1}{1-\rho}}\Big)^{1-\rho}\Big]
+\end{equation}
+We then assume that when workers move to a city, they choose the optimal occupation to work in, given their productivity draw and the city characteristics of $o$. Notice that this implies that the expected wage for worker $\nu$ in city $o$ is $w_{o}(\nu)=\max\limits_{k}{w_{ok}}$. As discussed in Lind and Ramondo (2022), since each expected wage $w_{ok}$ is distributed max-stable multivariate Fr{\'e}chet, then the expected wage at the city level is also distributed max-stable multivariate Fr{\'e}chet with a cross-nested CES correlation function according to the following distribution:
+\begin{equation*}
+    {Pr}[w_{1}(\nu)<w, . . ., w_{N}(\nu)<w]={exp}\Big[-\sum\limits_{k}\Big(\sum\limits^{N}_{o}({T_{o}}{B_{ok}}{w^{-\theta}})^{\frac{1}{1-\rho}}\Big)^{1-\rho}\Big]
+\end{equation*}
+Notice that everything we have done so far is data: we can readily calculate employment shares across city-sector pairs and therefore recover $\phi_{os}$. From $\phi_{os}$, we can actually back out $T_{os}$ (given some normalization). We can set prices of all sectors $p_{s}=1$, and we can recover $\omega_{sk}$ -- the sector-occupation shares -- from existing data as well. We only need the parameters $\theta$ and $\rho$. 
+
+For now, we can create this type of model and start playing around with employment and population shares. Try to work through Section II of Lind and Ramondo, as it is basically the same thing that we have done here except with wages and productivities rather than prices and productivities. We also don't have ``destinations" per se. But we want to try and derive the closed form solutions to this system of equations, and in fact this is the whole point of Lind and Ramondo, is that we should be able to.
+
+\end{document}
