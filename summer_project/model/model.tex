@@ -3,10 +3,10 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
+\usepackage{hyperref}
 \onehalfspacing
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
-\usepackage{natbib}
 \bibliographystyle{ecta}
 \usepackage[T1]{fontenc}
 \usepackage{titling}
@@ -28,71 +28,171 @@
 \doublespacing
 \maketitle
 
-\section{Joint distribution of productivity across cities}
+% \section{Model}
+
+% \subsection{Joint distribution of productivity across cities}
+
+% \begin{align}
+%     P[Z_c \leq z]                    & = e^{-G^c T_c z^{-\theta}}                                                            \\
+%     P[Z_1 \leq z, \dots, Z_c \leq z] & = exp[-\sum_{c = 1}^{N}(G^c Z_c T_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]^{1 - \sigma}
+% \end{align}
+
+% $G^c$ is the tail dependence correlation funciton. $\sigma$ determines the substitutability between cities.$Z_c$ is the exogenous productivity of households. $\theta$ is the shapre parameter.
+
+% \subsection{Tail dependence correlation function}
+
+% \begin{align}
+%     G^c(x_1, \dots, x_c) = \sum_{k = 1}^{K}[\sum_{s = 1}^{N}(w_{sk}x_{sc})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+% \end{align}
+
+% $w_{sk}$ is the weight of technology $k$ for sector $s$ which is common between cities. $\rho_k$ is the substitutability of technologies. $x_{s}^{c}$ is the expenditure in sector $s$ for city $c$, this can be analogous to endowments for each city.
+
+% \subsection{Individual distributions}
+
+% \begin{align}
+%     P[T_{csk} \leq t] = exp [-((w_{sk} x_{sc})^{\frac{1}{1 - \rho_k}} Z_c T_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]
+% \end{align}
+
+% Specific Fréchet distribution for city $c$, sector $s$ and technology $k$.
+
+% \begin{equation}
+%     \phi_c =
+%     \begin{pmatrix}
+%         t_{11} & \cdots & t_{1k} \\
+%         \vdots & \ddots & \vdots \\
+%         t_{s1} & \cdots & t_{sk}
+%     \end{pmatrix}
+% \end{equation}
+
+% $\phi_c$ is the matrix of productivity draws from their respective Frechet distributions for each sector and technology in city $c$.
+
+% \subsection{Individual specific technology endowments}
+
+% \begin{equation}
+%     \omega_p =
+%     \begin{pmatrix}
+%         v_{1}  & \\
+%         \vdots & \\
+%         v_{k}  &
+%     \end{pmatrix}
+% \end{equation}
+
+% $\omega_p$ is the vector of technology endowments for each person $p$. For now, each endowment is assumed to be drawn from a normal distribution.
+
+% \newpage
+
+% \section{Aggregation Consideration}
+
+% \subsection{Expected City Wage Realization}
+
+% \begin{align}
+%     E[w_c | \omega_p, \phi_c] = A_c[\sum_{s}^{}(T_s \sum_{k}^{} v_{sk} z_{sk})^{\frac{\eta}{\eta - 1}}]^{\frac{\eta - 1}{\eta}}
+% \end{align}
+
+% Realised wage for person $p$ in city $c$ given their technology draws and the productivity draws for the city.
+
+% $T_s$ will be a sector specific scale parameter that is analogous to a city's amenities which is determined by a person's preference towards a specific sector. $A_c$ is a city specific amenity shifter.
+
+% \subsection{Worker problem}
+
+% \begin{align}
+%     \max_{w} [E[w_1 | \omega_p, \phi_1], \dots, E[w_N | \omega_p, \phi_N]]
+% \end{align}
+
+% The worker will choose the city that maximizes their expected wage.
+
+% \newpage
+
+\section{Household Microfoundation}
+
+\subsection{Production Funciton}
 
 \begin{align}
-    P[Z_c \leq z]                    & = e^{-G^c T_c z^{-\theta}}                                                            \\
-    P[Z_1 \leq z, \dots, Z_c \leq z] & = exp[-\sum_{c = 1}^{N}(G^c T_c Z_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]^{1 - \sigma}
+    Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
 \end{align}
 
-$G^c$ is the tail dependence correlation funciton. $\sigma$ determines the substitutability between cities. $T_c$ is the scale parameter that can be subtituted for amenities later on. $\theta$ is the shapre parameter.
+The economy consists of $s \in S$ sectors whic employ occupations/tasts according to a Cobb-Douglas production function. Where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
 
-\section{Tail dependence correlation function}
+\subsection{MRP}
 
 \begin{align}
-    G^c(x_1, \dots, x_c) = \sum_{k = 1}^{K}[\sum_{s = 1}^{N}(w_{sk}x_{sc})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    {MRP}_{csk}(\nu) = {p_{cs}}{T_{cs}}{\omega_{sk}}{Z_{k}(\nu)}
 \end{align}
 
-$w_{sk}$ is the weight of technology $k$ for sector $s$ which is common between cities. $\rho_k$ is the substitutability of technologies. $x_{s}^{c}$ is the expenditure in sector $s$ for city $c$, this can be analogous to endowments for each city.
+The world consists of some continuum of workers $\nu \in [0, 1]$. Workers exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $Z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
 
-\section{Individual distributions}
+$p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when workers choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
 
 \begin{align}
-    P[Z_{csk} \leq z] = exp [-((w_{sk} x_{sc})^{\frac{1}{1 - \rho_k}} T_c Z_{c}^{-\theta})^{\frac{1}{1 - \sigma}}]
+    \phi_{cs} = \frac{T_{cs}}{\sum_{s'}^{} T_{cs'}}
 \end{align}
 
-Specific Fréchet distribution for city $c$, sector $s$ and technology $k$.
-
-\begin{equation}
-    \phi_c =
-    \begin{pmatrix}
-        z_{11} & \cdots & z_{1k} \\
-        \vdots & \ddots & \vdots \\
-        z_{s1} & \cdots & z_{sk}
-    \end{pmatrix}
-\end{equation}
-
-$\phi_c$ is the matrix of productivity draws from their respective Frechet distributions for each sector and technology in city $c$.
-
-\section{Individual specific technology endowments}
-
-\begin{equation}
-    \omega_p =
-    \begin{pmatrix}
-        v_{1}  & \\
-        \vdots & \\
-        v_{k}  &
-    \end{pmatrix}
-\end{equation}
-
-$\omega_p$ is the vector of technology endowments for each person $p$. For now, each endowment is assumed to be drawn from a normal distribution.
-
-\section{Expected City Wage Realization}
+The marginal revenue product of being employed in occupation $k$ in city $c$ for household $\nu$ is therefore the following:
 
 \begin{align}
-    E[w_c | \omega_p, \phi_c] = A_c[\sum_{s}^{}(T_s \sum_{k}^{} v_{sk} z_{sk})^{\frac{\eta}{\eta - 1}}]^{\frac{\eta - 1}{\eta}}
+    {MRP}_{ck}(\nu) = {Z_{k}(\nu)}\sum_{s}^{} p_{cs} \phi_{cs} T_{cs} \omega_{sk}
 \end{align}
 
-Realised wage for person $p$ in city $c$ given their technology draws and the productivity draws for the city.
-
-$T_s$ will be a sector specific scale parameter that is analogous to a city's amenities which is determined by a person's preference towards a specific sector. $A_c$ is a city specific amenity shifter.
-
-\section{Worker problem}
+Finally, we separate $T_{cs}$ into a city-specific component which applies to all sectors, $T_{c}$, and an idiosyncratic component that is city-sector specific, $\tilde{T}_{cs}$. We can therefore re-write our expected marginal revenue product of worker $\nu$ working in occupation $k$ in city $c$ as:
 
 \begin{align}
-    \max_{w} [E[w_1 | \omega_p, \phi_1], \dots, E[w_N | \omega_p, \phi_N]]
+    {MRP}_{ck}(\nu) = {Z_{k}(\nu)}{T_{c}}{B_{ck}}
 \end{align}
 
-The worker will choose the city that maximizes their expected wage.
+where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and captures the employment structure in city $c$ and how attractive this structure is to a worker in occupation $k$.
+
+\subsection{Frechet Distribution}
+
+We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $Z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
+
+We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
+
+\begin{align}
+    {Pr}[w_{c1}(\nu) < w, \dots, w_{cK}(\nu) < w] = {exp}\Big[-\Big(\sum_{k}({T_{c}}{B_{ck}}{Z_k^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+\end{align}
+
+We then assume that when workers move to a city, they choose the optimal occupation to work in, given their productivity draw and the city characteristics of $c$. Notice that this implies that the expected wage for worker $\nu$ in city $c$ is $w_{c}(\nu) = \max_{k}{w_{ck}}$. As discussed in Lind and Ramondo (2022), since each expected wage $w_{ck}$ is distributed max-stable multivariate Fréchet, then the expected wage at the city level is also distributed max-stable multivariate Fréchet with a cross-nested CES correlation function according to the following distribution:
+
+\begin{align}
+    {Pr}[w_{1}(\nu) < w, \dots, w_{N}(\nu) < w] = {exp}\Big[-\sum_{k}\Big(\sum_{c}^{N}({T_{c}}{B_{ck}}{Z_k^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+\end{align}
+
+% \newpage
+
+% \section{Possible Utility Function Addition}
+
+% \subsection{Preferences}
+
+% \begin{align}
+%     u_i(c, a) = log(H_c) + log(MRP_c) + \epsilon_c
+% \end{align}
+
+% $H_c$ is the average housing space that most poeple in the city live in.
+
+\subsection{Choice Shares}
+
+$B_{ck}$ gives us the employment structure of a city $c$ for occupation $k$ as well as its relationship to marginal revenue product in equation (5). Since in a competitive market, wages $w$ are euqal to $MRP$, we can rearrange equation (5) to get the following city and occupation employment structure:
+
+\begin{align}
+    B_{ck}(\nu) = \frac{w_{csk}(\nu)}{Z_{k}(\nu)T_{c}}
+\end{align}
+
+$B_{ck}$ will be an analogue for us to measure the attractiveness of a city $c$ for occupation $k$ for worker $\nu$. Given the choice of multiple cities, workers who choose to work in occupation $k$ will choose between all cities to maximize their expected wage. For worker type $\nu$ in occupation $k$, they will choose the city with that will yield the highest attractiveness, resulting in the following employment strcture for city $c$ in occupation $k$:
+
+\begin{align}
+    B_k (\nu) = \max_{c = 1, \dots, N} B_{ck}(\nu)
+\end{align}
+
+The implication of this is that workers of different types will tend to be more productive in certain occupations and will consequently choose to locate in cities that will best utilize their skills. This will result in a city-specific employment structure that is dependent on the distribution of worker types across occupations. By intergrating over all worker types, we can derive the expected employment structure for city $c$ in occupation $k$.
+
+\begin{align}
+    B_{ck} = \int_{0}^{1} \frac{w_{ck}(\nu)}{Z_k (\nu) T_c} d\nu
+\end{align}
+
+With this, we can obtain the choice shares of workers across cities and occupations. First, the choice share of locations for workers working in occupation $k$ in city $c$ has the same form as choice probabilities in GEV discrete choice models, with $B_{ck}^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of employment of city $c$ in occupation $k$ equals the probability that a worker chooses to work in city $c$ given that they work in occupation $k$. Finally, the employment share in each city is determined by aggregating employment shares in that occupation across cities.
+
+\begin{align}
+    \pi_{ck} = 1 - \frac{B_{ck}^{- \theta}}{\sum_{c'}^{} B_{c'k}^{- \theta}}
+\end{align}
 
 \end{document}
