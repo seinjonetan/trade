@@ -111,15 +111,15 @@
     Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
 \end{align}
 
-The economy consists of $s \in S$ sectors whic employ occupations/tasts according to a Cobb-Douglas production function. Where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
+The economy consists of $s \in S$ sectors which employ occupations according to a Cobb-Douglas production function. Where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
 
 \subsection{MRP}
 
 \begin{align}
-    {MRP}_{csk}(\nu) = {p_{cs}}{T_{cs}}{\omega_{sk}}{Z_{k}(\nu)}
+    {MRP}_{csk}(\nu) = {p_{cs}}{T_{cs}}{\omega_{sk}}{z_{k}(\nu)}
 \end{align}
 
-The world consists of some continuum of workers $\nu \in [0, 1]$. Workers exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $Z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
+The world consists of some continuum of workers $\nu \in [0, 1]$. Workers exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
 
 $p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when workers choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
 
@@ -130,31 +130,31 @@ $p_{s}$ is the price of the good produced by sector $s$, which we assume is free
 The marginal revenue product of being employed in occupation $k$ in city $c$ for household $\nu$ is therefore the following:
 
 \begin{align}
-    {MRP}_{ck}(\nu) = {Z_{k}(\nu)}\sum_{s}^{} p_{cs} \phi_{cs} T_{cs} \omega_{sk}
+    {MRP}_{ck}(\nu) = {z_{k}(\nu)}\sum_{s}^{} p_{cs} \phi_{cs} T_{cs} \omega_{sk}
 \end{align}
 
 Finally, we separate $T_{cs}$ into a city-specific component which applies to all sectors, $T_{c}$, and an idiosyncratic component that is city-sector specific, $\tilde{T}_{cs}$. We can therefore re-write our expected marginal revenue product of worker $\nu$ working in occupation $k$ in city $c$ as:
 
 \begin{align}
-    {MRP}_{ck}(\nu) = {Z_{k}(\nu)}{T_{c}}{B_{ck}}
+    {MRP}_{ck}(\nu) = {z_{k}(\nu)}{T_{c}}{B_{ck}}
 \end{align}
 
 where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and captures the employment structure in city $c$ and how attractive this structure is to a worker in occupation $k$.
 
 \subsection{Frechet Distribution}
 
-We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $Z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
+We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
 We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
 
 \begin{align}
-    {Pr}[w_{c1}(\nu) < w, \dots, w_{cK}(\nu) < w] = {exp}\Big[-\Big(\sum_{k}({T_{c}}{B_{ck}}{Z_k^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+    {Pr}[w_{c1}(\nu) < w, \dots, w_{cK}(\nu) < w] = {exp}\Big[-\Big(\sum_{k}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
 \end{align}
 
 We then assume that when workers move to a city, they choose the optimal occupation to work in, given their productivity draw and the city characteristics of $c$. Notice that this implies that the expected wage for worker $\nu$ in city $c$ is $w_{c}(\nu) = \max_{k}{w_{ck}}$. As discussed in Lind and Ramondo (2022), since each expected wage $w_{ck}$ is distributed max-stable multivariate Fréchet, then the expected wage at the city level is also distributed max-stable multivariate Fréchet with a cross-nested CES correlation function according to the following distribution:
 
 \begin{align}
-    {Pr}[w_{1}(\nu) < w, \dots, w_{N}(\nu) < w] = {exp}\Big[-\sum_{k}\Big(\sum_{c}^{N}({T_{c}}{B_{ck}}{Z_k^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+    {Pr}[w_{1}(\nu) < w, \dots, w_{N}(\nu) < w] = {exp}\Big[-\sum_{k}\Big(\sum_{c}^{N}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
 \end{align}
 
 % \newpage
@@ -174,7 +174,7 @@ We then assume that when workers move to a city, they choose the optimal occupat
 $B_{ck}$ gives us the employment structure of a city $c$ for occupation $k$ as well as its relationship to marginal revenue product in equation (5). Since in a competitive market, wages $w$ are euqal to $MRP$, we can rearrange equation (5) to get the following city and occupation employment structure:
 
 \begin{align}
-    B_{ck}(\nu) = \frac{w_{csk}(\nu)}{Z_{k}(\nu)T_{c}}
+    B_{ck}(\nu) = \frac{w_{ck}(\nu)}{z_{k}(\nu)T_{c}}
 \end{align}
 
 $B_{ck}$ will be an analogue for us to measure the attractiveness of a city $c$ for occupation $k$ for worker $\nu$. Given the choice of multiple cities, workers who choose to work in occupation $k$ will choose between all cities to maximize their expected wage. For worker type $\nu$ in occupation $k$, they will choose the city with that will yield the highest attractiveness, resulting in the following employment strcture for city $c$ in occupation $k$:
@@ -186,13 +186,35 @@ $B_{ck}$ will be an analogue for us to measure the attractiveness of a city $c$ 
 The implication of this is that workers of different types will tend to be more productive in certain occupations and will consequently choose to locate in cities that will best utilize their skills. This will result in a city-specific employment structure that is dependent on the distribution of worker types across occupations. By intergrating over all worker types, we can derive the expected employment structure for city $c$ in occupation $k$.
 
 \begin{align}
-    B_{ck} = \int_{0}^{1} \frac{w_{ck}(\nu)}{Z_k (\nu) T_c} d\nu
+    B_{ck} = \frac{W_{ck}}{Z_k T_c}
 \end{align}
 
 With this, we can obtain the choice shares of workers across cities and occupations. First, the choice share of locations for workers working in occupation $k$ in city $c$ has the same form as choice probabilities in GEV discrete choice models, with $B_{ck}^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of employment of city $c$ in occupation $k$ equals the probability that a worker chooses to work in city $c$ given that they work in occupation $k$. Finally, the employment share in each city is determined by aggregating employment shares in that occupation across cities.
 
 \begin{align}
-    \pi_{ck} = 1 - \frac{B_{ck}^{- \theta}}{\sum_{c'}^{} B_{c'k}^{- \theta}}
+    \pi_{ck} = \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}}
 \end{align}
+
+\newpage
+
+\section{Proofs}
+
+\subsection{Proof of Equation (10)}
+
+\begin{align*}
+    B_{ck} & = \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu) T_c} d\nu           \\
+           & = \frac{1}{T_c} \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu)} d\nu \\
+           & = \frac{1}{T_c} \frac{W_{ck}}{Z_k}                             \\
+           & = \frac{W_{ck}}{Z_k T_c}
+\end{align*}
+
+\subsection{Proof of choice shares}
+
+\begin{align*}
+    \pi_{ck}             & = \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}}             \\
+    \sum_{c}^{} \pi_{ck} & = \sum_{c}^{} \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}} \\
+                         & = \frac{\sum_{c}^{} B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}} \\
+                         & = 1
+\end{align*}
 
 \end{document}
