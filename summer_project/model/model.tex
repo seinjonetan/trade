@@ -177,6 +177,50 @@ A houehold of type $\nu$ has realised productivity that is hence characterised b
     Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_o}\right\}
 \end{align}
 
+\subsection{Correlation Function}
+
+With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star}$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
+
+\begin{align}
+    G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+\end{align}
+
+\begin{align}
+    G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = \frac{\partial G (Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}
+\end{align}
+
+\begin{align}
+    \gamma = \Gamma (\frac{\theta - 1}{\theta})
+\end{align}
+
+Where $G_c$ is the derivative of the correlation function with respect to city $c$. This correlation function is a generalization of the CES correlation function to the multivariate case, and is used to model the dependence of extreme values across cities. The $\Gamma$ function which takes in the ratio of $\theta - 1$ to $\theta$ gives us the substitutability between cities. Productivity is related to $\gamma$ by the following funciton:
+
+\begin{align}
+    Z_c^{-\theta} = (\gamma \Phi_c)^{-\theta} T_c^{\star}
+\end{align}
+
+Where $T_c^{\star}$ is the city's absolute advantage that applies to all occupations and is given by $T_c^{\star} = \sum_{k}^{} T_{ck}^{\star}$.
+
+\subsection{Choice Shares}
+
+Under perfect competition, wages are equal to marginal revenue product and is a direct function of productivity. As established in equation (5), the productivity for a worker $\nu$ in city $c$ is given by the maximum productivity draw across all occupations. All we have to do is intergrate over all houshold types to get the productivity index for city $c$:
+
+\begin{align}
+    Z_c = \max_k \left\{ \int_{0}^{1} Z_{ck}^{\star} (\nu) d\nu \right\}
+\end{align}
+
+If productivity is distributed max-stable multivariate Fréchet and a continiously differentiable correlation function, then city $c$'s choice shares is given by the following:
+
+\begin{align}
+    \pi_c = \frac{Z_c^{-\theta} G_c(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
+\end{align}
+
+First, the share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
+
+\begin{align}
+    \pi_c = \frac{Z_c^{-\theta}}{\sum_{c}^{N} Z_c^{-\theta}}
+\end{align}
+
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
 % We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
@@ -273,7 +317,7 @@ A houehold of type $\nu$ has realised productivity that is hence characterised b
 %     U (\nu) = \max_{c = 1, \dots, N} w_{c}(\nu)
 % \end{align}
 
-% In a competitive market wages will equal to marginal revenue product of labor. In equation (6), we derived the expected $MRP$ for houshold $\nu$ in city $c$, this will tehn give us the following maximization problem:
+% In a competitive market wages will equal to marginal revenue product of labor. In equation (6), we derived the expected $MRP$ for houshold $\nu$ in city $c$, this will then give us the following maximization problem:
 
 % \begin{align}
 %     U (\nu) = \max_{c = 1, \dots, N} \sum_{k}^{} z_{k}(\nu) T_{c} B_{ck}
