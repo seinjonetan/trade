@@ -103,7 +103,7 @@
 
 % \newpage
 
-\section{Household Microfoundation}
+\section{Model of Production}
 
 \subsection{Production Funciton}
 
@@ -111,20 +111,20 @@
     Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
 \end{align}
 
-The economy consists of $s \in S$ sectors which employ occupations according to a Cobb-Douglas production function. Where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
+The economy consists of $s \in S$ sectors which employ occupations/tasks according to a Cobb-Douglas production function. $\omega_{sk}$ is the weight that each occupation takes for every sector, where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
 
 \subsection{MRP}
 
 \begin{align}
-    {MRP}_{csk}(\nu) = {p_{cs}}{T_{cs}}{\omega_{sk}}{z_{k}(\nu)}
+    {MRP}_{csk}(\nu) = {p_{s}}{T_{cs}}{\omega_{sk}}{z_{k}(\nu)}
 \end{align}
 
-The world consists of some continuum of workers $\nu \in [0, 1]$. Workers exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
+The world consists of some continuum of householdslds $\nu \in [0, 1]$. Households exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
 
-$p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when workers choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
+$p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when households choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
 
 \begin{align}
-    \phi_{cs} = \frac{T_{cs}}{\sum_{s'}^{} T_{cs'}}
+    \phi_{cs} = \frac{T_{cs}}{\sum_{s}^{} T_{cs}}
 \end{align}
 
 The marginal revenue product of being employed in occupation $k$ in city $c$ for household $\nu$ is therefore the following:
@@ -141,21 +141,55 @@ Finally, we separate $T_{cs}$ into a city-specific component which applies to al
 
 where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and captures the employment structure in city $c$ and how attractive this structure is to a worker in occupation $k$.
 
-\subsection{Frechet Distribution}
+% From here, we will aggregate over all occupations in a city to derive the expected wage for a worker in city $c$.
 
-We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
+% \begin{align}
+%     MRP_c(\nu) = \sum_{k}^{} [z_{k}(\nu)T_{c}B_{ck}]
+% \end{align}
 
-We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
+\section{Max Stable Multivariate Fréchet Distribution}
 
-\begin{align}
-    {Pr}[w_{c1}(\nu) < w, \dots, w_{cK}(\nu) < w] = {exp}\Big[-\Big(\sum_{k}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
-\end{align}
-
-We then assume that when workers move to a city, they choose the optimal occupation to work in, given their productivity draw and the city characteristics of $c$. Notice that this implies that the expected wage for worker $\nu$ in city $c$ is $w_{c}(\nu) = \max_{k}{w_{ck}}$. As discussed in Lind and Ramondo (2022), since each expected wage $w_{ck}$ is distributed max-stable multivariate Fréchet, then the expected wage at the city level is also distributed max-stable multivariate Fréchet with a cross-nested CES correlation function according to the following distribution:
+We assume that the joint distribution of productivity across cities is given by
 
 \begin{align}
-    {Pr}[w_{1}(\nu) < w, \dots, w_{N}(\nu) < w] = {exp}\Big[-\sum_{k}\Big(\sum_{c}^{N}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+    P[Z_{1k}^{\star}(\nu) < z, \dots, Z_{Nk}^{\star}(\nu) < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star}z(\nu)^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
+
+Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
+
+A household's schedule of productivities is characterized by a vector of draws from the Fréchet distribution for each occupation $k$ in each city $c$. The realized productivity a hosuehold of type $\nu$ has in city $c$ is however the occupation that maximizes the producticity that particular household has in the city. This is given by the following:
+
+\begin{align}
+    Z_c(\nu) = \max_{k} \{Z_{ck}^{\star}(\nu)\}
+\end{align}
+
+Unlike sequential games where households might pick a city before picking an occupation, this schedule of productivity already determines the ideal occupation for a household in a city. The joint probability of all productivities being less than some value $z$ for all cities is then given by the following:
+
+\begin{align}
+    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} Z(\nu)^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
+\end{align}
+
+The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations.
+
+A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
+
+\begin{align}
+    Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_o}\right\}
+\end{align}
+
+% We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
+
+% We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
+
+% \begin{align}
+%     {Pr}[w_{c1}(\nu) < w, \dots, w_{cK}(\nu) < w] = {exp}\Big[-\Big(\sum_{k}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+% \end{align}
+
+% We then assume that when households move to a city, they choose the optimal occupation to work in, given their productivity draw and the city characteristics of $c$. Notice that this implies that the expected wage for worker $\nu$ in city $c$ is $w_{c}(\nu) = \max_{k}{w_{ck}(\nu)}$. As discussed in Lind and Ramondo (2022), since each expected wage $w_{ck}(\nu)$ is distributed max-stable multivariate Fréchet, then the expected wage at the city level is also distributed max-stable multivariate Fréchet with a cross-nested CES correlation function according to the following distribution:
+
+% \begin{align}
+%     {Pr}[w_{1}(\nu) < w, \dots, w_{N}(\nu) < w] = {exp}\Big[-\sum_{k}\Big(\sum_{c}^{N}({T_{c}}{B_{ck}}{(z_k(\nu))^{-\theta}})^{\frac{1}{1 - \rho}}\Big)^{1 - \rho}\Big]
+% \end{align}
 
 % \newpage
 
@@ -169,52 +203,110 @@ We then assume that when workers move to a city, they choose the optimal occupat
 
 % $H_c$ is the average housing space that most poeple in the city live in.
 
-\subsection{Choice Shares}
+% \subsection{Choice Shares}
 
-$B_{ck}$ gives us the employment structure of a city $c$ for occupation $k$ as well as its relationship to marginal revenue product in equation (5). Since in a competitive market, wages $w$ are euqal to $MRP$, we can rearrange equation (5) to get the following city and occupation employment structure:
+% $B_{ck}$ gives us the employment structure of a city $c$ for occupation $k$ as well as its relationship to marginal revenue product in equation (5). Since in a competitive market, wages $w$ are euqal to $MRP$, we can rearrange equation (5) to get the following city and occupation employment structure:
 
-\begin{align}
-    B_{ck}(\nu) = \frac{w_{ck}(\nu)}{z_{k}(\nu)T_{c}}
-\end{align}
+% \begin{align}
+%     B_{ck}(\nu) = \frac{w_{ck}(\nu)}{z_{k}(\nu)T_{c}}
+% \end{align}
 
-$B_{ck}$ will be an analogue for us to measure the attractiveness of a city $c$ for occupation $k$ for worker $\nu$. Given the choice of multiple cities, workers who choose to work in occupation $k$ will choose between all cities to maximize their expected wage. For worker type $\nu$ in occupation $k$, they will choose the city with that will yield the highest attractiveness, resulting in the following employment strcture for city $c$ in occupation $k$:
+% $B_{ck}$ will be an analogue for us to measure the attractiveness of a city $c$ for occupation $k$ for worker $\nu$. To obtain the aggregate employment structure for city $c$ we will then sum over occupations $k$, giving us the aggregate attarctiveness of city $c$ for worker $\nu$:
 
-\begin{align}
-    B_k (\nu) = \max_{c = 1, \dots, N} B_{ck}(\nu)
-\end{align}
+% \begin{align}
+%     B_{c}(\nu) = \sum_{k}^{} \frac{w_{ck}(\nu)}{z_{k}(\nu)T_{c}}
+% \end{align}
 
-The implication of this is that workers of different types will tend to be more productive in certain occupations and will consequently choose to locate in cities that will best utilize their skills. This will result in a city-specific employment structure that is dependent on the distribution of worker types across occupations. By intergrating over all worker types, we can derive the expected employment structure for city $c$ in occupation $k$.
+% % Given the choice of multiple cities, households who choose to work in occupation $k$ will choose between all cities to maximize their expected wage. For worker type $\nu$ in occupation $k$, they will choose the city with that will yield the highest attractiveness, resulting in the following employment strcture for city $c$ in occupation $k$:
 
-\begin{align}
-    B_{ck} = \frac{W_{ck}}{Z_k T_c}
-\end{align}
+% Given the choice of multiple cities, households will choose to work in the city that maximizes their expected wage. For household type $\nu$ , they will choose the city that will yield the highest attractiveness. This will result in the following employment structure for household type $\nu$:
 
-With this, we can obtain the choice shares of workers across cities and occupations. First, the choice share of locations for workers working in occupation $k$ in city $c$ has the same form as choice probabilities in GEV discrete choice models, with $B_{ck}^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of employment of city $c$ in occupation $k$ equals the probability that a worker chooses to work in city $c$ given that they work in occupation $k$. Finally, the employment share in each city is determined by aggregating employment shares in that occupation across cities.
+% \begin{align}
+%     B (\nu) = \max_{c = 1, \dots, N} B_{c}(\nu)
+% \end{align}
 
-\begin{align}
-    \pi_{ck} = \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}}
-\end{align}
+% The implication of this is that households of different types will tend to be more productive in certain occupations and will consequently choose to locate in cities that will best utilize their skills. This will result in a city-specific employment structure that is dependent on the distribution of household types across occupations. By intergrating over all household types, we can derive the expected employment structure for city $c$.
 
-\newpage
+% % \begin{align}
+% %     B_{ck} = \frac{W_{ck}}{Z_k T_c}
+% % \end{align}
 
-\section{Proofs}
+% \begin{align}
+%     B_{c} = \sum_{k}^{} \frac{W_{ck}}{Z_k T_c}
+% \end{align}
 
-\subsection{Proof of Equation (10)}
+% With this, we can obtain the choice shares of households across cities and occupations. First, the choice share of locations for households working in occupation $k$ in city $c$ has the same form as choice probabilities in GEV discrete choice models, with $B_{ck}^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of employment of city $c$ in occupation $k$ equals the probability that a worker chooses to work in city $c$ given that they work in occupation $k$. Finally, the employment share in each city is determined by aggregating employment shares in that occupation across cities.
 
-\begin{align*}
-    B_{ck} & = \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu) T_c} d\nu           \\
-           & = \frac{1}{T_c} \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu)} d\nu \\
-           & = \frac{1}{T_c} \frac{W_{ck}}{Z_k}                             \\
-           & = \frac{W_{ck}}{Z_k T_c}
-\end{align*}
+% \begin{align}
+%     \pi_{c} = \frac{B_{c}^{- \theta}}{\sum_{c}^{} B_{c}^{- \theta}}
+% \end{align}
 
-\subsection{Proof of choice shares}
+% \newpage
 
-\begin{align*}
-    \pi_{ck}             & = \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}}             \\
-    \sum_{c}^{} \pi_{ck} & = \sum_{c}^{} \frac{B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}} \\
-                         & = \frac{\sum_{c}^{} B_{ck}^{- \theta}}{\sum_{c}^{} B_{ck}^{- \theta}} \\
-                         & = 1
-\end{align*}
+% \section{Proofs}
+
+% \subsection{Proof of Equation (12)}
+
+% \begin{align*}
+%     B_{c} & = \sum_{k}^{} \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu) T_c} d\nu           \\
+%           & = \sum_{k}^{} \frac{1}{T_c} \int_{0}^{1} \frac{w_{ck}(\nu)}{z_k(\nu)} d\nu \\
+%           & = \sum_{k}^{} \frac{1}{T_c} \frac{W_{ck}}{Z_k}                             \\
+%           & = \sum_{k}^{} \frac{W_{ck}}{Z_k T_c}
+% \end{align*}
+
+% \subsection{Proof of choice shares}
+
+% \begin{align*}
+%     \pi_{c}             & = \frac{B_{c}^{- \theta}}{\sum_{c}^{} B_{c}^{- \theta}}             \\
+%     \sum_{c}^{} \pi_{c} & = \sum_{c}^{} \frac{B_{c}^{- \theta}}{\sum_{c}^{} B_{c}^{- \theta}} \\
+%                         & = \frac{\sum_{c}^{} B_{c}^{- \theta}}{\sum_{c}^{} B_{c}^{- \theta}} \\
+%                         & = 1
+% \end{align*}
+
+% \subsection{Choice Shares}
+
+% From equation (6) we can see that a household's expoected wage from a city is dependent on a couple of things. First, that city's productivity shifter $T_c$, meaning that a city that is on average more productive will cause houeholds to earn a higher wage. Second, it is dependent on the city's employment structure, which determine's that city's ability to best utilize the household's most productive skills in particular occupations. The implication being that large cities like New York will be on averagebe able to provide higher wages compared to smaller cities. Among these large cities, housholds will then be able to get their highest expected wage by choosing to locate in cities that has an employment strcuture which best utilizes their skills.
+
+% Let's asusme that a household's utility is entirely dependent on their wages. In order to maximize this utlity, households of type $\nu$ will choose to locate in a city that maximizes this expected wage, this gives us our basic houshold utility maximization problem.
+
+% \begin{align}
+%     U (\nu) = \max_{c = 1, \dots, N} w_{c}(\nu)
+% \end{align}
+
+% In a competitive market wages will equal to marginal revenue product of labor. In equation (6), we derived the expected $MRP$ for houshold $\nu$ in city $c$, this will tehn give us the following maximization problem:
+
+% \begin{align}
+%     U (\nu) = \max_{c = 1, \dots, N} \sum_{k}^{} z_{k}(\nu) T_{c} B_{ck}
+% \end{align}
+
+% With this, we can obtain the choice shares of households of type $\nu$ across cities. First, the choice share of households working in city $c$ has the same form as choice probabilities in GEV discrete choice models. Second, as in EK, the share of emplyment in city $c$ for household type $\nu$ equals the probability that a household chooses to work in city $c$. Location choice shares for household type $\nu$ is hence simply given by the expected wage shares of that city relative to all other cities.
+
+% \begin{align}
+%     \pi_{c} (\nu) = \frac{w_{c}^{- \theta} (\nu)}{\sum_{c}^{} w_{c}^{- \theta} (\nu)}
+% \end{align}
+
+% In order to obatin the city's location choice shares acorss all hosuehold types, we simply need to intergrate over all household types.
+
+% \begin{align}
+%     \pi_c = \frac{W_c^{-\theta}}{\sum_{c}^{} W_c^{-\theta}}
+% \end{align}
+
+% \section{Proofs}
+
+% \subsection{Choice Shares Proof}
+
+% \begin{align*}
+%     \pi_{c} (\nu)             & = \frac{w_{c}^{- \theta} (\nu)}{\sum_{c}^{} w_{c}^{- \theta} (\nu)}             \\
+%     \sum_{c}^{} \pi_{c} (\nu) & = \sum_{c}^{} \frac{w_{c}^{- \theta} (\nu)}{\sum_{c}^{} w_{c}^{- \theta} (\nu)} \\
+%                               & = \frac{\sum_{c}^{} w_{c}^{- \theta} (\nu)}{\sum_{c}^{} w_{c}^{- \theta} (\nu)} \\
+%                               & = 1
+% \end{align*}
+
+% \subsection{Proof for Equation (12)}
+
+% \begin{align*}
+%     \pi_c & = \int_{0}^{1} \frac{w_c^{-\theta} (\nu)}{\sum_{c}^{} w_c^{-\theta} (\nu)} d\nu \\
+%           & = \frac{W_c^{-\theta}}{\sum_{c}^{} W_c^{-\theta}}
+% \end{align*}
 
 \end{document}
