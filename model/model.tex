@@ -4,6 +4,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \onehalfspacing
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
@@ -15,7 +16,7 @@
 \addtolength\abovedisplayskip{-3in}
 \addtolength\belowdisplayskip{-3in}
 
-\title{City Location Choice and Productivity}
+\title{City Location Choice and Household Productivity}
 \preauthor{}
 \postauthor{}
 \author{Tan Sein Jone}
@@ -105,41 +106,47 @@
 
 \section{Model of Production}
 
-\subsection{Production Funciton}
-
 \begin{align}
-    Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
+    Y_{ck} (\nu) = Z_{ck}(\nu)
 \end{align}
 
-The economy consists of $s \in S$ sectors which employ occupations/tasks according to a Cobb-Douglas production function. $\omega_{sk}$ is the weight that each occupation takes for every sector, where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
+Consider a closed economy consisting of $N$ cities and a continnium of households $\nu \in [0, 1]$ . Each city $c$ employs hosueholds of type $\nu$ in sector $k$ to produce output $Y_{ck}(\nu)$. The output of sector $k$ in city $c$ is given by the productivity of the household in that sector and city. The productivity of a household in sector $k$ in city $c$ is given by $Z_{ck}(\nu)$.
 
-\subsection{MRP}
+We assume no trade costs between cities, and that the price of the good produced by sector $k$ is freely traded and priced under perfect competition. The price of the good produced by sector $k$ is $p_k$. The wage of a worker in sector $k$ in city $c$ is $w_{ck}(\nu) = p_k Z_{ck}(\nu)$. As in EK, productivity is a random variable drawn from a max stable multivariate Fréchet distribution and is dependent on both the city and occupation. Output by a specifc occupation is assumed to be produced by a random sector.
 
-\begin{align}
-    {MRP}_{csk}(\nu) = {p_{s}}{T_{cs}}{\omega_{sk}}{z_{k}(\nu)}
-\end{align}
+% \begin{align}
+%     Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
+% \end{align}
 
-The world consists of some continuum of householdslds $\nu \in [0, 1]$. Households exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
+% The economy consists of $s \in S$ sectors which employ occupations/tasks according to a Cobb-Douglas production function. $\omega_{sk}$ is the weight that each occupation takes for every sector, where $\sum_{k}^{} \omega_{sk} = 1$ for each sector $s$. $T_{cs}$ is some exogenous productivity associated with a city-sector pair (Detriot and automanufacturing, for example).
 
-$p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when households choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
+% \subsection{MRP}
 
-\begin{align}
-    \phi_{cs} = \frac{T_{cs}}{\sum_{s}^{} T_{cs}}
-\end{align}
+% \begin{align}
+%     {MRP}_{csk}(\nu) = {p_{s}}{T_{cs}}{\omega_{sk}}{z_{k}(\nu)}
+% \end{align}
 
-The marginal revenue product of being employed in occupation $k$ in city $c$ for household $\nu$ is therefore the following:
+% The world consists of some continuum of householdslds $\nu \in [0, 1]$. Households exhibit some productivity for a range of occupations/tasks, denoted $k \in K$. For worker $\nu$, their productivity in $k$ is $z_{k}(\nu)$. Each worker therefore faces a marginal revenue product associated with being employed in occupation $k$ within sector $s$ in city $c$.
 
-\begin{align}
-    {MRP}_{ck}(\nu) = {z_{k}(\nu)}\sum_{s}^{} p_{cs} \phi_{cs} T_{cs} \omega_{sk}
-\end{align}
+% $p_{s}$ is the price of the good produced by sector $s$, which we assume is freely traded and priced under perfect competition. That is, the price of $s$ is identical in all cities. We assume that when households choose a city $c$ they are randomly assigned to a sector $s$ depending on the employment shares within that city accruing to sector $s$: $\phi_{cs}$. Notice that $\phi_{cs}$ is related to $T_{cs}$, and for now we make the simplifying assumption that:
 
-Finally, we separate $T_{cs}$ into a city-specific component which applies to all sectors, $T_{c}$, and an idiosyncratic component that is city-sector specific, $\tilde{T}_{cs}$. We can therefore re-write our expected marginal revenue product of worker $\nu$ working in occupation $k$ in city $c$ as:
+% \begin{align}
+%     \phi_{cs} = \frac{T_{cs}}{\sum_{s}^{} T_{cs}}
+% \end{align}
 
-\begin{align}
-    {MRP}_{ck}(\nu) = {z_{k}(\nu)}{T_{c}}{B_{ck}}
-\end{align}
+% The marginal revenue product of being employed in occupation $k$ in city $c$ for household $\nu$ is therefore the following:
 
-where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and captures the employment structure in city $c$ and how attractive this structure is to a worker in occupation $k$.
+% \begin{align}
+%     {MRP}_{ck}(\nu) = {z_{k}(\nu)}\sum_{s}^{} p_{cs} \phi_{cs} T_{cs} \omega_{sk}
+% \end{align}
+
+% Finally, we separate $T_{cs}$ into a city-specific component which applies to all sectors, $T_{c}$, and an idiosyncratic component that is city-sector specific, $\tilde{T}_{cs}$. We can therefore re-write our expected marginal revenue product of worker $\nu$ working in occupation $k$ in city $c$ as:
+
+% \begin{align}
+%     {MRP}_{ck}(\nu) = {z_{k}(\nu)}{T_{c}}{B_{ck}}
+% \end{align}
+
+% where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and captures the employment structure in city $c$ and how attractive this structure is to a worker in occupation $k$.
 
 % From here, we will aggregate over all occupations in a city to derive the expected wage for a worker in city $c$.
 
@@ -152,10 +159,10 @@ where $B_{ck} = \sum_{s}^{} p_{s} \phi_{cs} \tilde{T}_{cs} \omega_{sk}$ and capt
 We assume that the joint distribution of productivity across cities is given by
 
 \begin{align}
-    P[Z_{1k}^{\star}(\nu) < z, \dots, Z_{Nk}^{\star}(\nu) < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star}z(\nu)^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    P[Z_{1k}^{\star}(\nu) < z, \dots, Z_{Nk}^{\star}(\nu) < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
-Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
+Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $H_k(\nu)$ is the occupation specific productivity shifter for household $\nu$ in occupation $k$, embodying the household's inate productivity in that occupation. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
 
 A household's schedule of productivities is characterized by a vector of draws from the Fréchet distribution for each occupation $k$ in each city $c$. The realized productivity a hosuehold of type $\nu$ has in city $c$ is however the occupation that maximizes the producticity that particular household has in the city. This is given by the following:
 
@@ -166,7 +173,7 @@ A household's schedule of productivities is characterized by a vector of draws f
 Unlike sequential games where households might pick a city before picking an occupation, this schedule of productivity already determines the ideal occupation for a household in a city. The joint probability of all productivities being less than some value $z$ for all cities is then given by the following:
 
 \begin{align}
-    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} Z(\nu)^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
+    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
 \end{align}
 
 The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations.
@@ -220,6 +227,70 @@ First, the share of location choices for households has the same form as choice 
 \begin{align}
     \pi_c = \frac{Z_c^{-\theta}}{\sum_{c}^{N} Z_c^{-\theta}}
 \end{align}
+
+\section{Simulations}
+
+Assume now that we have two occupations trades and services, with two corresponding household types that specialise in each occupation. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.5 for both occupations and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
+
+\newpage
+
+\begin{table}[h]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+                              & \textbf{Detriot} & \textbf{Chicago} & \textbf{New York} \\
+            \hline
+            \textbf{Trades}   & 7                & 8                & 3                 \\
+            \hline
+            \textbf{Services} & 2                & 1                & 8                 \\
+            \hline
+        \end{tabular}
+        \caption{City Scale Parameters $T_{ck}^{\star}$}
+        \label{city_shifter}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+                              & \textbf{$\nu_1$} & \textbf{$\nu_2$} \\
+            \hline
+            \textbf{Trades}   & 7                & 4                \\
+            \hline
+            \textbf{Services} & 3                & 8                \\
+            \hline
+        \end{tabular}
+        \caption{Houshold Scale Parameter $H_k(\nu)$}
+        \label{household_shifter}
+    \end{minipage}
+\end{table}
+
+These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for the Frechet distribution:
+
+\begin{align}
+    P[Z_{ck}^{\star}(\nu) < z] = exp(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}
+\end{align}
+
+For each household, the draws will produce a $K \times N$ matrix which reflects that hosuehold's schedule of productivities across all cities and occupations. The realized productivity for each household is then the maximum productivity draw across all cities and occupations. Location choice is hence the column which contains that realised productivity.
+
+\begin{figure}[h]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../simulations/graphs/city_pop.png}
+        \caption{Initial Distribution of Populations}
+        \label{city_pop}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../simulations/graphs/c_shock.png}
+        \caption{Post Detriot Shock}
+        \label{c_shock}
+    \end{minipage}
+\end{figure}
+
+We now draw 100 distibutions of each hosuehold types for every city and occupation, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is new york, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households. There is however a preference for trades focused households to locate in Chicago due to the higher specialization in trades as indicated by the scale parameter.
+
+We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York, due to higher productivity draws in that city.
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
