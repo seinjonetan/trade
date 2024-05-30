@@ -112,7 +112,7 @@
 
 Consider a closed economy consisting of $N$ cities and a continnium of households $\nu \in [0, 1]$ . Each city $c$ employs hosueholds of type $\nu$ in sector $k$ to produce output $Y_{ck}(\nu)$. The output of sector $k$ in city $c$ is given by the productivity of the household in that sector and city. The productivity of a household in sector $k$ in city $c$ is given by $Z_{ck}(\nu)$.
 
-We assume no trade costs between cities, and that the price of the good produced by sector $k$ is freely traded and priced under perfect competition. The price of the good produced by sector $k$ is $p_k$. The wage of a worker in sector $k$ in city $c$ is $w_{ck}(\nu) = p_k Z_{ck}(\nu)$. As in EK, productivity is a random variable drawn from a max stable multivariate Fréchet distribution and is dependent on both the city and occupation. Output by a specifc occupation is assumed to be produced by a random sector.
+We assume no trade costs between cities, and that the price of the good produced by sector $k$ is freely traded and priced under perfect competition. The price index of city $c$ is $\Phi_c$. The wage of a worker in sector $k$ in city $c$ is $w_{ck}(\nu) = \Phi_c Z_{ck}(\nu)$. As in EK, productivity is a random variable drawn from a max stable multivariate Fréchet distribution and is dependent on both the city and occupation. Output by a specifc occupation is assumed to be produced by a random sector.
 
 % \begin{align}
 %     Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
@@ -181,7 +181,7 @@ The joint probability above is a max-stable multivariate Fréchet distribution w
 A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
 
 \begin{align}
-    Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_o}\right\}
+    Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_c}\right\}
 \end{align}
 
 \subsection{Correlation Function}
