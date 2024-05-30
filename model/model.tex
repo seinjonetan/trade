@@ -225,7 +225,7 @@ If productivity is distributed max-stable multivariate Fréchet and a continious
 First, the share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
 
 \begin{align}
-    \pi_c = \frac{Z_c^{-\theta}}{\sum_{c}^{N} Z_c^{-\theta}}
+    \pi_c = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
 \end{align}
 
 \section{Simulations}
@@ -291,6 +291,27 @@ For each household, the draws will produce a $K \times N$ matrix which reflects 
 We now draw 100 distibutions of each hosuehold types for every city and occupation, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is new york, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households. There is however a preference for trades focused households to locate in Chicago due to the higher specialization in trades as indicated by the scale parameter.
 
 We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York, due to higher productivity draws in that city.
+
+\newpage
+
+\section{Proofs}
+
+\subsection{Proof of Equation (12)}
+
+\begin{align*}
+    G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                    \\
+                                                            & = \sum_{k}^{} [(T_{ck}^{\star} H_k)^{\frac{1}{1 - \rho_k}} (Z_c^{-\theta})^{\frac{1}{1 - \rho_k} - 1}]^{1 - \rho_k} \\
+                                                            & = Z_c^{-\theta} \sum_{k}^{} [(T_{ck}^{\star} H_k Z_c^{-\theta} )^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}               \\
+                                                            & = Z_c^{-\theta} \sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}                                                        \\
+    Z_c^{-\theta} G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}
+\end{align*}
+
+\begin{align*}
+    \frac{Z_c^{-\theta} G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{\sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}}{\sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}}      \\
+                                                                                                        & = \frac{\sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}}{\sum_{c}^{N} \sum_{k}^{} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k} \times (1 - \rho_k)}} \\
+                                                                                                        & = \frac{T_c^{\star} H^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} H^{\star} Z_c^{-\theta}}                                                                \\
+                                                                                                        & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
+\end{align*}
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
