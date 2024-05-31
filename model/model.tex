@@ -196,6 +196,10 @@ The joint probability above is a max-stable multivariate Fréchet distribution w
     P[Z_{1k}^{\star} < z, \dots, Z_{Nk}^{\star} < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
+\begin{align}
+    P[Z_1^{\star} < z, \dots, Z_N^{\star} < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
+\end{align}
+
 With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star} = \int_{0}^{1} T_{ck} H_k(\nu) dv$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
 
 \begin{align}
@@ -308,7 +312,7 @@ We then shock Detriot's productivities, reducing it by $50\%$ and observe the ch
 
 \section{Proofs}
 
-\subsection{Proof of Equation (13)}
+\subsection{Proof of Equation (14)}
 
 \begin{align*}
     G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                 \\
