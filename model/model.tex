@@ -167,7 +167,7 @@ Consider a closed economy consisting of $N$ cities and a continnium of household
 We assume that the joint distribution of productivity across cities is given by
 
 \begin{align}
-    P[Z_{1k}^{\star}(\nu) < z, \dots, Z_{Nk}^{\star}(\nu) < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    P[Z_{1k}(\nu) < z, \dots, Z_{Nk} (\nu) < z] = exp[-\sum_{c}^{N}(T_{ck} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
 Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $H_k(\nu)$ is the occupation specific productivity shifter for household of type $\nu$ in occupation $k$, the heterogeneity of this shifter relfects the difference in human capital across different hosuehold types. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
@@ -175,13 +175,13 @@ Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, th
 A household's schedule of productivities is characterized by a vector of draws from different Fréchet distributions for each city occupation pair. The realized productivity a hosuehold of type $\nu$ has in city $c$ is the occupation that maximizes the producticity that particular household has in the city. This is given by the following:
 
 \begin{align}
-    Z_c(\nu) = \max_{k} \{Z_{ck}^{\star}(\nu)\}
+    Z_c(\nu) = \max_{k} \{Z_{ck}(\nu)\}
 \end{align}
 
 Unlike sequential games where households might pick a city before picking an occupation, this schedule of productivity already determines the ideal occupation for a household in a city. The joint probability of all productivities being less than some value $z$ for all cities is then given by the following:
 
 \begin{align}
-    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
+    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
 \end{align}
 
 The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations. A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
@@ -192,10 +192,14 @@ The joint probability above is a max-stable multivariate Fréchet distribution w
 
 \subsection{Correlation Function}
 
-With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star} H_k$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
+\begin{align}
+    P[Z_{1k}^{\star} < z, \dots, Z_{Nk}^{\star} < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+\end{align}
+
+With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star} = \int_{0}^{1} T_{ck} H_k(\nu) dv$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
 
 \begin{align}
-    G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
 \begin{align}
@@ -219,7 +223,7 @@ Where $T_c^{\star}$ is the city's absolute advantage that applies to all occupat
 Under perfect competition, wages are equal to marginal revenue product and is a direct function of productivity. As established in equation (5), the productivity for a worker $\nu$ in city $c$ is given by the maximum productivity draw across all occupations. All we have to do is intergrate over all houshold types to get the productivity index for city $c$:
 
 \begin{align}
-    Z_c = \max_k \left\{ \int_{0}^{1} Z_{ck}^{\star} (\nu) d\nu \right\}
+    Z_c = \max_k \left\{ \int_{0}^{1} Z_{ck} (\nu) d\nu \right\}
 \end{align}
 
 If productivity is distributed max-stable multivariate Fréchet and a continiously differentiable correlation function, then city $c$'s choice shares is given by the following:
@@ -307,17 +311,17 @@ We then shock Detriot's productivities, reducing it by $50\%$ and observe the ch
 \subsection{Proof of Equation (12)}
 
 \begin{align*}
-    G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                    \\
-                                                            & = \sum_{k}^{} [(T_{ck}^{\star} H_k)^{\frac{1}{1 - \rho_k}} (Z_c^{-\theta})^{\frac{1}{1 - \rho_k} - 1}]^{1 - \rho_k} \\
-                                                            & = Z_c^{-\theta} \sum_{k}^{} [(T_{ck}^{\star} H_k Z_c^{-\theta} )^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}               \\
-                                                            & = Z_c^{-\theta} \sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}                                                        \\
-    Z_c^{-\theta} G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}
+    G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                 \\
+                                                            & = \sum_{k}^{} [(T_{ck}^{\star} )^{\frac{1}{1 - \rho_k}} (Z_c^{-\theta})^{\frac{1}{1 - \rho_k} - 1}]^{1 - \rho_k} \\
+                                                            & = Z_c^{-\theta} \sum_{k}^{} [(T_{ck}^{\star} Z_c^{-\theta} )^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                \\
+                                                            & = Z_c^{-\theta} \sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}                                                         \\
+    Z_c^{-\theta} G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \sum_{k}^{} T_{ck}^{\star}  Z_c^{-\theta}
 \end{align*}
 
 \begin{align*}
-    \frac{Z_c^{-\theta} G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{\sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}}{\sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}}      \\
-                                                                                                        & = \frac{\sum_{k}^{} T_{ck}^{\star} H_k Z_c^{-\theta}}{\sum_{c}^{N} \sum_{k}^{} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k} \times (1 - \rho_k)}} \\
-                                                                                                        & = \frac{T_c^{\star} H^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} H^{\star} Z_c^{-\theta}}                                                                \\
+    \frac{Z_c^{-\theta} G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}}      \\
+                                                                                                        & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{c}^{N} \sum_{k}^{} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k} \times (1 - \rho_k)}} \\
+                                                                                                        & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}                                                                            \\
                                                                                                         & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
 \end{align*}
 
