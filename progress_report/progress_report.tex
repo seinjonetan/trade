@@ -1,0 +1,62 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\onehalfspacing
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\bibliographystyle{ecta}
+\usepackage[T1]{fontenc}
+\usepackage{titling}
+\usepackage{amsmath}
+\setlength{\droptitle}{-7em}
+\addtolength\abovedisplayskip{-3in}
+\addtolength\belowdisplayskip{-3in}
+
+\title{Progress Report - City Location Choice and Household Productivity}
+\preauthor{}
+\postauthor{}
+\author{Tan Sein Jone}
+\predate{}
+\postdate{}
+\date{}
+%\Today
+
+\begin{document}
+\doublespacing
+\maketitle
+
+\section{Realted Literature}
+
+The main inspiration for my summer paper comes from a paper written by Lind and Ramondo (2023) titled ‘Trade with Correlation’. In this paper, they seek to answer the question: why do similar countries trade with each other? For a bit of background, the Ricardian model in trade predicts that in a world with free trade, countries will perfectly specialise in the production of goods which they have relative advantage over. This is not the pattern of trade we observe empirically. So in 2002, Eaton and Kortum extended this Ricardian model of trade by introducing random draws of productivity across a variety of goods which determines the variety of that good which a country produces, now known as the EK model. This allows for non zero production of goods across all countries, meaning that a less productive country will simply produce lower varieties of that good. The model however came with the limitation that assumed perfect substitutability between all varieties of goods, with the sole determinant of production shares being prices, which were in turn determined by productivity. This was once again inconsistent with the substitution patterns we see in trade.
+
+\subsection{Goal and Methodology}
+
+The goal of Lind and Ramondo’s paper was to break this independence of irrelevant assumption (IIA) in order to account for these substitution patterns and model a country’s gain from trade. Two questions can be answered using this approach. First, do countries who are most dissimilar from each other have the most to gain from trade. And second, if this is true, why is the majority of trade conducted between countries who are the most similarly with each other.
+
+\begin{align*}
+    G^d(x_1, \dots, x_N) = \sum_{k = 1}^{K} \left[\sum_{o = 1}^{N} (\omega_{kod} x_o)^{\frac{1}{1 - \rho_k}}\right]^{1 - \rho_k}
+\end{align*}
+
+The paper relaxes IIA by imposing a cross nested constant elasticity of substitution structure (CNCES) on the EK model. This is a specification that allows for multiple technology nests across multiple sectors, resulting in a multi sector Ricardian model with multiple technology classes. This allows fro different sectors to share technologies, resulting in correlated productivity draws. In other words, sectors which share similar technologies will have similar productivity draws. On the country level, this means that countries with similar technologies will have similar sectoral markups and hence similar production shares across sectors. Countries with the most dissimilar technology will hence have the most to gain from trade due to their dissimilar outputs. So even though a country who’s in the market for Feraris will look for other super cars, they stand to gain most from importing low cost cars to cater to other consumers.
+
+\subsection{Findings}
+
+A few main findings from the paper. First, they found that 7 main technology classes explain most of the variance in the data. These technologies have also been found to not be unique to a specific sector while also being correlated across sectors. This produces a model that predicts more heterogeneity between countries compared to standard gravity models. Once instance being more dissimilar expenditure elasticities across countries. Second, they found that countries such as Germany with unique technologies gain more from trade than countries like Canada. Lastly, when running counterfactuals between China and America where they increased tariffs between the two countries. They found that this will result in large real wage increases for America and real wage decreases for China. This again is likely due to the unique technologies that America possesses.
+
+\section{Strengths and Weaknesses of the Paper}
+
+A couple of main strengths for the paper. First, I believe that the model is well defined. It is a fairly simple extension of the EK model and each parameter has an intuitive mapping onto concepts such as technology classes. I believe that the model is also well specified. With their CNES structure, Lind and Ramondo spend a lot of time showing that when we assume only one nest and perfect independence across classes, their model reduces down to the basic EK model in this base case. This tells me that the extension of the model conforms to existing specifications. Second, I believe that the model is impactful. It accounts for substitution patterns in the data which the existing EK model has failed to explain and produces a satisfying explanation for the difference in gains from trade between countries. With this, they were able to run interesting counterfactuals which have implications for policy decisions such as the imposition of tariffs. In the case of China and America, they were able to get predictions for the tariff war and compare it with actual data. Finally, the paper is also a good extension on the literature, providing the tools to build new models. Specifically, the model provides a flexible estimation procedure for correlation, enabling the integration of this structure to new models.
+
+A couple of weaknesses for this paper. First, the model is still EK, which means that the model will perfectly fit any data that you throw at it. This makes the model non falsifiable due to it producing the exact result you calibrate it on every time. This can almost be seen as overfitting. Second, all the gravity in this model is loaded onto an origin destination country shifter, meaning that it doesn’t account for distance costs. This has implication for geographical trade patterns.
+
+\section{My Paper}
+
+So what do I hope to achieve? I hope to apply this model to an urban/spacial setting in order to explain city choice locations. So instead of production share of goods, I want to explain location choice shares of cities. The main mechanism I’m hoping to get from this model is the structure of correlated productivity draws. Imagine city occupation pairs which are interacted with household types for specific occupations that determine that distribution’s distribution shifter. So someone who specialises in trades, working in Detroit as a mechanic will have a fairly high productivity draw due to a high distribution shifter.
+
+The advantage of this application is two fold. First, unlike Lind and Ramondo who have unobserved technologies, my substitution of technologies for occupations mean that this data is observed and can be directly used to estimate the parameters. This makes the estimation process more straight forward. Second, the data requirements for this model is relatively low, all the model requires is wage and employment data.
+
+\end{document}
