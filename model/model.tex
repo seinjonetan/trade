@@ -104,15 +104,23 @@
 
 % \newpage
 
+\section{Introduction}
+
+The location choice of households across cities is a fundamental question in urban economics. The choice of location is dependent on a variety of factors such as amenities, housing costs, and job opportunities. Quantitative spacial models such as the one developed by Redding (2016) have been able to explain the distibution of economic activity acorss cities by intergrating an amenity shifter into their model. We believe however that the distribution of economic activity across cities is also dependent on the distribution of job types across cities. With cities specializign in specific occupations attracting houeholds that are most productive in those occupations. This means that only cities that are most simillar in their technologies, relfected in their employment structure, will be able to attract hosueholds of specific types. In order to break the independence of irrelevant alternatives (IIA) assumption, we look to Lind and Ramondo (2023) who have developed an EK model with multiple technologies to produce correlated productivity draws across countries.
+
+\subsection{Literature Review}
+
+Eaton and Kortum (2022) present a quantitative trade model that incorporates Ricardian motives for trade by treating productivity as random draws acorss goods, countries and other observable units. This model however relies on indepndence asusmptions that don't capture the relavent substiution patterns for goods acorss countries. Specifically, the dynamic where countries with the most simillar technologies trade most with each other.
+
+Lind and Ramondo (2023) overcome this limitation by developing an EK model with multiple technologies that produce correlated productivity draws across countries. This is achieved using a corss nested constant-elasticity-of-substitution (CES) structure for productivity, with latent nests having the interpretation of technologies. Sectors in countries can then share technologies, which allows for the correlation of productivity draws across countries.
+
 \section{Model of Production}
 
 \begin{align}
     Y_{ck} (\nu) = Z_{ck}(\nu)
 \end{align}
 
-Consider a closed economy consisting of $N$ cities and a continnium of households $\nu \in [0, 1]$ . Each city $c$ employs hosueholds of type $\nu$ in sector $k$ to produce output $Y_{ck}(\nu)$. The output of sector $k$ in city $c$ is given by the productivity of the household in that sector and city. The productivity of a household in sector $k$ in city $c$ is given by $Z_{ck}(\nu)$.
-
-We assume no trade costs between cities, and that the price of the good produced by sector $k$ is freely traded and priced under perfect competition. The price index of city $c$ is $\Phi_c$. The wage of a worker in sector $k$ in city $c$ is $w_{ck}(\nu) = \Phi_c Z_{ck}(\nu)$. As in EK, productivity is a random variable drawn from a max stable multivariate Fréchet distribution and is dependent on both the city and occupation. Output by a specifc occupation is assumed to be produced by a random sector.
+Consider a closed economy consisting of $N$ cities and a continnium of household types $\nu \in [0, 1]$ . Each city $c$ employs hosueholds of type $\nu$ in occupation $k$ to produce output $Y_{ck}(\nu)$. We assume no trade costs between cities, and that the price of the good produced by occupation $k$ is freely traded and priced under perfect competition. The price index of city $c$ is $\Phi_c$. The wage of a worker in sector $k$ in city $c$ is $w_{ck}(\nu) = \Phi_c Z_{ck}(\nu)$. As in EK, productivity is a random variable drawn from a max stable multivariate Fréchet distribution and is dependent on both the city and occupation. Output by a specifc occupation is assumed to be produced by a random sector.
 
 % \begin{align}
 %     Y_{s | c} = T_{cs} \prod_{k} Q_{sk}^{\omega_{sk}}
@@ -162,9 +170,9 @@ We assume that the joint distribution of productivity across cities is given by
     P[Z_{1k}^{\star}(\nu) < z, \dots, Z_{Nk}^{\star}(\nu) < z] = exp[-\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
-Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $H_k(\nu)$ is the occupation specific productivity shifter for household $\nu$ in occupation $k$, embodying the household's inate productivity in that occupation. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
+Where $T{ck}^{\star}$ is the scale parameter for city $c$ and occupation $k$, this represents a city's absolute advantage for occupation $k$. $H_k(\nu)$ is the occupation specific productivity shifter for household of type $\nu$ in occupation $k$, the heterogeneity of this shifter relfects the difference in human capital across different hosuehold types. $\theta > 0$ is the shape parameter, characaterizing the tail behavior of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated across cities for occupation $k$.
 
-A household's schedule of productivities is characterized by a vector of draws from the Fréchet distribution for each occupation $k$ in each city $c$. The realized productivity a hosuehold of type $\nu$ has in city $c$ is however the occupation that maximizes the producticity that particular household has in the city. This is given by the following:
+A household's schedule of productivities is characterized by a vector of draws from different Fréchet distributions for each city occupation pair. The realized productivity a hosuehold of type $\nu$ has in city $c$ is the occupation that maximizes the producticity that particular household has in the city. This is given by the following:
 
 \begin{align}
     Z_c(\nu) = \max_{k} \{Z_{ck}^{\star}(\nu)\}
@@ -176,9 +184,7 @@ Unlike sequential games where households might pick a city before picking an occ
     P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
 \end{align}
 
-The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations.
-
-A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
+The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations. A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
 
 \begin{align}
     Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_c}\right\}
@@ -186,7 +192,7 @@ A houehold of type $\nu$ has realised productivity that is hence characterised b
 
 \subsection{Correlation Function}
 
-With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star}$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
+With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}^{\star} H_k$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
 
 \begin{align}
     G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
@@ -222,7 +228,7 @@ If productivity is distributed max-stable multivariate Fréchet and a continious
     \pi_c = \frac{Z_c^{-\theta} G_c(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
 \end{align}
 
-First, the share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. Second, as in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
+The share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. As in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
 
 \begin{align}
     \pi_c = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
@@ -232,7 +238,7 @@ First, the share of location choices for households has the same form as choice 
 
 Assume now that we have two occupations trades and services, with two corresponding household types that specialise in each occupation. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.5 for both occupations and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
 
-\newpage
+\vspace{2em}
 
 \begin{table}[h]
     \begin{minipage}{0.5\textwidth}
@@ -265,7 +271,9 @@ Assume now that we have two occupations trades and services, with two correspond
     \end{minipage}
 \end{table}
 
-These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for the Frechet distribution:
+\vspace{2em}
+
+These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for each of the Frechet distributions:
 
 \begin{align}
     P[Z_{ck}^{\star}(\nu) < z] = exp(T_{ck}^{\star} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}
@@ -288,9 +296,9 @@ For each household, the draws will produce a $K \times N$ matrix which reflects 
     \end{minipage}
 \end{figure}
 
-We now draw 100 distibutions of each hosuehold types for every city and occupation, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is new york, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households. There is however a preference for trades focused households to locate in Chicago due to the higher specialization in trades as indicated by the scale parameter.
+We now draw 100 distibutions of each hosuehold type for every city and occupation, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is New York, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households. There is however a preference for trades focused households to locate in Chicago due to the higher specialization in trades as indicated by the city scale parameter.
 
-We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York, due to higher productivity draws in that city.
+We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York due to higher productivity draws in that city.
 
 \newpage
 
