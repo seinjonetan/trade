@@ -244,39 +244,54 @@ The share of location choices for households has the same form as choice probabi
 
 \section{Simulations}
 
-Assume now that we have two occupations trades and services, with two corresponding household types that specialise in each occupation. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.5 for both occupations and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
+Assume now that we have two occupations trades and services. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.5 for both occupations and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
 
 \vspace{2em}
 
+% \begin{table}[h]
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \begin{tabular}{|l|c|c|c|}
+%             \hline
+%                               & \textbf{Detriot} & \textbf{Chicago} & \textbf{New York} \\
+%             \hline
+%             \textbf{Trades}   & 7                & 8                & 3                 \\
+%             \hline
+%             \textbf{Services} & 2                & 1                & 8                 \\
+%             \hline
+%         \end{tabular}
+%         \caption{City Scale Parameters $T_{ck}$}
+%         \label{city_shifter}
+%     \end{minipage}%
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \begin{tabular}{|l|c|c|c|}
+%             \hline
+%                               & \textbf{$\nu_1$} & \textbf{$\nu_2$} \\
+%             \hline
+%             \textbf{Trades}   & 7                & 4                \\
+%             \hline
+%             \textbf{Services} & 3                & 8                \\
+%             \hline
+%         \end{tabular}
+%         \caption{Houshold Scale Parameter $H_k(\nu)$}
+%         \label{household_shifter}
+%     \end{minipage}
+% \end{table}
+
 \begin{table}[h]
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \begin{tabular}{|l|c|c|c|}
-            \hline
-                              & \textbf{Detriot} & \textbf{Chicago} & \textbf{New York} \\
-            \hline
-            \textbf{Trades}   & 7                & 8                & 3                 \\
-            \hline
-            \textbf{Services} & 2                & 1                & 8                 \\
-            \hline
-        \end{tabular}
-        \caption{City Scale Parameters $T_{ck}$}
-        \label{city_shifter}
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \begin{tabular}{|l|c|c|c|}
-            \hline
-                              & \textbf{$\nu_1$} & \textbf{$\nu_2$} \\
-            \hline
-            \textbf{Trades}   & 7                & 4                \\
-            \hline
-            \textbf{Services} & 3                & 8                \\
-            \hline
-        \end{tabular}
-        \caption{Houshold Scale Parameter $H_k(\nu)$}
-        \label{household_shifter}
-    \end{minipage}
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+                          & \textbf{Detriot} & \textbf{Chicago} & \textbf{New York} \\
+        \hline
+        \textbf{Trades}   & 7                & 8                & 3                 \\
+        \hline
+        \textbf{Services} & 2                & 1                & 8                 \\
+        \hline
+    \end{tabular}
+    \caption{City Scale Parameters $T_{ck}$}
+    \label{city_shifter}
 \end{table}
 
 \vspace{2em}
@@ -284,7 +299,7 @@ Assume now that we have two occupations trades and services, with two correspond
 These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for each of the Frechet distributions:
 
 \begin{align}
-    P[Z_{ck}(\nu) < z] = exp(T_{ck} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}
+    P[Z_{ck} < z] = exp[(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
 \end{align}
 
 For each household, the draws will produce a $K \times N$ matrix which reflects that hosuehold's schedule of productivities across all cities and occupations. The realized productivity for each household is then the maximum productivity draw across all cities and occupations. Location choice is hence the column which contains that realised productivity.

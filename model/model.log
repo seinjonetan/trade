@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  31 MAY 2024 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  4 JUN 2024 20:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -336,33 +336,33 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-<../simulations/graphs/city_pop.png, id=92, 462.528pt x 346.896pt>
+<../simulations/graphs/city_pop.png, id=91, 462.528pt x 346.896pt>
 File: ../simulations/graphs/city_pop.png Graphic file (type png)
 <use ../simulations/graphs/city_pop.png>
-Package pdftex.def Info: ../simulations/graphs/city_pop.png  used on input line 295.
+Package pdftex.def Info: ../simulations/graphs/city_pop.png  used on input line 310.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
-<../simulations/graphs/c_shock.png, id=94, 462.528pt x 346.896pt>
+<../simulations/graphs/c_shock.png, id=93, 462.528pt x 346.896pt>
 File: ../simulations/graphs/c_shock.png Graphic file (type png)
 <use ../simulations/graphs/c_shock.png>
-Package pdftex.def Info: ../simulations/graphs/c_shock.png  used on input line 301.
+Package pdftex.def Info: ../simulations/graphs/c_shock.png  used on input line 316.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
  [6 <../simulations/graphs/city_pop.png> <../simulations/graphs/c_shock.png>] [7] (./model.aux)
 Package rerunfilecheck Info: File `model.out' has not changed.
 (rerunfilecheck)             Checksum: F87FF01A159B4AFECA4F8283EBD59AB1;1308.
  ) 
 Here is how much of TeX's memory you used:
- 10019 strings out of 478287
- 156415 string characters out of 5849289
- 456929 words of memory out of 5000000
- 28065 multiletter control sequences out of 15000+600000
+ 10017 strings out of 478287
+ 156389 string characters out of 5849289
+ 456875 words of memory out of 5000000
+ 28064 multiletter control sequences out of 15000+600000
  475103 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,63p,1135b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,63p,1135b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on model.pdf (7 pages, 226052 bytes).
+Output written on model.pdf (7 pages, 226101 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
