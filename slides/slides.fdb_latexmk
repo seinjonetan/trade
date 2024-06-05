@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1717532124 "/home/sjone9/school/trade/slides/slides.tex" "slides.pdf" "slides" 1717532125
+["pdflatex"] 1717559652 "/home/sjone9/school/trade/slides/slides.tex" "slides.pdf" "slides" 1717559653
   "../simulations/graphs/c_shock.png" 1717532051 15729 641acc23c757f0810b28ebd00e94f451 ""
   "../simulations/graphs/city_pop.png" 1717532050 16036 6d38a2fe283814d1aa9fac4546327969 ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/slides/slides.tex" 1717532124 11014 baefc76e5335e7f81d82de007994df3a ""
+  "/home/sjone9/school/trade/slides/slides.tex" 1717559650 10981 e50dd3ddded7c2f5002f24090a5d32d5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1246382020 996 a18840b13b499c08ac2de96a99eda4bc ""
@@ -277,11 +277,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "slides.aux" 1717532125 5940 98c6925e3924450b4bbc5a74ccb6a7e1 "pdflatex"
-  "slides.nav" 1717532125 3041 2ad5f4873c43c5c21f36a3c428a9420a "pdflatex"
-  "slides.out" 1717532125 618 0f802737b33075d70f89e43573ffcafb "pdflatex"
-  "slides.tex" 1717532124 11014 baefc76e5335e7f81d82de007994df3a ""
-  "slides.toc" 1717532125 260 ff8c630c706d7be059aef0eaa4c61379 "pdflatex"
+  "slides.aux" 1717559653 5811 094ef99ce03c2c48b7893c384a8829a4 "pdflatex"
+  "slides.nav" 1717559653 2987 7e9673a5bd38712787f435ab1df4ff26 "pdflatex"
+  "slides.out" 1717559653 474 91b2d969d17a57f48d944d2475aa0f38 "pdflatex"
+  "slides.tex" 1717559650 10981 e50dd3ddded7c2f5002f24090a5d32d5 ""
+  "slides.toc" 1717559653 233 c3230e9b283b39f3298e3fcd1d7c65d3 "pdflatex"
   (generated)
   "slides.aux"
   "slides.log"

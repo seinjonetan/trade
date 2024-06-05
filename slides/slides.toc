@@ -1,5 +1,5 @@
 \beamer@sectionintoc {1}{Cities}{3}{0}{1}
-\beamer@sectionintoc {2}{Motivation and Background}{7}{0}{2}
-\beamer@sectionintoc {3}{Proposed Approach}{12}{0}{3}
+\beamer@sectionintoc {2}{Background}{7}{0}{2}
+\beamer@sectionintoc {3}{Model}{12}{0}{3}
 \beamer@sectionintoc {4}{Preliminary Results}{18}{0}{4}
 \beamer@sectionintoc {5}{To Do List}{21}{0}{5}
