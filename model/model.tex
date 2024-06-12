@@ -233,10 +233,16 @@ Under perfect competition, wages are equal to marginal revenue product and is a 
 If productivity is distributed max-stable multivariate Fréchet and a continiously differentiable correlation function, then city $c$'s choice shares is given by the following:
 
 \begin{align}
-    \pi_c = \frac{Z_c^{-\theta} G_c(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
+    \pi_{ck} = \frac{Z_c^{-\theta} G_c^k(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
 \end{align}
 
 The share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. As in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
+
+\begin{align}
+    \pi_{ck} = \frac{(T_c^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_c^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+\end{align}
+
+If there is only one occupation and there is no correlation between cities, $\rho_k = 0$, for that occupation, the city choice share will reduce down to the following:
 
 \begin{align}
     \pi_c = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
@@ -299,7 +305,7 @@ Assume now that we have two occupations trades and services. We will also assume
 These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for each of the Frechet distributions:
 
 \begin{align}
-    P[Z_{ck} < z] = exp[(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
+    P[Z_{ck} < z] = exp[-(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
 \end{align}
 
 For each household, the draws will produce a $K \times N$ matrix which reflects that hosuehold's schedule of productivities across all cities and occupations. The realized productivity for each household is then the maximum productivity draw across all cities and occupations. Location choice is hence the column which contains that realised productivity.
@@ -329,19 +335,29 @@ We then shock Detriot's productivities, reducing it by $50\%$ and observe the ch
 
 \subsection{Proof of Equation (14)}
 
-\begin{align*}
-    G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                 \\
-                                                            & = \sum_{k}^{} [(T_{ck}^{\star} )^{\frac{1}{1 - \rho_k}} (Z_c^{-\theta})^{\frac{1}{1 - \rho_k} - 1}]^{1 - \rho_k} \\
-                                                            & = Z_c^{-\theta} \sum_{k}^{} [(T_{ck}^{\star} Z_c^{-\theta} )^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                \\
-                                                            & = Z_c^{-\theta} \sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}                                                         \\
-    Z_c^{-\theta} G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \sum_{k}^{} T_{ck}^{\star}  Z_c^{-\theta}
-\end{align*}
+% \begin{align*}
+%     G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta})               & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                 \\
+%                                                             & = \sum_{k}^{} [(T_{ck}^{\star} )^{\frac{1}{1 - \rho_k}} (Z_c^{-\theta})^{\frac{1}{1 - \rho_k} - 1}]^{1 - \rho_k} \\
+%                                                             & = Z_c^{-\theta} \sum_{k}^{} [(T_{ck}^{\star} Z_c^{-\theta} )^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                \\
+%                                                             & = Z_c^{-\theta} \sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}                                                         \\
+%     Z_c^{-\theta} G_c (Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \sum_{k}^{} T_{ck}^{\star}  Z_c^{-\theta}
+% \end{align*}
+
+% \begin{align*}
+%     \frac{Z_c^{-\theta} G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}}      \\
+%                                                                                                         & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{c}^{N} \sum_{k}^{} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k} \times (1 - \rho_k)}} \\
+%                                                                                                         & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}                                                                            \\
+%                                                                                                         & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
+% \end{align*}
 
 \begin{align*}
-    \frac{Z_c^{-\theta} G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{k}^{} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}}      \\
-                                                                                                        & = \frac{\sum_{k}^{} T_{ck}^{\star} Z_c^{-\theta}}{\sum_{c}^{N} \sum_{k}^{} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k} \times (1 - \rho_k)}} \\
-                                                                                                        & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}                                                                            \\
-                                                                                                        & = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
+    G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                    & =  [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                                                                                                                                             \\
+    G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                  & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                                                                                                                                 \\
+                                                                                                                 & = (1 - \rho_k)[\sum_{c}^{N} (T_{ck}^{\star} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} (\frac{1}{1 - \rho_k} (T_{ck}^{\star} Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1} T_{ck}^{\star})                                  \\
+                                                                                                                 & = (1 - \rho_k) \frac{1}{1 - \rho_k} \frac{T_{ck}^{\star}}{T_{ck}^{\star} Z_c^{- \theta}} (T_{ck}^{\star} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} \\
+    Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                   & = \frac{(T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} [\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}             \\
+    \frac{Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{(T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}                                                                                               \\
+    \pi_{ck}                                                                                                     & = \frac{(T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
 \end{align*}
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
