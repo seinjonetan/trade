@@ -202,22 +202,21 @@
     \frametitle{Productivity}
     \begin{itemize}
         \setlength{\itemsep}{2em}
-        \item Every household tyoe in every city occupation pair draws a productivity from this Frechet distribution.
+        \item Every household in every city occupation pair draws a productivity from this Frechet distribution.
               \vspace{2em}
               \begin{equation}
                   \label{specific_Frechet}
                   \begin{aligned}
-                      P[Z_{ck} < z] = exp[(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
+                      P[Z_{ck} < z] = exp[-(T_{ck}^{\star} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
                   \end{aligned}
               \end{equation}
     \end{itemize}
     \vspace{3em}
     \begin{itemize}
-        \item $T_{ck}$ is the city occupation specific productivity scale parameter.
+        \item $T_{ck}^{\star}$ is the city occupation specific productivity scale parameter.
               \begin{itemize}
                   \item This represents a city's absolute advantage in that occupation.
               \end{itemize}
-        \item $H_k(\nu)$ is the household type occupation specific productivity scale parameter.
         \item $\theta$ is the Frechet shape parameter.
         \item $\rho_k$ is the occupation correlation parameter.
     \end{itemize}
@@ -283,7 +282,7 @@
               \begin{itemize}
                   \setlength{\itemsep}{1em}
                   \item Chicago, Detriot and New York.
-                  \item Chicago and Detriot specialise in trades with Chicago having an absolute advantage.
+                  \item Chicago and Detriot specialise in trades.
                   \item New York specialises in services.
               \end{itemize}
     \end{itemize}
