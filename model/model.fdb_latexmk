@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1718299259 "/home/sjone9/school/trade/model/model.tex" "model.pdf" "model" 1718299259
-  "../simulations/graphs/c_shock.png" 1717532051 15729 641acc23c757f0810b28ebd00e94f451 ""
-  "../simulations/graphs/city_pop.png" 1717532050 16036 6d38a2fe283814d1aa9fac4546327969 ""
+["pdflatex"] 1718739766 "/home/sjone9/school/trade/model/model.tex" "model.pdf" "model" 1718739766
+  "../simulations/graphs/c_shock.png" 1718396079 23423 c6012eaa6c589ddfe8701cc3877da590 ""
+  "../simulations/graphs/city_pop.png" 1718396005 25833 91d67a2d32652db1c2a777d2b32c1348 ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/model/model.tex" 1718299259 32686 b51269db3735f0bff66c52ce1c0e303d ""
+  "/home/sjone9/school/trade/model/model.tex" 1718739765 32686 b51269db3735f0bff66c52ce1c0e303d ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -87,9 +87,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "model.aux" 1718299259 2534 5133629305ec48f0c02c8d3d56aea3c4 "pdflatex"
-  "model.out" 1718299259 1479 3562f99e5326a731ac37ae4c38d1a52d "pdflatex"
-  "model.tex" 1718299259 32686 b51269db3735f0bff66c52ce1c0e303d ""
+  "model.aux" 1718739766 2534 5133629305ec48f0c02c8d3d56aea3c4 "pdflatex"
+  "model.out" 1718739766 1479 3562f99e5326a731ac37ae4c38d1a52d "pdflatex"
+  "model.tex" 1718739765 32686 b51269db3735f0bff66c52ce1c0e303d ""
   (generated)
   "model.aux"
   "model.log"
