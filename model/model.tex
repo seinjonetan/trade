@@ -242,10 +242,10 @@ The share of location choices for households has the same form as choice probabi
     \pi_{ck} = \frac{(T_c^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_c^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
 \end{align}
 
-If there is only one occupation and there is no correlation between cities, $\rho_k = 0$, for that occupation, the city choice share will reduce down to the following:
+When aggregating over all occupations, the share of location choices for city $c$ is given by the following:
 
 \begin{align}
-    \pi_c = \frac{T_c^{\star} Z_c^{-\theta}}{\sum_{c}^{N} T_c^{\star} Z_c^{-\theta}}
+    \pi_c = \frac{\sum_{k}^{} (\pi_{ck})^{1 - \rho_k}}{\sum_{k}^{} \sum_{c}^{N} (\pi_{ck})^{1 - \rho_k}}
 \end{align}
 
 \section{Simulations}
