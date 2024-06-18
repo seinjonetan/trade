@@ -250,7 +250,7 @@ When aggregating over all occupations, the share of location choices for city $c
 
 \section{Simulations}
 
-Assume now that we have two occupations trades and services. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.5 for both occupations and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
+Assume now that we have two occupations trades and services. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.7 for trades and 0.5 for services and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
 
 \vspace{2em}
 
@@ -310,24 +310,72 @@ These shifters will determine the Frechet distributions from which city and occu
 
 For each household, the draws will produce a $K \times N$ matrix which reflects that hosuehold's schedule of productivities across all cities and occupations. The realized productivity for each household is then the maximum productivity draw across all cities and occupations. Location choice is hence the column which contains that realised productivity.
 
-\begin{figure}[h]
+% \begin{figure}[h]
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../simulations/graphs/city_pop.png}
+%         \caption{Initial Distribution of Populations}
+%         \label{city_pop}
+%     \end{minipage}%
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../simulations/graphs/c_shock.png}
+%         \caption{Post Detriot Shock}
+%         \label{c_shock}
+%     \end{minipage}
+% \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../simulations/graphs/city_pop.png}
+    \caption{Initial Distribution of Populations}
+    \label{city_pop}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../simulations/graphs/c_shock.png}
+    \caption{Post Detroit Shock}
+    \label{c_shock}
+\end{figure}
+
+We now draw 10000 households, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is New York, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households.
+
+We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York due to higher productivity draws in that city.
+
+\subsection{Numerical vs Analytical Results Comparison}
+
+Given the generation of synthetic reuslts, this gives us the opportunity to compare the numerical results with the analytical results. We can compare the choice shares of each city as given by the analytical model with the choice shares of each city as given by the numerical model. This will allow us to validate the analytical model and see if it is able to capture the distribution of location choices across cities.
+
+\newpage
+
+\begin{figure}
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../simulations/graphs/city_pop.png}
-        \caption{Initial Distribution of Populations}
-        \label{city_pop}
-    \end{minipage}%
+        \includegraphics[width=\textwidth]{../simulations/graphs/sim_services.png}
+        \caption{Service Choice Shares}
+        \label{sim_services}
+    \end{minipage}
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../simulations/graphs/c_shock.png}
-        \caption{Post Detriot Shock}
-        \label{c_shock}
+        \includegraphics[width=\textwidth]{../simulations/graphs/sim_trade.png}
+        \caption{Trades Choice Shares}
+        \label{sim_trades}
     \end{minipage}
 \end{figure}
 
-We now for 200 households for every city and occupation, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is New York, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households.
+As you can see in figures 3 and 4, the analytical model is able to capture the distribution of location choices across cities. The choice shares of each city as given by the analytical model are very simillar to the choice shares of each city as given by the numerical model. This validates the analytical model and shows that it is able to capture the distribution of location choices across cities.
 
-We then shock Detriot's productivities, reducing it by $50\%$ and observe the change in location choices. As shown in figure 2, there is a redistibution in location choices with the majority of trades focused households now choosing to locate in Chicago. Some households have also chosen to locate in New York due to higher productivity draws in that city.
+The same excercise can be done for the choice shares for each city. We compare the choice shares for each city as given by the analytical model with the choice shares for each city as given by the numerical model in order to validate the analytical model.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../simulations/graphs/sim_city_shares.png}
+    \caption{City Choice Shares}
+    \label{sim_city_shares}
+\end{figure}
+
+As shown in figure 5, the analytical model is able to capture the distribution of location choices across cities. While the shares are not exactly the same, the analytical model is able to capture the general distribution of location choices across cities. This validates the analytical model and shows that it is able to capture the distribution of location choices across cities.
 
 \newpage
 
@@ -368,7 +416,7 @@ We then shock Detriot's productivities, reducing it by $50\%$ and observe the ch
 \end{align*}
 
 \begin{align*}
-    \frac{\partial ln \pi_{ck}}{\partial T_{c'k}^{\star}} & = - \frac{1}{T_{ck}^{\star}} \frac{(T_{c'k}^{\star} Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} < 0 \\
+    \frac{\partial ln \pi_{ck}}{\partial T_{c'k}^{\star}} & = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \frac{(T_{c'k}^{\star} Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} < 0 \\
 \end{align*}
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
