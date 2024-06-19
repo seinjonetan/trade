@@ -430,6 +430,14 @@ As shown in figure 5, the analytical model is able to capture the distribution o
                                                           & = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \pi_{ck} < 0
 \end{align*}
 
+\subsection{Estimation Equation}
+
+\begin{align*}
+    \pi_{ck}                      & = \frac{(T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
+    \frac{\pi_{ck}}{\pi_{c'k}}    & = \left(\frac{T_{ck}^{\star}Z_c^{- \theta}}{T_{c'k}^{\star}Z_{c'}^{- \theta}}\right)^{\frac{1}{1 - \rho_k}}                        \\
+    T_{ck}^{\star} Z_c^{- \theta} & = \left(\frac{\pi_{ck}}{\pi_{c'k}}\right)^{1 - \rho_k} T_{c'k}^{\star} Z_{c'}^{- \theta}
+\end{align*}
+
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
 % We can derive the joint probability distribution of all wages being less than some value $z$ for all occupations in city $c$ for worker $\nu$ as the following:
