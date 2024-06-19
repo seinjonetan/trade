@@ -248,6 +248,16 @@ When aggregating over all occupations, the share of location choices for city $c
     \pi_c = \frac{\sum_{k}^{} (\pi_{ck})^{1 - \rho_k}}{\sum_{k}^{} \sum_{c}^{N} (\pi_{ck})^{1 - \rho_k}}
 \end{align}
 
+\subsection{Substitutability}
+
+In the case of a cross nested CES function, we can approximate the substitutability between cities within a given occupation. We can do this by taking the log derivative of the choice share of city $c$ with respect to the city's absolute advantage $T_{ck}^{\star}$. Solving for the derivative of Equation (14) with respect to $ln (T_{ck}^{\star})$, we get the following:
+
+\begin{align}
+    \frac{\partial ln \pi_{c'k}}{\partial ln T_{ck}^{\star}} = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \pi_{ck}
+\end{align}
+
+We can see that for any given occupation, the substitutability between cities is determined by the correlation parameter $\rho_k$, the city's absolute advantage $T_{ck}^{\star}$, and the choice share of that city $\pi_{ck}$. As occupations are more correlated, cities become more substitutable. As any given city's share increases, the substitutability increases. This illustrates a gravity effect where cities that are more productive in a given occupation and hence have a larger share of houeholds are more likely to further attract more households for that occupation.
+
 \section{Simulations}
 
 Assume now that we have two occupations trades and services. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. We will also assume that the correlation parameter $\rho_k$ is 0.7 for trades and 0.5 for services and the shape parameter $\theta$ is 2. This will give us the folliwing scale parameters for cities and hosuehold types:
@@ -416,7 +426,8 @@ As shown in figure 5, the analytical model is able to capture the distribution o
 \end{align*}
 
 \begin{align*}
-    \frac{\partial ln \pi_{ck}}{\partial T_{c'k}^{\star}} & = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \frac{(T_{c'k}^{\star} Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} < 0 \\
+    \frac{\partial ln \pi_{c'k}}{\partial T_{ck}^{\star}} & = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \frac{(T_{c'k}^{\star} Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck}^{\star} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
+                                                          & = - \frac{1}{1 - \rho_k} \frac{1}{T_{ck}^{\star}} \pi_{ck} < 0
 \end{align*}
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
