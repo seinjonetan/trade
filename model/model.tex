@@ -236,6 +236,8 @@ If productivity is distributed max-stable multivariate Fréchet and a continious
     \pi_{ck} = \frac{Z_c^{-\theta} G_c^k(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
 \end{align}
 
+Where $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}$
+
 The share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. As in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
 
 \begin{align}
@@ -248,6 +250,30 @@ The share of location choices for households has the same form as choice probabi
 %     \pi_c = \frac{\sum_{k}^{} (\pi_{ck})^{1 - \rho_k}}{\sum_{k}^{} \sum_{c}^{N} (\pi_{ck})^{1 - \rho_k}}
 % \end{align}
 
+Now for a city's aggreagte choice shares. We make the simplifying asusmption that $\rho_k = \rho$ for all occupaitons $k$. This allows us to begin with the following expressions:
+
+\begin{align}
+    G(Z_1^{-\theta}, \dots, Z_N^{-\theta})   & = \sum_{k}^{}[\sum_{c}^{N}(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho}}]^{1 - \rho}                       \\
+    G_c(Z_1^{-\theta}, \dots, Z_N^{-\theta}) & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                        \\
+    \pi_c                                    & = \frac{Z_c^{-\theta} G_c(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}
+\end{align}
+
+% We then evaluate equation (16) to get:
+
+% \begin{align}
+%     \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{- \theta}} = \sum_{k}^{} \left[ \lambda_k^{- \rho} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{- 1} \right]
+% \end{align}
+
+% Where $\lambda_k = \sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}$.
+
+% Plugging in the expression for $G_c$ into equation (17), we get the following:
+
+Evaluating expression (17), we get the following:
+
+\begin{align}
+    \pi_c = (Z_c^{- \theta})^{\frac{1}{1 - \rho}} \left[ \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} \lambda_k^{1 - \rho}} \right]
+\end{align}
+
 \subsection{Substitutability}
 
 In the case of a cross nested CES function, we can approximate the substitutability between cities within a given occupation. We can do this by taking the log derivative of the choice share of city $c$ with respect to the city's absolute advantage $T_{ck}$. Solving for the derivative of Equation (14) with respect to $ln (T_{ck})$, we get the following:
@@ -257,6 +283,18 @@ In the case of a cross nested CES function, we can approximate the substitutabil
 \end{align}
 
 We can see that for any given occupation, the substitutability between cities is determined by the correlation parameter $\rho_k$, the city's absolute advantage $T_{c'k}$, and the choice share of that city $\pi_{c'k}$. As occupations are more correlated, cities become more substitutable. As any given city's share increases, the substitutability increases. This illustrates a gravity effect where cities that are more productive in a given occupation and hence have a larger share of houeholds are more likely to further attract more households for that occupation.
+
+When we evaluate the own price "own price" elasticity of city $c$'s choice share with respect to the city's absolute advantage $T_{ck}$, we make the simplifying assumption that each city is small and therefore $\frac{\partial \lambda_k}{\partial T_{ck}} = 0$. This gives us the following expression:
+
+\begin{align}
+    \frac{\partial ln \pi_{ck}}{\partial ln T_{ck}} \approx \left( \frac{1}{1 - \rho} \right) \left[ \frac{\partial ln Z_c^{- \theta}}{\partial ln T_{ck}} +\frac{T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
+\end{align}
+
+Simmilarly, we can get the cross price elasticity of city $c$'s choice share with respect to that city's absolute advantage $T_{c'k}$:
+
+\begin{align}
+    \frac{\partial ln \pi_c}{\partial ln T_{c'k}} \approx - \pi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} T_{ck}^{\frac{1}{1 - \rho}} \right) \right]
+\end{align}
 
 \section{Simulations}
 
