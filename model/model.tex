@@ -184,7 +184,7 @@ Unlike sequential games where households might pick a city before picking an occ
     P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck} H_k(\nu) z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
 \end{align}
 
-The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations. A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_o$ and is gievn by the following:
+The joint probability above is a max-stable multivariate Fréchet distribution with a cross-nested CES correlation function. This distribution is a generalization of the Fréchet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is simillar to the GEV distribution, but with the added feature of a correlation function that allows for the dependence of extreme values across occupations. A houehold of type $\nu$ has realised productivity that is hence characterised by the maxmimum productivity draw across all cities scaled by the inverse of that city's price index $\Phi_c$ and is gievn by the following:
 
 \begin{align}
     Z(\nu) = \max_{c = 1, \dots, N} \left\{\frac{Z_c(\nu)}{\Phi_c}\right\}
@@ -193,17 +193,17 @@ The joint probability above is a max-stable multivariate Fréchet distribution w
 \subsection{Correlation Function}
 
 \begin{align}
-    P[Z_{1k} < z, \dots, Z_{Nk} < z] = exp[-\sum_{c}^{N}(T_{ck} H_k z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    P[Z_{1k} < z, \dots, Z_{Nk} < z] = exp[-\sum_{c}^{N}(T_{ck} z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
 \begin{align}
-    P[Z_1 < z, \dots, Z_N < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck} H_k z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
+    P[Z_1 < z, \dots, Z_N < z] = exp\{- \sum_{k}^{}[\sum_{c}^{N}(T_{ck} z^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}\}
 \end{align}
 
-When we intergrate over all houehold types for a particular occupation shifter, we get some average productivity shifter for that occupation. $\int_{0}^{1} H_k (\nu) d\nu = H_k$. With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck} H_k$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
+When we intergrate over all houehold types for a particular occupation shifter, we get some average productivity shifter for that occupation. $\int_{0}^{1} H_k (\nu) d\nu = 1$. With the case of a cross-nested CES function, we can approximate a correlation funciton. Assuming that productivity is distributed max-stable multivariate Fréchet, with scale parameter $T_{ck}$, shape parameter $\theta$, and correlation parameter $\rho_k$, we can assume the following correlation function:
 
 \begin{align}
-    G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
+    G (Z_1^{-\theta}, \dots, Z_N^{-\theta})= \sum_{k}^{} [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}
 \end{align}
 
 \begin{align}
@@ -239,7 +239,7 @@ If productivity is distributed max-stable multivariate Fréchet and a continious
 The share of location choices for households has the same form as choice probabilities in GEV discrete choice models, with $Z_c^{-\theta}$ replacing choice specific utility. As in EK, the share of location choices of city $c$ equals the probability that a worker is most productive in city $c$. Finally, the location choice share in each city is determined by the ratio of the expected productivity in that city to the expected productivity in all cities.
 
 \begin{align}
-    \pi_{ck} = \frac{(T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+    \pi_{ck} = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
 \end{align}
 
 When aggregating over all occupations, the share of location choices for city $c$ is given by the following:
@@ -315,7 +315,7 @@ Assume now that we have two occupations trades and services. We will also assume
 These shifters will determine the Frechet distributions from which city and occupation specific productivities are drawn for each household type. For context, this is the pdf for each of the Frechet distributions:
 
 \begin{align}
-    P[Z_{ck} < z] = exp[-(T_{ck} H_k z^{-\theta})^{\frac{1}{1 - \rho_k}}]
+    P[Z_{ck} < z] = exp[-(T_{ck} z^{-\theta})^{\frac{1}{1 - \rho_k}}]
 \end{align}
 
 For each household, the draws will produce a $K \times N$ matrix which reflects that hosuehold's schedule of productivities across all cities and occupations. The realized productivity for each household is then the maximum productivity draw across all cities and occupations. Location choice is hence the column which contains that realised productivity.
@@ -407,34 +407,41 @@ As shown in figure 5, the analytical model is able to capture the distribution o
 % \end{align*}
 
 \begin{align*}
-    G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                    & =  [\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                                                                                                                                 \\
-    G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                  & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                                                                                                                 \\
-                                                                                                                 & = (1 - \rho_k)[\sum_{c}^{N} (T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} (\frac{1}{1 - \rho_k} (T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1} T_{ck} H_k)                              \\
-                                                                                                                 & = (1 - \rho_k) \frac{1}{1 - \rho_k} \frac{T_{ck} H_k}{T_{ck} H_k Z_c^{- \theta}} (T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} [\sum_{c}^{N} (T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} \\
-    Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                   & = \frac{(T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} [\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}         \\
-    \frac{Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{(T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}                                                                                       \\
-    \pi_{ck}                                                                                                     & = \frac{(T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+    G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                    & =  [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                                                                                                                     \\
+    G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                  & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                                                                                                 \\
+                                                                                                                 & = (1 - \rho_k)[\sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} (\frac{1}{1 - \rho_k} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1} T_{ck})                          \\
+                                                                                                                 & = (1 - \rho_k) \frac{1}{1 - \rho_k} \frac{T_{ck}}{T_{ck} Z_c^{- \theta}} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} [\sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} \\
+    Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                   & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}     \\
+    \frac{Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}                                                                               \\
+    \pi_{ck}                                                                                                     & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
 \end{align*}
 
 \subsection{Substitutability Proof}
 
 \begin{align*}
-    \frac{\partial ln \pi_{ck}}{\partial ln T_{ck}} & = \frac{1}{1 - \rho_k} - \frac{\frac{1}{1 - \rho_k} (T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}            \\
-                                                    & = \frac{1}{1 - \rho_k} \left[1 - \frac{1}{T_{ck}} \frac{(T_{ck} H_k Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}\right] > 0 \\
+    \frac{\partial ln \pi_{ck}}{\partial ln T_{ck}} & = \frac{1}{1 - \rho_k} - \frac{\frac{1}{1 - \rho_k} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}            \\
+                                                    & = \frac{1}{1 - \rho_k} \left[1 - \frac{1}{T_{ck}} \frac{(T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}\right] > 0 \\
 \end{align*}
 
 \begin{align*}
-    \frac{\partial ln \pi_{ck}}{\partial ln T_{c'k}} & = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \frac{(T_{c'k} H_k Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} H_k Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
+    \frac{\partial ln \pi_{ck}}{\partial ln T_{c'k}} & = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \frac{(T_{c'k} Z_{c'}^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
                                                      & = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \pi_{c'k} < 0
 \end{align*}
 
 \subsection{Estimation Equation}
 
 \begin{align*}
-    \pi_{ck}                   & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
-    \frac{\pi_{ck}}{\pi_{c'k}} & = \left(\frac{T_{ck}Z_c^{- \theta}}{T_{c'k}Z_{c'}^{- \theta}}\right)^{\frac{1}{1 - \rho_k}}                        \\
-    T_{ck} Z_c^{- \theta}      & = \left(\frac{\pi_{ck}}{\pi_{c'k}}\right)^{1 - \rho_k} T_{c'k} Z_{c'}^{- \theta}
+    \pi_{ck}    & = \frac{(T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}}                         \\
+    ln \pi_{ck} & = \frac{1}{1 - \rho_k} \left[ln (T_{ck}) + ln\left\{(\gamma \Phi_c)^{- \theta} \sum_{k}^{} T_{ck}\right\}\right] - ln \left[\Lambda_k\right] \\
 \end{align*}
+
+Where $\Lambda_k = \sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}$. And $Z_{ck}^{- \theta} = (\gamma \Phi_c)^{- \theta} T_c$.
+
+% \begin{align*}
+%     \pi_{ck}                   & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} \\
+%     \frac{\pi_{ck}}{\pi_{c'k}} & = \left(\frac{T_{ck}Z_c^{- \theta}}{T_{c'k}Z_{c'}^{- \theta}}\right)^{\frac{1}{1 - \rho_k}}                        \\
+%     T_{ck} Z_c^{- \theta}      & = \left(\frac{\pi_{ck}}{\pi_{c'k}}\right)^{1 - \rho_k} T_{c'k} Z_{c'}^{- \theta}
+% \end{align*}
 
 % We now assume that the distribution of this marginal revenue product, or wage, in city $c$ and occupation $k$ is distributed max-stable multivariate Fréchet with scale parameter $T_{c}B_{ck}$, shape parameter $\theta$, and correlation parameter $\rho$. That is, a worker with the average productivity draw can expect to earn the average wage in city $c$ and occupation $k$ of $T_{c}B_{ck}$. The worker-specific productivity $z_{k}(\nu)$ is distributed with dispersion $\theta$ and a correlation parameter $\rho$, which dictates the extent to which productivity draws are correlated across occupations $k$.
 
