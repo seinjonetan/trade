@@ -1,10 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1719343489 "/home/sjone9/school/trade/model/model.tex" "model.pdf" "model" 1719343489
-  "../simulations/graphs/c_shock.png" 1718745502 25766 f680667a66fa17867ebae301455f0084 ""
-  "../simulations/graphs/city_pop.png" 1718747358 29091 1724999bd350523dea1a0fdcfc0b7239 ""
-  "../simulations/graphs/sim_city_shares.png" 1718750329 26473 187ffff62472df63f586b23e3605eff2 ""
-  "../simulations/graphs/sim_services.png" 1718750349 25606 933df2792efe098d0e58356fe78f6a1c ""
-  "../simulations/graphs/sim_trade.png" 1718750349 26012 85dcea039cbffcaf355da5015b8a7341 ""
+["pdflatex"] 1719353437 "/home/sjone9/school/trade/model/model.tex" "model.pdf" "model" 1719353437
+  "../simulations/graphs/c_shock.png" 1719350828 25764 d189fc73dc13bb2d02a153a18df4ffbc ""
+  "../simulations/graphs/city_pop.png" 1719353343 25408 6ec376a31c3cfee1c8a9093c58399844 ""
+  "../simulations/graphs/sim_city_shares.png" 1719353436 26008 693fc1286786263920c1723dbc92a4be ""
+  "../simulations/graphs/sim_services.png" 1719353343 26505 7f52af5999dda4d5f6d2628ef3af6cf0 ""
+  "../simulations/graphs/sim_trade.png" 1719353343 26162 1bd8b0dc146311447b779ab9c36b4f4a ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/sjone9/school/trade/model/model.tex" 1719343489 39465 98b3ea92aa54891a43b462a61bff2509 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -90,8 +90,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "model.aux" 1719343489 3529 5a968d8ef0718eb4f5bcf458be864ac9 "pdflatex"
-  "model.out" 1719343489 2053 4318b0e915011a02dfdb93be85f7e8cb "pdflatex"
+  "model.aux" 1719353437 3529 5a968d8ef0718eb4f5bcf458be864ac9 "pdflatex"
+  "model.out" 1719353437 2053 4318b0e915011a02dfdb93be85f7e8cb "pdflatex"
   "model.tex" 1719343489 39465 98b3ea92aa54891a43b462a61bff2509 ""
   (generated)
   "model.aux"
