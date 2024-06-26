@@ -160,15 +160,15 @@ The second term captures the unbalanced substitution patterns associated with co
 But why is this substitution dampened by weight $\omega_k$? Notice that is occupation $k$ is very attractive and $\omega_k \to 1$, this implies that there are many attractive cities for households productive in occupation $k$. That is, we cannot determine the cross-price elasticity without considering the environment in which both $c$ and $c'$ exist, and the strength of substitution between them is strongest when they are both productive in $k$ and no other cities are even close, implying a small $\omega_k$.
 
 \begin{align}
-    \epsilon_{ckck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} = \frac{1}{1 - \rho_k} \left[ 1 - \frac{1}{T_{ck}} \pi_{ck} \right] > 0
+    \epsilon_{ckck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} = \frac{1}{1 - \rho_k} \left[ 1 - \pi_{ck} \right] > 0
 \end{align}
 
 \begin{align}
-    \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \pi_{c'k} < 0
+    \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \pi_{c'k} < 0
 \end{align}
 
-Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. This is however counteracted with $T_{ck}$ which increases elasticity at higher levels of productivity.
+Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation.
 
-The opposite is true for cross-price elasticities, where the higher levels of $\pi_{c'k}$ will increase the elasticity. This is because the more productive a city is in a given occupation, the more it will be affect another city's choice shares within that given occupation. It is however counteracted by the $T_{c'k}$ term which decreases elasticity at higher levels of productivity, once again illustrating a diminishing returns effect.
+The opposite is true for cross-price elasticities, where the higher levels of $\pi_{c'k}$ will increase the elasticity. This is because the more productive a city is in a given occupation, the more it will be affect another city's choice shares within that given occupation. $\pi_{c'k}$ neatly illustrates the gravity effect where large cities have larger effects on other cities.
 
 \end{document}
