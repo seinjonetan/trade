@@ -35,7 +35,7 @@ The location choice of households is an important determinant of the spatial dis
 
 The model is based on the idea that households are more productive in cities because of the agglomeration of economic activity. In particular, households are more productive in certain cities due to the presence of occupations that are complementary to their skills. For example, a household with skills in finance may be more productive in a city with a large financial sector. Similarly, a household with skills in technology may be more productive in a city with a large technology sector. The model shows that households choose to locate in cities where they are most productive, leading to the agglomeration of economic activity in certain cities.
 
-This leads to two key outcomes. First, larger cities will tend to have higehr levels of economic activity because they are able to attract more households. Second, cities that specialize in specific occupations will tend to be more attratcive to households with those skills. This leads to the agglomeration of economic activity in cities that specialize in specific occupations.
+This leads to two key outcomes. First, larger cities will tend to have higher levels of economic activity because they are able to attract more households. Second, cities that specialize in specific occupations will tend to be more attratcive to households with those skills. This leads to the agglomeration of economic activity in cities that specialize in specific occupations.
 
 We achieve this by developing a model of city location choice that is based on Quantitative Spacial Models develoepd by Redding (2016) which loads city heterogeneity onto a city ammenity term in order to avoid a trivial solution of all hosueholds choosing to live in once city. This model however comes comes with the independence of irrelavent alternatives (IIA) assumption, which makes cities perfect substitutes for each other. We relax this assumption by using a nested CES structure with correlation proposed by Lind and Ramondo (2023) to allow for correlated draws of productivity between cities, making cities imperfect substitutes for each other.
 
@@ -60,5 +60,61 @@ The price index of city $c$ is $\Phi_c$. The wage of a hosuehold in occupation $
 A hosuehold's utility is purely determined by wages and is given by the maximum wage across all cities. We assume that hosueholds are risk neutral and hence maximize expected utility. When choosing a prticular city to maximize utility, households will simultaneously choose an occupation to work in. We assume that hosueholds are perfectly mobile and can move to any city at no cost.
 
 \section{Max Stable Multivariate Fr\'{e}chet Distribution}
+
+\begin{align}
+    P[Z_{1k}(\nu) < z, \dots, Z_{Nk}(\nu) < z] = \exp \left\{ \left[ - \sum_{c}^{N} (T_{ck} H_k(\nu) z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k} \right\}
+\end{align}
+
+We assume that productivity is distributed max stable multivariate Fr\'{e}chet where $T_{ck}$ is the scale parameter for city $c$ and occupation $k$. $H_k(\nu)$ is the occupation specific productivity shifter for household of type $\nu$ in occupation $k$. The heterogeneity of this shifter reflects the difference in human capital across different hosuehold types. $\theta > 0$ is the shape parameter, characterizing the tail behaviour of the distribution. $\rho_k$ is the occupation specific correlation parameter, which dictates the extent to which productivity draws are correlated acorss cities for occupation $k$.
+
+\begin{align}
+    T_{ck} = T_c T_k t_{ck}
+\end{align}
+
+Looking at the scale parameter $T_{ck}$, we can separate it into three components. $T_c$ is the city specific scale parameter which captures the attractiveness of a city, shifting the distribution for all productivity draws within that city. $T_k$ is the occupation specific scale parameter which is common across all cities, this captures the aggregate effect that occupation $k$ has on productivity. An example shock to this parameter is the effect new computers have on an occupation that heavily relies on computation. $t_{ck}$ is the city-occupation specific scale paramter which captures the idiosyncratic effect of city $c$ on occupation $k$. The effect on new york on finance is an example of this.
+
+\begin{align}
+    Z_c(\nu) = \max_k \left\{ Z_{ck} (\nu) \right\}
+\end{align}
+
+A household's schedule of productivities is characterized by a vector of draws from diferent fr\'{e}chet distributions for each city occupaiton pair. The realized productivity of a household of type $\nu$ has in city $c$ is the occupation that maximizes the productivity that particular hosuehold has in the city.
+
+\begin{align}
+    P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = \exp \left\{ - \sum_{k}^{} \left[ \sum_{c}^{N} (T_c H(\nu) z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k} \right\}
+\end{align}
+
+Unlike sequential games where households might pick a city before picking an occupation, we assume that households pick both simultaneously. This is because thhe schedule of productivity already determines the ideal occupation of a household in a city. From here, we can obatin the joint distribution of all productivities being less than some value $z$ for all cities and occupations.
+
+\begin{align}
+    Z(\nu) = \max_c \left\{ \frac{Z_c (\nu)}{\Phi_c} \right\}
+\end{align}
+
+The joint probability takes on the form of a max stable multivariate Fr\'{e}chet distribution with a cross-nested CES correlation structure as proposed by Lind and Ramondo (2023). This distribution is a generalization of the Fr\'{e}chet distribution to the multivariate case, and is used to model the joint distribution of extreme values. This is similar to the GEV distribution, but with the added flexibility of allowing for correlation between the draws of different cities across occupations. A household of type $\nu$ has the realized productivity that is hence characterized by the maximum of all productivity draws across all cities and occupations scaled by the inverse of that city's price index $\Phi_c$.
+
+\subsection{Correlation Function}
+
+\begin{align}
+    P[Z_1 < z, \dots, Z_N < z] = \exp \left\{ - \sum_{k}^{} \left[ \sum_{c}^{N} (T_c z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k} \right\}
+\end{align}
+
+When we intergrate over all hosuehold types for a particular hosuehold shifter, we get the average productivity shifter for that occupation which we assume to be 1 for all occupations $\int_{0}^{1} H_k (\nu) d\nu = 1$. With the case of a corss-nested CES function, we can approximate a correlation function. Assuming that productivity is distributed max-stable multivariate Fr\'{e}chet, with scale parameter $T_{ck}$ shape parameter $\theta$ and correlation parameters $\rho_k$.
+
+\begin{align}
+    G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{k}^{} \left[ \sum_{c}^{N} (T_{ck} z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k}
+\end{align}
+
+\begin{align}
+    G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \frac{\partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{\partial Z_c^{- \theta}}
+\end{align}
+
+\begin{align}
+    \gamma = \Gamma \left( \frac{\theta - 1}{\theta} \right)
+\end{align}
+
+\begin{align}
+    Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}
+\end{align}
+
+As in Lind and Ramondo (2023), if we consider the case of one nest, $\rho$ will be perfectly uncorrelated and be equal to 0. This means that our CNES structure will collapse down to the regular CES case.
 
 \end{document}
