@@ -100,21 +100,71 @@ The joint probability takes on the form of a max stable multivariate Fr\'{e}chet
 When we intergrate over all hosuehold types for a particular hosuehold shifter, we get the average productivity shifter for that occupation which we assume to be 1 for all occupations $\int_{0}^{1} H_k (\nu) d\nu = 1$. With the case of a corss-nested CES function, we can approximate a correlation function. Assuming that productivity is distributed max-stable multivariate Fr\'{e}chet, with scale parameter $T_{ck}$ shape parameter $\theta$ and correlation parameters $\rho_k$.
 
 \begin{align}
+    G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{c}^{N} T_{ck} z^{- \theta}
+\end{align}
+
+\begin{align}
     G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{k}^{} \left[ \sum_{c}^{N} (T_{ck} z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k}
 \end{align}
 
+Where $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}$ and $\gamma = \Gamma \left( \frac{\theta - 1}{\theta} \right)$. $\Gamma(\cdot)$ is the gamma function. Espression (9) shows the standard Fr\'{e}chet distribution with independent productivity in which the strength of comparative advantage is solely governed by th shape parameter $\theta$. Once we abandon this assumption as in Lind and Ramondo (2023), we can obtain a correlation function that allows for correlated draws of productivity across cities as in expression (10). When here exists only one occupation, the correlation parameter will be 0 and expression (10) will reduce to expression (9).
+
+\subsection{Choice Shares}
+
 \begin{align}
-    G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \frac{\partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{\partial Z_c^{- \theta}}
+    \pi_c = \frac{Z_c^{- \theta} G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
+\end{align}
+
+The expression above gives us the city specific choice shares of hosueholds. Where $G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \frac{\partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{\partial Z_c^{- \theta}}$. In order to evaluate this expression, we make this simplifying assumption that the correlation parameter is the same across all occupations $\rho_k = \rho$. This allows us to obtain the following expression for the choice shares.
+
+\begin{align}
+    \pi_{c} = (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}\lambda_{k}^{1-\rho}}\Bigg]
+\end{align}
+
+We define $\lambda_k = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{1}{1-\rho}}$. $Z_c^{- \theta}$ simply acts as a city level shifter that scales the productivity of all hosueholds in that city. The second term in brackets is a measure of a city $c$'s relative strength across occupations. As any individual $T_{ck}$ increases, the share of that that city also increases. Conversely, as the strength of other cities in a given occupation $\lambda_k$ increases, the share of that city decreases. This is because the city is less attractive relative to other cities in that occupation.
+
+\begin{align}
+    \pi_{ck} = \frac{Z_c^{- \theta} G_c^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
 \end{align}
 
 \begin{align}
-    \gamma = \Gamma \left( \frac{\theta - 1}{\theta} \right)
+    \pi_{ck} = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+\end{align}
+
+$G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}$ is the occupation specific function that allows us to evaluate the city specific share of occupaitons. In this case, we can can abandon the simplifying assumption of $\rho_k = \rho$ and obtain the expression for the choice shares of cities within a gievn occupation. This share is simply teh share of productivities relative to all other city's productivities within a given occupation. Notice that as that occupation becomes more correlated across cities, the relative strength of that city starts to matter more.
+
+\subsection{Cross and Within City Elasticities}
+
+\begin{align}
+    \epsilon_{cck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} \approx \frac{1}{1 - \rho} \phi_{ck} > 0
 \end{align}
 
 \begin{align}
-    Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}
+    \phi_{ck} = \frac{T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}
 \end{align}
 
-As in Lind and Ramondo (2023), if we consider the case of one nest, $\rho$ will be perfectly uncorrelated and be equal to 0. This means that our CNES structure will collapse down to the regular CES case.
+We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in teh relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than otehr cities compared to all other cities in every occupaiton.
+
+\begin{align}
+    \epsilon_{cc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} \approx - \pi_{c'} \phi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} \right) \left( \frac{\phi_{ck}}{\omega_k} \right) \right] < 0
+\end{align}
+
+\begin{align}
+    \omega_k = \frac{\lambda_k^{1 - \rho}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+\end{align}
+
+We can approximate the cross-price elasticity in a similar fashion. The first term in this derivative simply captures the "CES" element: if city $c'$ is large and has a particularly string comparative advantage in occupaiton $k$, then technology shocks in this city-occupation pair will have large effects elsewhere. This is captured by the size $\pi_{c'k}$ and the comparative advantage $\phi_{c'k}$.
+
+The second term captures the unbalanced substitution patterns associated with correlated choice probabilities. Notice first that if $\rho = 0$, this model is simple CES in substitution patterns. As $\rho \to 1$, the correlated choices dominate the CES element more and more. City $c$ will be particularly effected by shocks to city $c'$ in occupation $k$ is city $c$ is also productive in occupation $k$. In fact, it is the multiple of $\phi_{c'k} \phi_{ck}$ that dictates the strength of substitution.
+
+But why is this substitution dampened by weight $\omega_k$? Notice that is occupation $k$ is very attractive and $\omega_k \to 1$, this implies that there are many attractive cities for households productive in occupation $k$. That is, we cannot determine the cross-price elasticity without considering the environment in which both $c$ and $c'$ exist, and the strength of substitution between them is strongest when they are both productive in $k$ and no other cities are even close, implying a small $\omega_k$.
+
+\begin{align}
+    \epsilon_{ckck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} = \frac{1}{1 - \rho_k} \left[ 1 - \frac{1}{T_{ck}} \pi_{ck} \right] > 0
+\end{align}
+
+\begin{align}
+    \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \pi_{c'k} < 0
+\end{align}
 
 \end{document}
