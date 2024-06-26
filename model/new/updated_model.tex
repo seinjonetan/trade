@@ -115,7 +115,7 @@ Where $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}$ and $\gamma = \Gamma \left( 
     \pi_c = \frac{Z_c^{- \theta} G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
 \end{align}
 
-The expression above gives us the city specific choice shares of hosueholds. Where $G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \frac{\partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{\partial Z_c^{- \theta}}$. In order to evaluate this expression, we make this simplifying assumption that the correlation parameter is the same across all occupations $\rho_k = \rho$. This allows us to obtain the following expression for the choice shares.
+The expression above gives us the city specific choice shares of hosueholds. Where $G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) / \partial Z_c^{- \theta}$. In order to evaluate this expression, we make this simplifying assumption that the correlation parameter is the same across all occupations $\rho_k = \rho$. This allows us to obtain the following expression for the choice shares.
 
 \begin{align}
     \pi_{c} = (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}\lambda_{k}^{1-\rho}}\Bigg]
@@ -143,7 +143,7 @@ $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta}
     \phi_{ck} = \frac{T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}
 \end{align}
 
-We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in teh relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than otehr cities compared to all other cities in every occupaiton.
+We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in the relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than otehr cities compared to all other cities in every occupaiton.
 
 \begin{align}
     \epsilon_{cc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} \approx - \pi_{c'} \phi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} \right) \left( \frac{\phi_{ck}}{\omega_k} \right) \right] < 0
@@ -166,5 +166,9 @@ But why is this substitution dampened by weight $\omega_k$? Notice that is occup
 \begin{align}
     \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \frac{1}{T_{c'k}} \pi_{c'k} < 0
 \end{align}
+
+Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. This is however counteracted with $T_{ck}$ which increases elasticity at higher levels of productivity.
+
+The opposite is true for cross-price elasticities, where the higher levels of $\pi_{c'k}$ will increase the elasticity. This is because the more productive a city is in a given occupation, the more it will be affect another city's choice shares within that given occupation. It is however counteracted by the $T_{c'k}$ term which decreases elasticity at higher levels of productivity, once again illustrating a diminishing returns effect.
 
 \end{document}
