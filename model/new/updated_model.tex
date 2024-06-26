@@ -1,0 +1,64 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\onehalfspacing
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\bibliographystyle{ecta}
+\usepackage[T1]{fontenc}
+\usepackage{titling}
+\usepackage{amsmath}
+\setlength{\droptitle}{-7em}
+\addtolength\abovedisplayskip{-3in}
+\addtolength\belowdisplayskip{-3in}
+
+\title{City Location Choice and Household Productivity}
+\preauthor{}
+\postauthor{}
+\author{Tan Sein Jone}
+\predate{}
+\postdate{}
+\date{}
+%\Today
+
+\begin{document}
+\doublespacing
+\maketitle
+
+\section{Introduction}
+
+The location choice of households is an important determinant of the spatial distribution of economic activity. The choice of location is influenced by a variety of factors such as the availability of jobs, the cost of living, and the quality of public services. In this paper, I develop a model of city location choice that incorporates the productivity of households as an important determinant of location choice. I show that the productivity of households is an important determinant of the spatial distribution of economic activity and that it can help explain the observed patterns of urbanization.
+
+The model is based on the idea that households are more productive in cities because of the agglomeration of economic activity. In particular, households are more productive in certain cities due to the presence of occupations that are complementary to their skills. For example, a household with skills in finance may be more productive in a city with a large financial sector. Similarly, a household with skills in technology may be more productive in a city with a large technology sector. The model shows that households choose to locate in cities where they are most productive, leading to the agglomeration of economic activity in certain cities.
+
+This leads to two key outcomes. First, larger cities will tend to have higehr levels of economic activity because they are able to attract more households. Second, cities that specialize in specific occupations will tend to be more attratcive to households with those skills. This leads to the agglomeration of economic activity in cities that specialize in specific occupations.
+
+We achieve this by developing a model of city location choice that is based on Quantitative Spacial Models develoepd by Redding (2016) which loads city heterogeneity onto a city ammenity term in order to avoid a trivial solution of all hosueholds choosing to live in once city. This model however comes comes with the independence of irrelavent alternatives (IIA) assumption, which makes cities perfect substitutes for each other. We relax this assumption by using a nested CES structure with correlation proposed by Lind and Ramondo (2023) to allow for correlated draws of productivity between cities, making cities imperfect substitutes for each other.
+
+Both of these models are based off the class of discrete choice models proposed by Eaton and Kortum (2002) which determines production shares of different goods by taking probabalistic draws of productivity of different countries. Rather than having these productivities determine prices, we will draaw productivities for households which determine wages and hence utility across different cities.
+
+\subsection{Literature Review}
+
+\section{Model of Production}
+
+\begin{align}
+    Y_{c} (\nu) = \prod_k Q_{ck} (\nu)^{\omega_{ck}}
+\end{align}
+
+Consider a closed economy consisting of $N$ cities and a continuim of hosuehold types $\nu \in [0, 1]$. Each city $c$ employs hosueholds of type $\nu$ in occupation $k$ to produce output $Y_{ck} (\nu)$ using a Cobb-Douglas production function with technology $Z_{ck} (\nu)$. We assume no trade costs between cities, and that the price of goodproduced by occupation $k$ is freely traded and priced under perfect competition.
+
+The price index of city $c$ is $\Phi_c$. The wage of a hosuehold in occupation $k$ in city $c$ is $w_{ck} (\nu) = \Phi_c Z_{ck} (\nu)$. We asusme that when a hosuehold chooses to work in a particular occupation $k$, they will be randomly allocated to a sector within a given city. As in EK, productivity is a random variable drawn from a max stable mutivariate Fr\'{e}chet distribution and is dependent on both the city and the occupation. Output produced by a specific occuaption is also assumed to be produced by a random sector.
+
+\begin{align}
+    U (\nu) = \max_c \left\{ \Phi_c Z_{ck} (\nu) \right\}
+\end{align}
+
+A hosuehold's utility is purely determined by wages and is given by the maximum wage across all cities. We assume that hosueholds are risk neutral and hence maximize expected utility. When choosing a prticular city to maximize utility, households will simultaneously choose an occupation to work in. We assume that hosueholds are perfectly mobile and can move to any city at no cost.
+
+\section{Max Stable Multivariate Fr\'{e}chet Distribution}
+
+\end{document}
