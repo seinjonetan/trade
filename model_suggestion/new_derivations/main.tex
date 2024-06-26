@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+%\documentclass[AER]{AEA}
+\linespread{1.5}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage[pdftex]{geometry}
+%\usepackage{cite}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
+\usepackage{relsize}
+\usepackage{amsbsy}
+\usepackage{xspace}
+\usepackage{pdflscape}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=black,hyperfootnotes=true]{hyperref}
+\usepackage{breqn}
+\usetikzlibrary{arrows,calc}
+\usetikzlibrary{shapes}
+\newcommand\LM{\ensuremath{\mathit{LM}}}
+\newcommand\IS{\ensuremath{\mathit{IS}}}
+\newcommand{\A}{\ensuremath{\mathcal{A}}\xspace}
+\newcommand{\B}{\ensuremath{\mathcal{B}}\xspace}
+\newcommand\pa[1]{\ensuremath{\left(#1\right)}}
+\usepackage{natbib}
+\setcitestyle{aysep={}} 
+\usepackage{hyperref}
+\usepackage[affil-it]{authblk}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+%\usepackage{dirtytalk}
+\usepackage{multirow}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgment}[theorem]{Acknowledgment}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[part]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition}
+\renewcommand{\theproposition}{\arabic{proposition}}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem*{assumption}{Assumption}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{parameters}[theorem]{Parameters}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{checks}{Check}
+
+
+\begin{document}
+\section{Model Derivations}
+Begin with the following definitions:
+\begin{equation*}
+    G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})=\sum\limits_{k}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho_{k}}}\Big]^{1-\rho_{k}}
+\end{equation*}
+\begin{equation*}
+    G_{c}()=\frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}}
+\end{equation*}
+\begin{equation*}
+    \pi_{c}=\frac{Z_{c}^{-\theta}{G_{c}}}{G()}
+\end{equation*}
+where $\pi_{c}$ represent the share of the population living in city $c$. Rather than splitting the problem into occupation-specific choice shares, we will solve the whole thing in one setting.
+
+Begin with the derivative $G_{c}$. Notice that since we are simply summing across occupations $k$, we can move the derivative inside the summation:
+\begin{equation*}
+    \frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}} = \sum\limits_{k}\frac{\partial}{\partial{Z_{c}^{-\theta}}}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho_{k}}}\Big]^{1-\rho_{k}}
+\end{equation*}
+A simplifying assumption that I think we will have to make is that $\rho_{k}=\rho$ for all occupations $k$. That is, the correlation of productivity draws across locations is the same for all occupations. We are therefore solving the following derivative:
+\begin{equation*}
+    \frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}} = \sum\limits_{k}\frac{\partial}{\partial{Z_{c}^{-\theta}}}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho}}\Big]^{1-\rho}
+\end{equation*}
+From now on, we define $\lambda_{k}$ as the following:
+\begin{equation*}
+    \lambda_{k} = \sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho}} = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{1}{1-\rho}}
+\end{equation*}
+We will have the following steps:
+\begin{equation*}
+    \frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}} = \sum\limits_{k}\Big[(1-\rho)\lambda^{-\rho}_{k}\frac{\partial{\lambda_{k}}}{\partial{Z_{c}^{-\theta}}}\Big] = \sum\limits_{k}\Big[(1-\rho)\lambda^{-\rho}_{k}(\frac{1}{1-\rho}){T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\Big]
+\end{equation*}
+Therefore simplify to the following:
+\begin{equation*}
+    G_{c} = \frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}} = (Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}
+\end{equation*}
+We can now return to our expression for the choice shares $\pi_{c}$. Recall that the definition is $\pi_{c}=(Z_{c}^{-\theta}{G_{c}})/G()$. Plugging in our derivation of $G_{c}$ and expression $G()$ as a function of $\lambda_{k}$, we can derive the following:
+\begin{equation}
+    \pi_{c} = (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}\lambda_{k}^{1-\rho}}\Bigg]
+\end{equation}
+While this expression may seem daunting, it is in fact quite intuitive. The $Z_{c}$ simply acts as a city-level shifter. That is, city $c$ will have greater market share in all occupations as $Z_{c}^{-\theta}$ increases.
+
+The term in brackets is simply a measure of city $c$'s relative strengths across occupations: as any individual $T_{ck}$ increases, $\pi_{c}$ also increases. $\lambda_{k}$ measures the strength of other cities in a given occupation, and so as any $\lambda_{k}$ increases, $\pi_{c}$ decreases.
+
+We now turn to the key derivatives: city $c$'s ``own-price" elasticity and city $c$'s ``cross-price" elasticity with respect to city $c'$. I am going to approximate these derivatives by assuming that each city is small, and therefore $\partial\ln\lambda_{k}/\partial\ln{T_{ck}}\approx{0}$. That is, the aggregate ``price index" associated with location choice in occupation $k$ is not affected by a marginal change in the productivity of a given city-occupation pair. I have also assumed that $Z_{c}$ does not depend directly on $T_{ck}$ for this derivation.\footnote{This would be the case if productivity for any given occupation-city pair is given by $T_{c}T_{k}T_{ck}$.}
+
+Notice that this only leaves one term to evaluate if we take the logarithm of $\pi_{c}$ and the derivative of this logarithm with respect to $\ln{T_{ck}}$:
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \frac{\partial\ln[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial\ln{T_{ck}}} = \Bigg(\frac{\partial[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial{T_{ck}}}\Bigg)\Bigg(\frac{T_{ck}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)
+\end{equation*}
+The two expressions in brackets simplify to the following:
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \Bigg(\frac{1}{1-\rho}\Bigg)\Bigg(\frac{T_{ck}^{\frac{1}{1-\rho}}\lambda_{k}^{-\rho}}{T_{ck}}\Bigg)\Bigg(\frac{T_{ck}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)
+\end{equation*}
+Which then simplifies to our final expression:
+\begin{equation}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \Big(\frac{1}{1-\rho}\Big)\Bigg[\frac{{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}\Bigg] = \frac{\phi_{ck}}{1-\rho}
+\end{equation}
+Notice that this elasticity is positive, and increasing in the relevance of a given occupation for a given city. That is, as $T_{ck}$ increases, the elasticity increases. This point is worth mentioning: if a given city is particularly productive in occupation $k$, then changes in $T_{ck}$ have an outsized effect on that city's overall choice share. Put the other way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. It is useful to define this ``comparative advantage" of city $c$ at occupation $k$ as a single parameter: $\phi_{ck}$. Explicitly:
+\begin{equation*}
+    \phi_{ck} = \frac{{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}
+\end{equation*}
+Notice that while $T_{ck}$ is an exogenous measure of city $c$'s productivity in occupation $k$, $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than other cities compared to all other occupations.
+
+We can approximate the cross-price elasticity in a similar fashion. Consider the following steps, and note that in this case we only need to evaluate the following:
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx \frac{\partial\ln[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial\ln{T_{{c'}k}}} - \frac{\partial\ln[{\sum\limits_{k}\lambda_{k}^{1-\rho}}]}{\partial\ln{T_{{c'}k}}}
+\end{equation*}
+It will be useful to first consider the derivative of $\lambda_{k}$ with respect to our variable of interest, $T_{{c'}k}$:
+\begin{equation*}
+    \frac{\partial{\lambda_{k}}}{\partial{T_{{c'}k}}} = \Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}
+\end{equation*}
+We can now perform the same steps as before and decompose the log-derivatives into level derivatives. That is, we can do the following:
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx {T^{\frac{1}{1-\rho}}_{ck}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) - \Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big)
+\end{equation*}
+We can now use chain rule and our previously derived derivative of $\lambda_{k}$ with respect to $T_{{c'}{k}}$ in order to evaluate this expression. The first term becomes the following:
+\begin{align*}
+    {T^{\frac{1}{1-\rho}}_{ck}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) & = {T^{\frac{1}{1-\rho}}_{ck}}(-\rho)(\lambda_{k}^{-\rho-1})\Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) \\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Bigg(\frac{T^{\frac{1}{1-\rho}}_{ck}{\lambda^{-\rho}_{k}}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)\\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg){\phi_{ck}}
+\end{align*}
+The second term can be derived in the following way:
+\begin{align*}
+    - \Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big) & = - (1-\rho)(\lambda_{k}^{-\rho})\Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big) \\ &= - (\lambda_{k}^{-\rho})[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{1}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big)
+\end{align*}
+Putting these together, we can derive the following intermediate solution:
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} & \approx - (Z_{c'}^{-\theta})^{\frac{1}{1-\rho}}\Bigg(\frac{T_{{c'}k}^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Bigg[\frac{\lambda_{k}^{1-\rho}}{\sum\limits_{k}{\lambda_{k}^{1-\rho}}} + \frac{\rho}{1-\rho}\phi_{ck}\Bigg] \\ &= -{\pi_{c'}}{\phi_{{c'}k}}\Bigg[1+\Bigg(\frac{\sum\limits_{k}{\lambda_{k}^{1-\rho}}}{\lambda_{k}^{1-\rho}}\Bigg)\Bigg(\frac{\rho}{1-\rho}\Bigg)\phi_{ck}\Bigg]
+\end{align*}
+Notice that we can interpret the ratio of $\lambda_{k}$ in the second term as being a choice share weight of choosing occupation $k$. That is, $\lambda_{k}$ captures the aggregate attractiveness of occupation $k$ across all cities, and the ratio $\lambda_{k}^{1-\rho}/\sum\limits_{k}{\lambda_{k}^{1-\rho}}$ is strictly between zero and one representing aggregate choice shares of each occupation $k$.
+
+We can explicitly define this term as the following:
+\begin{equation*}
+    \omega_{k} = \frac{\lambda_{k}^{1-\rho}}{\sum\limits_{k}{\lambda_{k}^{1-\rho}}}
+\end{equation*}
+The cross-price elasticity then becomes the following:
+\begin{equation}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx -{\pi_{c'}}{\phi_{{c'}k}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\phi_{ck}}{\omega_{k}}\Big)\Big]
+\end{equation}
+The first term in this derivative simply captures the ``CES" element: if city $c'$ is large and has a particularly strong comparative advantage in occupation $k$, then technology shocks in this city-occupation pair will have large effects elsewhere. This is captured by the size $\pi_{c'}$ and comparative advantage $\phi_{{c'}k}$.
+
+The second term captures the unbalanced substitution patterns associated with correlated choice probabilities. Notice first that if $\rho=0$, this model is simple CES in substitution patterns. As $\rho\rightarrow{1}$, the correlated choices dominate the CES element more and more. City $c$ will be particularly affected by shocks to city $c'$ in occupation $k$ if city $c$ is also productive in occupation $k$. In fact it is the multiple of $\phi_{{c'}k}\phi_{ck}$ that dictates the strength of substitution.
+
+But why is this substitution pattern dampened by the weight $\omega_{k}$? Notice that if occupation $k$ is very attractive -- and $\omega_{k}\rightarrow{1}$ -- this implies that there are many attractive cities for workers productive in occupation $k$. That is, we cannot determine the cross-price elasticity without considering the environment in which both $c$ and $c'$ exist, and the strength of substitution between them is strongest when they are both productive in $k$ and no other cities are even close, implying a small $\omega_{k}$.
+
+Anyway, this is my interpretation for now. Give it a look!
+
+Again, try to re-derive with productivity given by the triplet $T_{c}T_{k}T_{ck}$. I think this will simplify some things.
+
+\end{document}
