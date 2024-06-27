@@ -101,13 +101,15 @@ When we intergrate over all hosuehold types for a particular hosuehold shifter, 
 
 \begin{align}
     G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{c}^{N} T_{ck} z^{- \theta}
+    \label{ces}
 \end{align}
 
 \begin{align}
     G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{k}^{} \left[ \sum_{c}^{N} (T_{ck} z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k}
+    \label{nested_ces}
 \end{align}
 
-Where $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}$ and $\gamma = \Gamma \left( \frac{\theta - 1}{\theta} \right)$. $\Gamma(\cdot)$ is the gamma function. Espression (9) shows the standard Fr\'{e}chet distribution with independent productivity in which the strength of comparative advantage is solely governed by th shape parameter $\theta$. Once we abandon this assumption as in Lind and Ramondo (2023), we can obtain a correlation function that allows for correlated draws of productivity across cities as in expression (10). When here exists only one occupation, the correlation parameter will be 0 and expression (10) will reduce to expression (9).
+Where $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta}$ and $\gamma = \Gamma \left( \frac{\theta - 1}{\theta} \right)$. $\Gamma(\cdot)$ is the gamma function. Expression~\ref{ces} shows the standard Fr\'{e}chet distribution with independent productivity in which the strength of comparative advantage is solely governed by th shape parameter $\theta$. Once we abandon this assumption as in Lind and Ramondo (2023), we can obtain a correlation function that allows for correlated draws of productivity across cities as in expression~\ref{nested_ces}. When here exists only one occupation, the correlation parameter will be 0 and expression~\ref{nested_ces} will reduce to expression~\ref{ces}.
 
 \subsection{Choice Shares}
 
@@ -119,6 +121,7 @@ The expression above gives us the city specific choice shares of hosueholds. Whe
 
 \begin{align}
     \pi_{c} = (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}\lambda_{k}^{1-\rho}}\Bigg]
+    \label{city_shares}
 \end{align}
 
 We define $\lambda_k = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{1}{1-\rho}}$. $Z_c^{- \theta}$ simply acts as a city level shifter that scales the productivity of all hosueholds in that city. The second term in brackets is a measure of a city $c$'s relative strength across occupations. As any individual $T_{ck}$ increases, the share of that that city also increases. Conversely, as the strength of other cities in a given occupation $\lambda_k$ increases, the share of that city decreases. This is because the city is less attractive relative to other cities in that occupation.
@@ -129,6 +132,7 @@ We define $\lambda_k = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\t
 
 \begin{align}
     \pi_{ck} = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+    \label{city_occuaption_shares}
 \end{align}
 
 $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}$ is the occupation specific function that allows us to evaluate the city specific share of occupaitons. In this case, we can can abandon the simplifying assumption of $\rho_k = \rho$ and obtain the expression for the choice shares of cities within a gievn occupation. This share is simply teh share of productivities relative to all other city's productivities within a given occupation. Notice that as that occupation becomes more correlated across cities, the relative strength of that city starts to matter more.
@@ -143,7 +147,7 @@ $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta}
     \phi_{ck} = \frac{T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}
 \end{align}
 
-We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in the relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than otehr cities compared to all other cities in every occupaiton.
+We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in the relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than other cities compared to all other cities in every occupaiton.
 
 \begin{align}
     \epsilon_{cc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} \approx - \pi_{c'} \phi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} \right) \left( \frac{\phi_{ck}}{\omega_k} \right) \right] < 0
@@ -167,8 +171,70 @@ But why is this substitution dampened by weight $\omega_k$? Notice that is occup
     \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \pi_{c'k} < 0
 \end{align}
 
-Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation.
+Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation relative to teh shares it already has.
 
 The opposite is true for cross-price elasticities, where the higher levels of $\pi_{c'k}$ will increase the elasticity. This is because the more productive a city is in a given occupation, the more it will be affect another city's choice shares within that given occupation. $\pi_{c'k}$ neatly illustrates the gravity effect where large cities have larger effects on other cities.
+
+\section{Simulations}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+                          & \textbf{Detriot} & \textbf{Chicago} & \textbf{New York} \\
+        \hline
+        \textbf{Trades}   & 7                & 8                & 3                 \\
+        \hline
+        \textbf{Services} & 2                & 1                & 8                 \\
+        \hline
+    \end{tabular}
+    \caption{City Scale Parameters $T_{ck}$}
+    \label{city_shifter}
+\end{table}
+
+Assume now that we have two occupations, trades and services. We will also assuem three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. Thehe scale parameters for each city-occupation pair are as shown in Table \ref{city_shifter}. The correlation parameter $\rho_k$ is set to 0.7 for services and 0.5 for trades and the shape paramter is set to 2.
+
+For each hosuehold, they will draw a $K \times N$ matrix of productivities from specific Fr\'{e}chet distributions where $K$ is the number of occupations and $N$ is the number of cities. The realized productivity of hosueholds is then the maximum productivity across all cities and occupations. The column index of this productivity determines the city at which the household chooses to locate, and the row index determines the occupation that the household chooses to work in. This will give us our choice shares for each city and occupation.
+
+\begin{figure}[!htb]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../simulations/graphs/sim_services.png}
+        \caption{Service Choice Shares}
+        \label{sim_services}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../simulations/graphs/sim_trade.png}
+        \caption{Trades Choice Shares}
+        \label{sim_trades}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{../../simulations/graphs/sim_city_shares.png}
+    \caption{City Choice Shares}
+    \label{sim_city_shares}
+\end{figure}
+
+We now draw 10000 hosuheolds, simulating the distribution of location choice shares across cities and occuations. This numerical solution will now be compared to our analytical solution for choice shares as discussed in the previous section. Figure \ref{sim_services} and Figure \ref{sim_trades} show the simulated occupation specific choice shares for services and trades respectively. The analytical solution is given by expression~\ref{city_occuaption_shares}. The same excercise is repeated for city choice shares as shown in Figure \ref{sim_city_shares}. Expression~\ref{city_shares} gives us the analytical solution for city choice shares. Consistent with our simplifying assumption, $\rho_k = \rho$ for all and it is assumed to be the average of our two $\rho_k$ values. The numerical results closely match the analytical results, validating our analytical solution.
+
+\begin{figure}[!htb]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../simulations/graphs/city_pop.png}
+        \caption{Initial City Population}
+        \label{city_pop}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../simulations/graphs/c_shock.png}
+        \caption{Post Detriot Shock City Population}
+        \label{c_shock}
+    \end{minipage}
+\end{figure}
+
+Now that our analytical solutions have been verified, we will now begin to examine the behaviour of our model to ensure it's consistency with intitial intuitions. Figure \ref{city_pop} shows the initial population distribution across cities. New York has the highest population due to it being the only city specializing in services with Detriot and Chicago sharing trades focused hosuheolds. The slight bias towards Chicago is expected due to it's higher scale parameter for trades. We will now shock Detriot's trades scale parameter by 0.5 times it's original value and observe the change in city populations. As shown in Figure \ref{c_shock}, the population of Detriot decreases significantly, with Chicago and New York increasing in population. AS expected, the majority of the households working in trades have relocated to Chicago, with some moving to New York. New York meanwhile picks up the majority of households working in services from Detriot. This is consistent with our intuitions that households working in specific occupations will move to cities that specialize in those occupations.
 
 \end{document}
