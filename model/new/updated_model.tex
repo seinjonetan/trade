@@ -237,4 +237,32 @@ We now draw 10000 hosuheolds, simulating the distribution of location choice sha
 
 Now that our analytical solutions have been verified, we will now begin to examine the behaviour of our model to ensure it's consistency with intitial intuitions. Figure \ref{city_pop} shows the initial population distribution across cities. New York has the highest population due to it being the only city specializing in services with Detriot and Chicago sharing trades focused hosuheolds. The slight bias towards Chicago is expected due to it's higher scale parameter for trades. We will now shock Detriot's trades scale parameter by 0.5 times it's original value and observe the change in city populations. As shown in Figure \ref{c_shock}, the population of Detriot decreases significantly, with Chicago and New York increasing in population. AS expected, the majority of the households working in trades have relocated to Chicago, with some moving to New York. New York meanwhile picks up the majority of households working in services from Detriot. This is consistent with our intuitions that households working in specific occupations will move to cities that specialize in those occupations.
 
+\section{Data}
+
+We now take our model to data. The data used is the 2019 American Community Survey (ACS) 1-year estimates. The data is at the metropolitan statistical area (MSA) level and consists of the number of employed individuals in each MSA by occupation. The data is aggregated into 22 occupations and 383 MSAs. Plotting the shares of employment across MSAs, we can see that there is a clear pattern of agglomeration of economic activity in certain MSAs. This is consistent with our model, where households choose to locate in cities where they are most productive. The model predicts that larger cities will tend to have higher levels of economic activity because they are able to attract more households. This is consistent with the data, where larger MSAs tend to have higher levels of employment.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{../../estimations/graphs/city_employment_share.png}
+    \caption{Metropolitan Employment Share}
+    \label{city_employment_share}
+\end{figure}
+
+\begin{figure}[!htb]
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_occupaiton_heatmap.png}
+        \caption{City Shares by Occupations}
+        \label{top_25_occupation_heatmap}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_city_heatmap.png}
+        \caption{Occupation Shares by Cities}
+        \label{top_25_city_heatmap}
+    \end{minipage}
+\end{figure}
+
+Zooming into the top 25 cities, Figure~\ref{top_25_occupation_heatmap} continues to show concentration in certain cities for specific occupations, The notable example being the New York-New Jersey Metropolitan area which has a high concentration of occupation almost across the board. This illustrates the effect of the $T_c$ shifter which makes a city more attractive overall regardless of occupation. Figure~\ref{top_25_city_heatmap} meanwhile shows the composition of occupations in the top 25 cities. In other words, for any given city, which occupation does a person choose to work? We found that for the top 25 cities, the composition of occupations look very similar. This may be counterintuitive as cities should be specializing in different occupations. However, this may be explained by agglomoration effects where certain sectors tend to have a higher share of households overall, which leads to cities which specialize in those sectors having a higher overall share of hosueholds.
+
 \end{document}
