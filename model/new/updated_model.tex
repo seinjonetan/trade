@@ -141,6 +141,7 @@ $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta}
 
 \begin{align}
     \epsilon_{cck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} \approx \frac{1}{1 - \rho} \phi_{ck} > 0
+    \label{within_city_elasticity}
 \end{align}
 
 \begin{align}
@@ -151,6 +152,7 @@ We approximate this derivative by assuming that each city is small and therefore
 
 \begin{align}
     \epsilon_{cc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} \approx - \pi_{c'} \phi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} \right) \left( \frac{\phi_{ck}}{\omega_k} \right) \right] < 0
+    \label{cross_city_elasticity}
 \end{align}
 
 \begin{align}
@@ -165,10 +167,12 @@ But why is this substitution dampened by weight $\omega_k$? Notice that is occup
 
 \begin{align}
     \epsilon_{ckck} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{ck}} = \frac{1}{1 - \rho_k} \left[ 1 - \pi_{ck} \right] > 0
+    \label{within_occuaption_elasticity}
 \end{align}
 
 \begin{align}
     \epsilon_{ckc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} = - \frac{1}{1 - \rho_k} \pi_{c'k} < 0
+    \label{cross_occuaption_elasticity}
 \end{align}
 
 Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation relative to teh shares it already has.
@@ -264,5 +268,126 @@ We now take our model to data. The data used is the 2019 American Community Surv
 \end{figure}
 
 Zooming into the top 25 cities, Figure~\ref{top_25_occupation_heatmap} continues to show concentration in certain cities for specific occupations, The notable example being the New York-New Jersey Metropolitan area which has a high concentration of occupation almost across the board. This illustrates the effect of the $T_c$ shifter which makes a city more attractive overall regardless of occupation. Figure~\ref{top_25_city_heatmap} meanwhile shows the composition of occupations in the top 25 cities. In other words, for any given city, which occupation does a person choose to work? We found that for the top 25 cities, the composition of occupations look very similar. This may be counterintuitive as cities should be specializing in different occupations. However, this may be explained by agglomoration effects where certain sectors tend to have a higher share of households overall, which leads to cities which specialize in those sectors having a higher overall share of hosueholds.
+
+\newpage
+
+\section{Proofs}
+
+\subsection{City Choice Shares (Expression~\ref{city_shares})}
+
+Begin with the following definitions:
+
+\begin{align*}
+    G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})=\sum\limits_{k}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho_{k}}}\Big]^{1-\rho_{k}}
+\end{align*}
+
+\begin{equation*}
+    G_{c}({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})=\frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}}
+\end{equation*}
+
+\begin{equation*}
+    \pi_{c}=\frac{Z_{c}^{-\theta}{G_{c} ({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})}}{G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})}
+\end{equation*}
+
+Since we are summing across occupations $k$, we can move the derivative inside the summation:
+
+\begin{equation*}
+    \frac{\partial{G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})}}{\partial{Z_{c}^{-\theta}}} = \sum\limits_{k}\frac{\partial}{\partial{Z_{c}^{-\theta}}}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho_{k}}}\Big]^{1-\rho_{k}}
+\end{equation*}
+
+Now we define $\lambda_k$ as the following:
+
+\begin{align*}
+    \lambda_{k} & = \sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho}}                  \\
+                & = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{1}{1-\rho}}
+\end{align*}
+
+We can therefore simplify to the following:
+
+\begin{align*}
+    \frac{\partial{G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})}}{\partial{Z_{c}^{-\theta}}} & = \sum\limits_{k}\Big[(1-\rho)\lambda^{-\rho}_{k}\frac{\partial{\lambda_{k}}}{\partial{Z_{c}^{-\theta}}}\Big]                              \\
+                                                                                           & = \sum\limits_{k}\Big[(1-\rho)\lambda^{-\rho}_{k}(\frac{1}{1-\rho}){T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\Big] \\
+    G_c ({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})                                          & = (Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}
+\end{align*}
+
+\begin{equation*}
+    \pi_{c} = (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}\lambda_{k}^{1-\rho}}\Bigg]
+\end{equation*}
+
+\subsection{City Occupation Choice Shares (Expression~\ref{city_occuaption_shares})}
+
+\begin{align*}
+    G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                    & =  [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}                                                                                                                     \\
+    G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                                  & = \frac{\partial G(Z_1^{-\theta}, \dots, Z_N^{-\theta})}{\partial Z_c^{-\theta}}                                                                                                                 \\
+                                                                                                                 & = (1 - \rho_k)[\sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} (\frac{1}{1 - \rho_k} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k} - 1} T_{ck})                          \\
+                                                                                                                 & = (1 - \rho_k) \frac{1}{1 - \rho_k} \frac{T_{ck}}{T_{ck} Z_c^{- \theta}} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} [\sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}]^{- \rho_k} \\
+    Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})                                                   & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}} [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}     \\
+    \frac{Z_c^{- \theta} G_c^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})}{G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta})} & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}                                                                               \\
+    \pi_{ck}                                                                                                     & = \frac{(T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}{\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}}
+\end{align*}
+
+\subsection{Within City Elasticity (Expression~\ref{within_city_elasticity})}
+
+\begin{align*}
+    \ln \pi_c = \frac{1}{1 - \rho} \ln (Z_c^{- \theta}) + \ln [\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}] - \ln [\sum_{k}^{} \lambda_k^{1 - \rho}]
+\end{align*}
+
+We asusme that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \frac{\partial\ln[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial\ln{T_{ck}}} = \Bigg(\frac{\partial[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial{T_{ck}}}\Bigg)\Bigg(\frac{T_{ck}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \Bigg(\frac{1}{1-\rho}\Bigg)\Bigg(\frac{T_{ck}^{\frac{1}{1-\rho}}\lambda_{k}^{-\rho}}{T_{ck}}\Bigg)\Bigg(\frac{T_{ck}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{ck}}} \approx \Big(\frac{1}{1-\rho}\Big)\Bigg[\frac{{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}\Bigg] = \frac{\phi_{ck}}{1-\rho}
+\end{equation*}
+
+Where $\phi_{ck} = \frac{T_{ck}^{\frac{1}{1-\rho}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}$.
+
+\subsection{Cross City Elasticity (Expression~\ref{cross_city_elasticity})}
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx \frac{\partial\ln[{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}]}{\partial\ln{T_{{c'}k}}} - \frac{\partial\ln[{\sum\limits_{k}\lambda_{k}^{1-\rho}}]}{\partial\ln{T_{{c'}k}}}
+\end{equation*}
+
+Consider the derivative of $\lambda_k$ with respect to $T_{{c'}k}$:
+
+\begin{equation*}
+    \frac{\partial{\lambda_{k}}}{\partial{T_{{c'}k}}} = \Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}
+\end{equation*}
+
+We now decompose log-derivatives into level derivatives:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx {T^{\frac{1}{1-\rho}}_{ck}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) - \Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big)
+\end{equation*}
+
+Now consider the first term:
+
+\begin{align*}
+    {T^{\frac{1}{1-\rho}}_{ck}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) & = {T^{\frac{1}{1-\rho}}_{ck}}(-\rho)(\lambda_{k}^{-\rho-1})\Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Big) \\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Bigg(\frac{T^{\frac{1}{1-\rho}}_{ck}{\lambda^{-\rho}_{k}}}{{\sum\limits_{k}{T^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}}}\Bigg)\\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg){\phi_{ck}}
+\end{align*}
+
+The second term can be derived in the following way:
+
+\begin{align*}
+    - \Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{T_{{c'}k}}}\Big)\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big) & = - (1-\rho)(\lambda_{k}^{-\rho})\Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{T_{{c'}k}}\Big)[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{T_{{c'}k}}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big) \\ &= - (\lambda_{k}^{-\rho})[{T_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{1}{{\sum\limits_{k}\lambda_{k}^{1-\rho}}}\Big)
+\end{align*}
+
+Putting these together, we can derive teh following expression for the cross-city elasticity:
+
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} & \approx - (Z_{c'}^{-\theta})^{\frac{1}{1-\rho}}\Bigg(\frac{T_{{c'}k}^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Bigg[\frac{\lambda_{k}^{1-\rho}}{\sum\limits_{k}{\lambda_{k}^{1-\rho}}} + \frac{\rho}{1-\rho}\phi_{ck}\Bigg] \\ &= -{\pi_{c'}}{\phi_{{c'}k}}\Bigg[1+\Bigg(\frac{\sum\limits_{k}{\lambda_{k}^{1-\rho}}}{\lambda_{k}^{1-\rho}}\Bigg)\Bigg(\frac{\rho}{1-\rho}\Bigg)\phi_{ck}\Bigg]
+\end{align*}
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{{c'}k}}} \approx -{\pi_{c'}}{\phi_{{c'}k}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\phi_{ck}}{\omega_{k}}\Big)\Big]
+\end{equation*}
+
+Where $\omega_k = \frac{\lambda_k^{1 - \rho}}{\sum_{k}^{} \lambda_k^{1 - \rho}}$.
 
 \end{document}
