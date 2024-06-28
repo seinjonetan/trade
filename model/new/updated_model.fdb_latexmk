@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1719534040 "/home/sjone9/school/trade/model/new/updated_model.tex" "updated_model.pdf" "updated_model" 1719534041
+["pdflatex"] 1719592478 "/home/sjone9/school/trade/model/new/updated_model.tex" "updated_model.pdf" "updated_model" 1719592479
   "../../estimations/graphs/city_employment_share.png" 1719516611 33388 3583aa4a8641bc211270d597cc506fd2 ""
   "../../estimations/graphs/top_25_city_heatmap.png" 1719516612 92069 0db42d5a89e067aad2761a544932067b ""
   "../../estimations/graphs/top_25_occupation_heatmap.png" 1719516611 96191 d476417ccd78607a4f8dff4342a48001 ""
@@ -9,7 +9,7 @@
   "../../simulations/graphs/sim_services.png" 1719439281 26618 e6b1dde55068c74ae26d173f268bf76e ""
   "../../simulations/graphs/sim_trade.png" 1719439281 26775 b8cbd12f0fdd01cb61ffd4aa052cae38 ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/model/new/updated_model.tex" 1719534040 33740 f13f970a81c4028fdccea8bbf773b17b ""
+  "/home/sjone9/school/trade/model/new/updated_model.tex" 1719592478 34035 c217f18e320e15100cb74a4170ae4f64 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -94,9 +94,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "updated_model.aux" 1719534041 5210 ac68674e8fd630d301f9ada99a4443fe "pdflatex"
-  "updated_model.out" 1719534041 2506 4684fb4cf8690f51d97ea0bf5fcc6a0a "pdflatex"
-  "updated_model.tex" 1719534040 33740 f13f970a81c4028fdccea8bbf773b17b ""
+  "updated_model.aux" 1719592479 5212 da2f979f2d056b7752b15db72c8b60d2 "pdflatex"
+  "updated_model.out" 1719592479 2506 4684fb4cf8690f51d97ea0bf5fcc6a0a "pdflatex"
+  "updated_model.tex" 1719592478 34035 c217f18e320e15100cb74a4170ae4f64 ""
   (generated)
   "updated_model.aux"
   "updated_model.log"
