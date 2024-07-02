@@ -35,11 +35,11 @@ The location choice of households is an important determinant of the spatial dis
 
 The model is based on the idea that households are more productive in cities because of the agglomeration of economic activity. In particular, households are more productive in certain cities due to the presence of occupations that are complementary to their skills. For example, a household with skills in finance may be more productive in a city with a large financial sector. Similarly, a household with skills in technology may be more productive in a city with a large technology sector. The model shows that households choose to locate in cities where they are most productive, leading to the agglomeration of economic activity in certain cities.
 
-This leads to two key outcomes. First, larger cities will tend to have higher levels of economic activity because they are able to attract more households. Second, cities that specialize in specific occupations will tend to be more attratcive to households with those skills. This leads to the agglomeration of economic activity in cities that specialize in specific occupations.
+This leads to two key outcomes. First, larger cities will tend to have higher levels of economic activity because they are able to attract more households. Second, cities that specialize in specific occupations will tend to be more attractive to households with those skills. This leads to the agglomeration of economic activity in cities that specialize in specific occupations.
 
-We achieve this by developing a model of city location choice that is based on Quantitative Spacial Models develoepd by Redding (2016) which loads city heterogeneity onto a city ammenity term in order to avoid a trivial solution of all hosueholds choosing to live in once city. This model however comes comes with the independence of irrelavent alternatives (IIA) assumption, which makes cities perfect substitutes for each other. We relax this assumption by using a nested CES structure with correlation proposed by Lind and Ramondo (2023) to allow for correlated draws of productivity between cities, making cities imperfect substitutes for each other.
+We achieve this by developing a model of city location choice that is based on Quantitative Spacial Models developed by Redding (2016) which loads city heterogeneity onto a city amenity term in order to avoid a trivial solution of all households choosing to live in once city. This model however comes comes with the independence of irrelevant alternatives (IIA) assumption, which makes cities perfect substitutes for each other. We relax this assumption by using a nested CES structure with correlation proposed by Lind and Ramondo (2023) to allow for correlated draws of productivity between cities, making cities imperfect substitutes for each other.
 
-Both of these models are based off the class of discrete choice models proposed by Eaton and Kortum (2002) which determines production shares of different goods by taking probabalistic draws of productivity of different countries. Rather than having these productivities determine prices, we will draaw productivities for households which determine wages and hence utility across different cities.
+Both of these models are based off the class of discrete choice models proposed by Eaton and Kortum (2002) which determines production shares of different goods by taking probabalistic draws of productivity of different countries. Rather than having these productivities determine prices, we will draw productivities for households which determine wages and hence utility across different cities.
 
 \subsection{Literature Review}
 
@@ -49,7 +49,7 @@ Both of these models are based off the class of discrete choice models proposed 
     Y_{c} (\nu) = \prod_k Q_{ck} (\nu)^{\omega_{ck}}
 \end{align}
 
-Consider a closed economy consisting of $N$ cities and a continuim of hosuehold types $\nu \in [0, 1]$. Each city $c$ employs hosueholds of type $\nu$ in occupation $k$ to produce output $Y_{ck} (\nu)$ using a Cobb-Douglas production function with technology $Z_{ck} (\nu)$. We assume no trade costs between cities, and that the price of goodproduced by occupation $k$ is freely traded and priced under perfect competition.
+Consider a closed economy consisting of $N$ cities and a continuum of household types $\nu \in [0, 1]$. Each city $c$ employs hosueholds of type $\nu$ in occupation $k$ to produce output $Y_{ck} (\nu)$ using a Cobb-Douglas production function with technology $Z_{ck} (\nu)$. We assume no trade costs between cities, and that the price of goodproduced by occupation $k$ is freely traded and priced under perfect competition.
 
 The price index of city $c$ is $\Phi_c$. The wage of a hosuehold in occupation $k$ in city $c$ is $w_{ck} (\nu) = \Phi_c Z_{ck} (\nu)$. We asusme that when a hosuehold chooses to work in a particular occupation $k$, they will be randomly allocated to a sector within a given city. As in EK, productivity is a random variable drawn from a max stable mutivariate Fr\'{e}chet distribution and is dependent on both the city and the occupation. Output produced by a specific occuaption is also assumed to be produced by a random sector.
 
@@ -77,13 +77,13 @@ Looking at the scale parameter $T_{ck}$, we can separate it into three component
     Z_c(\nu) = \max_k \left\{ Z_{ck} (\nu) \right\}
 \end{align}
 
-A household's schedule of productivities is characterized by a vector of draws from diferent fr\'{e}chet distributions for each city occupaiton pair. The realized productivity of a household of type $\nu$ has in city $c$ is the occupation that maximizes the productivity that particular hosuehold has in the city.
+A household's schedule of productivities is characterized by a vector of draws from different fr\'{e}chet distributions for each city occupaiton pair. The realized productivity of a household of type $\nu$ has in city $c$ is the occupation that maximizes the productivity that particular hosuehold has in the city.
 
 \begin{align}
     P[Z_1(\nu) < z, \dots, Z_N(\nu) < z] = \exp \left\{ - \sum_{k}^{} \left[ \sum_{c}^{N} (T_c H(\nu) z^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k} \right\}
 \end{align}
 
-Unlike sequential games where households might pick a city before picking an occupation, we assume that households pick both simultaneously. This is because thhe schedule of productivity already determines the ideal occupation of a household in a city. From here, we can obatin the joint distribution of all productivities being less than some value $z$ for all cities and occupations.
+Unlike sequential games where households might pick a city before picking an occupation, we assume that households pick both simultaneously. This is because the schedule of productivity already determines the ideal occupation of a household in a city. From here, we can obtain the joint distribution of all productivities being less than some value $z$ for all cities and occupations.
 
 \begin{align}
     Z(\nu) = \max_c \left\{ \frac{Z_c (\nu)}{\Phi_c} \right\}
@@ -135,7 +135,7 @@ We define $\lambda_k = \sum\limits_{c}^{N}{T^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\t
     \label{city_occuaption_shares}
 \end{align}
 
-$G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}$ is the occupation specific function that allows us to evaluate the city specific share of occupaitons. In this case, we can can abandon the simplifying assumption of $\rho_k = \rho$ and obtain the expression for the choice shares of cities within a gievn occupation. This share is simply teh share of productivities relative to all other city's productivities within a given occupation. Notice that as that occupation becomes more correlated across cities, the relative strength of that city starts to matter more.
+$G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho_k}}]^{1 - \rho_k}$ is the occupation specific function that allows us to evaluate the city specific share of occupations. In this case, we can can abandon the simplifying assumption of $\rho_k = \rho$ and obtain the expression for the choice shares of cities within a gievn occupation. This share is simply teh share of productivities relative to all other city's productivities within a given occupation. Notice that as that occupation becomes more correlated across cities, the relative strength of that city starts to matter more.
 
 \subsection{Cross and Within City Elasticities}
 
@@ -148,7 +148,7 @@ $G^k (Z_1^{-\theta}, \dots, Z_N^{-\theta}) = [\sum_{c}^{N} (T_{ck} Z_c^{-\theta}
     \phi_{ck} = \frac{T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}
 \end{align}
 
-We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in the relavance of a given occupation for a gievn city. That is, as $T_{ck}$ increases, the elasticity increases. If a gievn city is particularly productive in occuaption $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than other cities compared to all other cities in every occupaiton.
+We approximate this derivative by assuming that each city is small and therefore $\partial \ln \lambda_k / \partial \ln T_{ck} \approx 0$. This allows us to obtain the expression for the elasticity of a city's own price. Notice that a city's own price elasticity is positive, and increasing in the relavance of a given occupation for a given city. That is, as $T_{ck}$ increases, the elasticity increases. If a given city is particularly productive in occupation $k$, then changes in $T_{ck}$ will have an outsized effect on that city's overall choice share. Put it another way: becoming more productive in occupations for which you are already everyone's last choice will not do much to alter the overall choice share of your city. $\phi_{ck}$ captures the extent to which this city is relatively more productive at occupation $k$ than other cities compared to all other cities in every occupation.
 
 \begin{align}
     \epsilon_{cc'k} = \frac{\partial \ln \pi_{ck}}{\partial \ln T_{c'k}} \approx - \pi_{c'} \phi_{c'k} \left[ 1 + \left( \frac{\rho}{1 - \rho} \right) \left( \frac{\phi_{ck}}{\omega_k} \right) \right] < 0
@@ -159,7 +159,7 @@ We approximate this derivative by assuming that each city is small and therefore
     \omega_k = \frac{\lambda_k^{1 - \rho}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
 \end{align}
 
-We can approximate the cross-price elasticity in a similar fashion. The first term in this derivative simply captures the "CES" element: if city $c'$ is large and has a particularly string comparative advantage in occupaiton $k$, then technology shocks in this city-occupation pair will have large effects elsewhere. This is captured by the size $\pi_{c'k}$ and the comparative advantage $\phi_{c'k}$.
+We can approximate the cross-price elasticity in a similar fashion. The first term in this derivative simply captures the "CES" element: if city $c'$ is large and has a particularly string comparative advantage in occupation $k$, then technology shocks in this city-occupation pair will have large effects elsewhere. This is captured by the size $\pi_{c'k}$ and the comparative advantage $\phi_{c'k}$.
 
 The second term captures the unbalanced substitution patterns associated with correlated choice probabilities. Notice first that if $\rho = 0$, this model is simple CES in substitution patterns. As $\rho \to 1$, the correlated choices dominate the CES element more and more. City $c$ will be particularly effected by shocks to city $c'$ in occupation $k$ is city $c$ is also productive in occupation $k$. In fact, it is the multiple of $\phi_{c'k} \phi_{ck}$ that dictates the strength of substitution.
 
@@ -175,16 +175,18 @@ But why is this substitution dampened by weight $\omega_k$? Notice that is occup
     \label{cross_occuaption_elasticity}
 \end{align}
 
-Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occuaption choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation relative to teh shares it already has.
+Elasticities within occupations can similarly be derived, this time without any approximaitons. Notice that both the within and corss-price elasticities are scaled by the $\frac{1}{1 - \rho_k}$ parameter, with both increasing as $\rho_k$ increases. This means that as occupations become more correlated across cities, the elasticities increases. For the second term in the within price elasticity, as $\pi_{ck}$ increases, the elasticity decreases. This illustrates a diminishing returns effect where cities with high levels of city-occupation choice shares will have lower returns for any increases in productivity. In other words, when a city has a high level of choice shares in a given occupation, it has less to gain from further increases in productivity in that occupation relative to teh shares it already has.
 
 The opposite is true for cross-price elasticities, where the higher levels of $\pi_{c'k}$ will increase the elasticity. This is because the more productive a city is in a given occupation, the more it will be affect another city's choice shares within that given occupation. $\pi_{c'k}$ neatly illustrates the gravity effect where large cities have larger effects on other cities.
 
 \begin{align}
-    \epsilon_{cc'} = \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\sum_{k}^{} \lambda_k^{1 - \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+    \epsilon_{cc'} = \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = - \frac{\rho}{1 - \rho} \pi_{c'k} (\phi_{c'k} + \omega_k)
+    \label{city_elasticity}
 \end{align}
 
 \begin{align}
-    \epsilon_{ck} = \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} + \omega_k
+    \epsilon_{ck} = \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} + \frac{\rho}{1 - \rho} \omega_k
+    \label{occupation_elasticity}
 \end{align}
 
 \section{Simulations}
@@ -204,7 +206,7 @@ The opposite is true for cross-price elasticities, where the higher levels of $\
     \label{city_shifter}
 \end{table}
 
-Assume now that we have two occupations, trades and services. We will also assuem three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. Thehe scale parameters for each city-occupation pair are as shown in Table \ref{city_shifter}. The correlation parameter $\rho_k$ is set to 0.7 for services and 0.5 for trades and the shape paramter is set to 2.
+Assume now that we have two occupations, trades and services. We will also assume three cities, Detriot, Chicago and New York with Detriot and Chicago specializing in trades and New York specializing in services. The scale parameters for each city-occupation pair are as shown in Table \ref{city_shifter}. The correlation parameter $\rho_k$ is set to 0.7 for services and 0.5 for trades and the shape parameter is set to 2.
 
 For each hosuehold, they will draw a $K \times N$ matrix of productivities from specific Fr\'{e}chet distributions where $K$ is the number of occupations and $N$ is the number of cities. The realized productivity of hosueholds is then the maximum productivity across all cities and occupations. The column index of this productivity determines the city at which the household chooses to locate, and the row index determines the occupation that the household chooses to work in. This will give us our choice shares for each city and occupation.
 
@@ -397,5 +399,75 @@ Putting these together, we can derive teh following expression for the cross-cit
 \end{equation*}
 
 Where $\omega_k = \frac{\lambda_k^{1 - \rho}}{\sum_{k}^{} \lambda_k^{1 - \rho}}$.
+
+\subsection{Proof for City Elasticity (Expression~\ref{city_elasticity})}
+
+\begin{align*}
+    \ln \pi_c = \frac{1}{1 - \rho} \ln Z_c^{- \theta} + \ln \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right) - \ln \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)
+\end{align*}
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+\end{align*}
+
+Consider the derivative of $\lambda_k$ with respect to $T_{c'}$:
+
+\begin{align*}
+    \frac{\partial \lambda_k}{\partial T_{c'}} & = T_k^{\frac{1}{1 - \rho}} \left( \frac{1}{1 - \rho} \right) T_{c'}^{\frac{1}{1 - \rho} - 1} t_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{\rho}{1 - \rho}} \\
+                                               & = \frac{1}{1 - \rho} \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}
+\end{align*}
+
+Consider the first term in the derivative:
+
+\begin{align*}
+    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} T_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \times T_{c'} \\
+                                                                                                                                                                                                   & = - \frac{\rho}{1 - \rho} \frac{\sum_{k}^{}T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}                                                                                                       \\
+\end{align*}
+
+Now consider the second term in the derivative:
+
+\begin{align*}
+    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \sum_{k}^{} \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} \lambda_k^{- \theta}} \times T_{c'} \\
+                                                                                                                                       & = \frac{\rho}{1 - \rho} \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k} }{\sum_{k}^{} \lambda_k^{- \rho}}                                                                                              \\
+\end{align*}
+
+This will give us:
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\rho}{1 - \rho} \left[ \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{- \rho}} - \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
+\end{align*}
+
+\subsection{Proof for Occupation Elasticity (Expression~\ref{occupation_elasticity})}
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+\end{align*}
+
+Consider the derivative of $\lambda_k$ with respect to $T_k$:
+
+\begin{align*}
+    \frac{\partial \lambda_k}{\partial T_k} & = \frac{1}{1 - \rho} T_k^{\frac{1}{1 -\rho} - 1} \sum_{k}^{} (T_c t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} \\
+                                            & =\frac{1}{1 - \rho} \frac{1}{T_k} \lambda_k
+\end{align*}
+
+Consider the first term in the derivative:
+
+\begin{align*}
+    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
+                                                                                                                                                                                                 & = \phi_{ck}
+\end{align*}
+
+Consider the second term in the derivative:
+
+\begin{align*}
+    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{- \rho}} \times T_k \\
+                                                                                                                                     & = \frac{\rho}{1 - \rho} \omega_k
+\end{align*}
+
+This will give us:
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} + \frac{\rho}{1 - \rho} \omega_k
+\end{align*}
 
 \end{document}
