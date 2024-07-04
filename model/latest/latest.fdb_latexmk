@@ -1,15 +1,16 @@
 # Fdb version 3
-["bibtex latest"] 1720132338 "latest.aux" "latest.bbl" "latest" 1720133595
+["bibtex latest"] 1720136213 "latest.aux" "latest.bbl" "latest" 1720136214
   "/usr/share/texlive/texmf-dist/bibtex/bst/economic/ecta.bst" 1389482635 29983 0ef0a2bd678e76d0ae833edd63f5ad06 ""
-  "latest.aux" 1720133595 1867 b985831a2ec034901b95988cde293ab8 "pdflatex"
+  "latest.aux" 1720136214 2634 49d87b0a057f15085e9d7274df7d585a "pdflatex"
   "latest.bib" 1720053974 2611 18df6b02240d1581f69b815d165c1184 ""
   (generated)
   "latest.bbl"
   "latest.blg"
-["pdflatex"] 1720133594 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1720133595
+["pdflatex"] 1720136214 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1720136214
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/model/latest/latest.tex" 1720133594 16399 bb4d0244cb7f07734ac789317b1fa16a ""
+  "/home/sjone9/school/trade/model/latest/latest.tex" 1720136213 33398 ec30d697dccb747e9ede5f9860a5c150 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1136768653 3584 13049b61b922a28b158a38aeff75ee9b ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/eccc1000.tfm" 1136768653 3072 0e825b3b77feef5bf88d50fba1209c90 ""
@@ -86,6 +87,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1636152094 2971 def0b6c1f0b107b3b936def894055589 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb" 1636152094 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb" 1708461183 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb" 1708461183 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb" 1636152094 109713 30d6420127e1c84309fa7008a69b7170 ""
@@ -95,10 +97,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "latest.aux" 1720133595 1867 b985831a2ec034901b95988cde293ab8 "pdflatex"
-  "latest.bbl" 1720132338 794 85fe27edcfd4da585748c803d1df3422 "bibtex latest"
-  "latest.out" 1720133595 694 2d38622f35e3475ae29faa1729814457 "pdflatex"
-  "latest.tex" 1720133594 16399 bb4d0244cb7f07734ac789317b1fa16a ""
+  "latest.aux" 1720136214 2634 49d87b0a057f15085e9d7274df7d585a "pdflatex"
+  "latest.bbl" 1720136213 794 85fe27edcfd4da585748c803d1df3422 "bibtex latest"
+  "latest.out" 1720136214 1393 64cc09575f92528ef4d75a9abe443c37 "pdflatex"
+  "latest.tex" 1720136213 33398 ec30d697dccb747e9ede5f9860a5c150 ""
   (generated)
   "latest.aux"
   "latest.log"

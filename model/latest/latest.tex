@@ -112,17 +112,17 @@ From the perspective of discrete choice demand models, $\omega_k$ can be interpr
 
 \begin{align}
     \frac{\pi_{ck}}{\pi_c}\equiv \frac{\phi_{ck}}{\omega_k}
+    \label{identity}
 \end{align}
 
 The expression above tells us the extent to which a given occupation $k$ is concentrated in city $c$ above and beyond the predicted concentration, given the size of the city $\pi_c$ is equivalent to the within-city choice share in occupation $k$ divided by the aggregate choice share of that occupation.
 
 \begin{align*}
-    \pi_{c} = \sum_{k}^{K} \frac{(Z_{c}^{-\theta} t_{ck})^{\frac{1}{1-\rho}}}{\lambda_k} \frac{T_k \lambda_{k}^{1 - \rho}}{\sum_{k}^{K} T_k \lambda_{k}^{1-\rho}}
+    \pi_{c} = \sum_{k}^{K} \frac{(Z_{c}^{-\theta} t_{ck})^{\frac{1}{1-\rho}}}{\lambda_k} \frac{T_k \lambda_{k}^{1 - \rho}}{\sum \limits_{k}^{K} T_k \lambda_{k}^{1-\rho}}
 \end{align*}
 
 \begin{align}
     \pi_c = \sum_{k}^{K} \pi_{ck} \omega_k
-    \label{city_occupation_shares}
 \end{align}
 
 By using our definitions, we arrive at the above expression for city shares, which is now the sum of all occupation specific shares weighted by the market share of each occupation.
@@ -133,19 +133,231 @@ We now turn to the city-occupation derivatives: city $c$'s own technology elasti
 
 \begin{align}
     \frac{\partial \ln \pi_{ck}}{\partial \ln t_{ck}} \approx \phi_{ck} \left( \frac{1}{1 - \rho} \right)
+    \label{co_own_elasticity}
 \end{align}
 
 This elasticity is positive and increasing in a city's comparative advantage in occupation $k$. The intuition is that a city that is more attractive for occupation $k$ will see a larger increase in the choice share of that occupation in response to a marginal increase in the productivity of that occupation. OSo the more specialized the city is in that occupation, the larger the effect of a productivity shock in that occupation. As $\rho \rightarrow 1$, the elasticity approaches infinity, as within any given occupation, if they become more correlated, cities within that given occupation become perfect substitutes for each other.
 
 \begin{align}
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = -{\pi_{c'}}{\phi_{ck}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]
+    \label{co_cross_elasticity}
 \end{align}
 
 Turing our attention to the cross city technology elasticity, we see that the first term captures the CES element of consumer choice. As the city $c'$ increases in size and becomes increasingly competitive in that occupation, any shocks to this city-occupation pair will have an increasingly negative effects on all other cities.
 
 How much the other cities will be affected is captured by the second term which captures the unbalanced substitution patterns. If a city is relatively concentrated in occupation $k$, then the affects of a shock in that given occupation will be felt more severely, this is shown by the ratio $\pi_{ck} / \pi_c$. Notice also that if $\rho = 0$, this elasticity simplified to the standard CES elasticity. As $\rho \rightarrow 1$, the elasticity approaches infinity and the correlated choices start to dominate.
 
+\subsection{Aggregate Elasticities}
+
+We now consider the elasticity of city shares with respect to aggregate city technology shocks $T_c$ and aggregate occupation shocks $T_k$. Beginning with the former, if we assume again that each cit is small and that $\partial \ln \lambda_k / \partial \ln T_c \approx 0$, we get the following for a city's own technology shock:
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_c} \approx \frac{1}{1 - \rho}
+\end{align*}
+
+This is simply the summation of city-occupation elasticities which was derived in expression \ref{co_own_elasticity}. And given that by definition $\sum \limits_k^K \phi_{ck} = 1$, we get the following derivations:
+
+\begin{align*}
+    \frac{\partial{\ln{\pi_{c}}}}{\partial\ln{T_{c}}} & = \sum\limits_{k}\frac{\partial{\ln{\pi_{c}}}}{\partial\ln{t_{ck}}} \\ &= \sum\limits_{k}\phi_{ck}\Bigg(\frac{1}{1-\rho}\Bigg) \\ &= \Bigg(\frac{1}{1-\rho}\Bigg)\sum\limits_{k}\phi_{ck} = \frac{1}{1-\rho}
+\end{align*}
+
+The result tells us that if $\rho = 0$ and there's no correlation between occupations, then the elasticity is simply 1. We get a similar story when deriving the cross city technology elasticity. Using the same assumption, we arrive at the result:
+
+\begin{align}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} = -\pi_{c'}\Bigg[\sum\limits_{k}\phi_{{c'}k}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]\Bigg]
+\end{align}
+
+Similarly, this is simply the sum over all city-occupation elasticities derived in expression \ref{co_cross_elasticity}. This is shown in the following derivation:
+
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} & = \sum\limits_{k}\frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} \\ &= \sum\limits_{k}\Bigg[-{\pi_{c'}}{\phi_{ck}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]\Bigg]\\ &= -\pi_{c'}\Bigg[\sum\limits_{k}\phi_{{c'}k}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]\Bigg]
+\end{align*}
+
+The interpretation of this elasticity is the same as expression \ref{co_cross_elasticity}. The first term captures the CES element of consumer choice and the second term captures the unbalanced substitution patterns, with $\rho$ governing the strength of this unbalanced substitution. Now we simply sum over all occupations to get the aggregate elasticities.
+
+Lastly, we derive the elasticity f city shares with respect to aggregate occupation shocks $T_k$. This is fairly straightforward as wel can simply evaluate the following:
+
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{k}}} & = \Big(\frac{\partial{\phi_{ck}}}{\partial{T_{k}}}\Big)\Big(\frac{T_{k}}{\phi_{ck}}\Big) - \Big(\frac{\partial{\omega_{k}}}{\partial{T_{k}}}\Big)\Big(\frac{T_{k}}{\omega_{k}}\Big) \\ &= \phi_{ck}-\omega_{k}
+\end{align*}
+
+By using the identity in expression \ref{identity}, we can rewrite the elasticity as the following:
+
+\begin{equation}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{k}}} = {\omega_{k}}\Bigg[\frac{\pi_{ck}}{\pi_{c}}-1\Bigg]
+\end{equation}
+
+You should first notice that the second term in brackets can be either positive or negative depending on the city's relative concentration in that occupation. If the city is relatively concentrated and $\pi_{ck} / \pi_c > 1$, then the city will face a negative shock. If the city is relatively less concentrated and $\pi_{ck} / \pi_c < 1$, then the city will face a negative shock. We can think of this as certain occupations start to become more attractive, cities that are less concentrated in that occupation will face a negative shock as households start to move to cities that are more concentrated in that occupation. This second term is scaled by the market share of that occupation, $\omega_k$, which is simply the market share of that occupation across all cities.
+
 \newpage
 \bibliography{latest}
+
+\newpage
+
+\section{Appendix}
+
+\subsection{Derivations}
+
+\noindent\textbf{City Choice Shares $\pi_{c}$}: As discussed in Lind and Ramondo (2023), the choice shares can be expressed as:
+
+\begin{equation*}
+    \pi_{c}=\frac{Z_{c}^{-\theta}{G_{c}}}{G()}
+\end{equation*}
+
+We define $G()$ as the following, given the definition of $T_{ck}$ and $\lambda_{k}$ provided in the main text:
+
+\begin{equation*}
+    G({Z_{1}}^{-\theta},...,{Z_{N}}^{-\theta})=\sum\limits_{k}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho_{k}}}\Big]^{1-\rho_{k}} = \sum\limits_{k}{T_{k}}\lambda^{1-\rho}_{k}
+\end{equation*}
+
+$G_{c}()$ is simply the derivative of $G()$ with respect to $Z_{c}^{-\theta}$.
+
+\begin{align*}
+    \frac{\partial{G()}}{\partial{Z_{c}^{-\theta}}} & = \sum\limits_{k}\frac{\partial}{\partial{Z_{c}^{-\theta}}}\Big[\sum\limits_{c}^{N}({T_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho}}\Big]^{1-\rho} \\ &= \sum\limits_{k}\frac{\partial}{\partial{Z_{c}^{-\theta}}}\Big[{T^{\frac{1}{1-\rho}}_{k}}\sum\limits_{c}^{N}({t_{ck}}{Z_{c}^{-\theta}})^{\frac{1}{1-\rho}}\Big]^{1-\rho} \\ &= \sum\limits_{k}{T_{k}}\Big[(1-\rho)\lambda^{-\rho}_{k}\frac{\partial{\lambda_{k}}}{\partial{Z_{c}^{-\theta}}}\Big] \\ &= \sum\limits_{k}{T_{k}}\Big[(1-\rho)\lambda^{-\rho}_{k}(\frac{1}{1-\rho}){t^{\frac{1}{1-\rho}}_{ck}}(Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\Big]\\ &= (Z_{c}^{-\theta})^{\frac{\rho}{1-\rho}}\sum\limits_{k}{T_{k}}{t^{\frac{1}{1-\rho}}_{ck}}\lambda_{k}^{-\rho}
+\end{align*}
+
+Putting these three terms together, we derive the choice shares:
+
+\begin{align*}
+    \pi_{c} & = \frac{Z_{c}^{-\theta}{G_{c}}}{G()} \\ &= (Z_{c}^{-\theta})^{\frac{1}{1-\rho}}\Bigg[\frac{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}\Bigg]
+\end{align*}
+
+\noindent\textbf{Own Occupation-Specific Elasticity:} We wish to evaluate $\partial\ln{\pi_{c}}/\partial\ln{t_{ck}}$, under the assumption that $\partial\ln{\lambda_{k}}/\partial\ln{t_{ck}}=0$. Notice this assumption yields the following:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{ck}}} \approx \frac{\partial\ln{\pi_{ck}}}{\partial\ln{t_{ck}}} - \frac{\partial\ln{\phi_{ck}}}{\partial\ln{t_{ck}}}
+\end{equation*}
+
+given the definitions of $\pi_{ck}$ and $\phi_{ck}$ provided in the text.
+
+Notice that this only leaves one term to evaluate if we take the logarithm of $\pi_{c}$ and the derivative of this logarithm with respect to $\ln{t_{ck}}$:
+
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{ck}}} & \approx \frac{\partial\ln[{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}]}{\partial\ln{t_{ck}}} \\ &= \Bigg(\frac{\partial[{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}]}{\partial{t_{ck}}}\Bigg)\Bigg(\frac{t_{ck}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Bigg)\\ &= \Bigg(\frac{1}{1-\rho}\Bigg)\Bigg(\frac{t_{ck}^{\frac{1}{1-\rho}}{T_{k}}\lambda_{k}^{-\rho}}{t_{ck}}\Bigg)\Bigg(\frac{t_{ck}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Bigg) \\ &= \Big(\frac{1}{1-\rho}\Big)\Bigg[\frac{{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}\Bigg]\\ &= \frac{\phi_{ck}}{1-\rho}
+\end{align*}
+
+\noindent\textbf{Cross-City Occupation-Specific Elasticity:} We wish to evaluate $\partial\ln{\pi_{c}}/\partial\ln{t_{{c'}k}}$. Notice that this elasticity can be expressed as the following two terms:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = {t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{t_{{c'}k}}}\Big)\Big(\frac{t_{{c'}k}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Big) - {T_{k}}\Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{t_{{c'}k}}}\Big)\Big(\frac{t_{{c'}k}}{{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}}\Big)
+\end{equation*}
+
+It will be useful to first define the derivative of $\lambda_{k}$ with respect to our variable of interest, $t_{{c'}k}$:
+
+\begin{equation*}
+    \frac{\partial{\lambda_{k}}}{\partial{t_{{c'}k}}} = \Big(\frac{1}{1-\rho}\Big)\Big(\frac{1}{t_{{c'}k}}\Big)[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}
+\end{equation*}
+
+We can now use chain rule in order to evaluate our elasticity of interest. The first term becomes the following:
+
+\begin{align*}
+    {t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\Big(\frac{\partial\lambda_{k}^{-\rho}}{\partial{t_{{c'}k}}}\Big)\Big(\frac{t_{{c'}k}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Big) & = {t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}(-\rho)(\lambda_{k}^{-\rho-1})\Big(\frac{1}{1-\rho}\Big)\Bigg(\frac{[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Bigg) \\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Bigg(\frac{t^{\frac{1}{1-\rho}}_{ck}{T_{k}}{\lambda^{-\rho}_{k}}}{{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}}\Bigg)\\ &= -\Bigg(\frac{\rho}{1-\rho}\Bigg)\Bigg(\frac{[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg){\phi_{ck}}\\ &= -\Big(\frac{\rho}{1-\rho}\Big){\pi_{{c'}k}}{\phi_{ck}}
+\end{align*}
+
+The second term can be derived in the following way:
+
+\begin{align*}
+    - {T_{k}}\Big(\frac{\partial\lambda_{k}^{1-\rho}}{\partial{t_{{c'}k}}}\Big)\Big(\frac{t_{{c'}k}}{{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}}\Big) & = - {T_{k}}(\lambda_{k}^{-\rho})[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}\Big(\frac{1}{{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}}\Big) \\ &= - \Bigg(\frac{[{t_{{c'}k}}(Z_{c'}^{-\theta})]^{\frac{1}{1-\rho}}}{\lambda_{k}}\Bigg)\Big(\frac{{T_{k}}{\lambda_{k}^{1-\rho}}}{{\sum\limits_{k} T_k \lambda_{k}^{1-\rho}}}\Big)\\ &= -\pi_{{c'}k}{\omega_{k}}
+\end{align*}
+
+Putting these together, we derive the cross-city occupation-specific elasticity as the following:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = -{\pi_{{c'}k}}\Big[\omega_{k}+\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}]
+\end{equation*}
+
+Notice that this is equivalent to the following, given the identity linking $\pi_{c}$, $\pi_{ck}$, $\phi_{ck}$, and $\omega_{k}$.
+
+\begin{equation}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = -{\pi_{c'}}{\phi_{ck}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]
+\end{equation}
+
+\noindent\textbf{Cross-City Aggregate Elasticity:} We wish to evaluate $\partial\ln{\pi_{c}}/\partial\ln{T_{c'}}$. Notice that:
+
+\begin{equation*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} = \Bigg(\frac{\sum\limits_{k}{{t^{\frac{1}{1-\rho}}_{ck}}}{T_{k}}{\lambda^{-\rho}_{k}}}{\partial{T_{c'}}}\Bigg)\Bigg(\frac{T_{c'}}{\sum\limits_{k}t^{\frac{1}{1-\rho}}_{ck}{T_{k}}{\lambda^{-\rho}_{k}}}\Bigg) - \Bigg(\frac{\partial\sum\limits_{k}{T_{k}}\lambda^{1-\rho}_{k}}{\partial{T_{c'}}}\Bigg)\Bigg(\frac{T_{c'}}{\sum\limits_{k}{T_{k}}{\lambda_{k}^{1-\rho}}}\Bigg)
+\end{equation*}
+
+Notice also that:
+
+\begin{equation*}
+    \frac{\partial\lambda_{k}}{\partial{T_{c'}}} = \Bigg(\frac{1}{1-\rho}\Bigg)\Bigg(\frac{[t_{ck}(Z_{c}^{-\theta})]^{\frac{1}{1-\rho}}}{T_{c'}}\Bigg)
+\end{equation*}
+
+We can therefore solve for this cross-derivative as the following:
+
+\begin{align*}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} & = \sum\limits_{k}\Big[-\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}{\pi_{{c'}k}}\Big]+\sum\limits_{k}\Big[-\omega_{k}\pi_{{c'}k}\Big] \\ &= -\sum\limits_{k}{\pi_{{c'}k}}\Big[\omega_{k}+\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}\Big]
+\end{align*}
+
+\subsection{Cross City Elasticity}
+
+\begin{align*}
+    \ln \pi_c = \frac{1}{1 - \rho} \ln Z_c^{- \theta} + \ln \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right) - \ln \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)
+\end{align*}
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+\end{align*}
+
+Consider the derivative of $\lambda_k$ with respect to $T_{c'}$:
+
+\begin{align*}
+    \frac{\partial \lambda_k}{\partial T_{c'}} & = T_k^{\frac{1}{1 - \rho}} \left( \frac{1}{1 - \rho} \right) T_{c'}^{\frac{1}{1 - \rho} - 1} t_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{\rho}{1 - \rho}} \\
+                                               & = \frac{1}{1 - \rho} \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}
+\end{align*}
+
+Consider the first term in the derivative:
+
+\begin{align*}
+    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} T_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \times T_{c'} \\
+                                                                                                                                                                                                   & = - \frac{\rho}{1 - \rho} \frac{\sum_{k}^{}T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}                                                                                                       \\
+\end{align*}
+
+Now consider the second term in the derivative:
+
+\begin{align*}
+    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \sum_{k}^{} \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} \lambda_k^{- \theta}} \times T_{c'} \\
+                                                                                                                                       & = \frac{\rho}{1 - \rho} \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k} }{\sum_{k}^{} \lambda_k^{- \rho}}                                                                                              \\
+\end{align*}
+
+This will give us:
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\rho}{1 - \rho} \left[ \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{- \rho}} - \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
+\end{align*}
+
+\subsection{Technology Elasticity}
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+\end{align*}
+
+Consider the derivative of $\lambda_k$ with respect to $T_k$:
+
+\begin{align*}
+    \frac{\partial \lambda_k}{\partial T_k} & = \frac{1}{1 - \rho} T_k^{\frac{1}{1 -\rho} - 1} \sum_{k}^{} (T_c t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} \\
+                                            & =\frac{1}{1 - \rho} \frac{1}{T_k} \lambda_k
+\end{align*}
+
+Consider the first term in the derivative:
+
+\begin{align*}
+    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
+                                                                                                                                                                                                 & = \phi_{ck}
+\end{align*}
+
+Consider the second term in the derivative:
+
+\begin{align*}
+    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{- \rho}} \times T_k \\
+                                                                                                                                     & = \frac{\rho}{1 - \rho} \omega_k
+\end{align*}
+
+This will give us:
+
+\begin{align*}
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} + \frac{\rho}{1 - \rho} \omega_k
+\end{align*}
 
 \end{document}
