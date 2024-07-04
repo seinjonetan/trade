@@ -66,6 +66,75 @@ A household's schedule of productivity is characterized by a vector of draws fro
 
 \subsection{Correlation Function}
 
+\begin{align}
+    G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{k}^{K} T_k \left[ \sum_{c}^{N} (t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k}
+    \label{nested_ces}
+\end{align}
+
+We first define $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta} T_c$ and $\gamma = \Gamma (\frac{\theta - 1}{\theta})$. Given our definition of $Z_c^{- \theta}$, $T_c$ will be absorbed within $Z_c^{- \theta}$, giving us the correlation function $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$ as defined in equation \ref{nested_ces}.
+
+\begin{align*}
+    \pi_c = \frac{Z_c^{- \theta} G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
+\end{align*}
+
+Where $G_c (Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \partial G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) / \partial Z_c^{- \theta}$. The expression above gives us the city specific choice shares of households across all occupations. In order to evaluate the expression, we make the simplifying assumption that the correlation parameter is the same across all occupations $\rho_k = \rho$.
+
+\begin{align*}
+    \lambda_{k} = \sum_{c}^{N} \left( t_{ck} Z_{c}^{-\theta} \right)^{\frac{1}{1-\rho}}
+\end{align*}
+
+To simplify the final expression of city shares, we introduce the above expression which measures the appeal of occupation $k$. Given that the expression does not include $T_k$, it does not capture the attractiveness of occupation $k$. Instead the expression captures the extent to which a given occupation $k$ exhibits city-specific productivities which are correlated with aggregate city-level attractiveness.
+
+\begin{align*}
+    \pi_{c} = \sum_{k}^{K} \frac{(Z_{c}^{-\theta} t_{ck})^{\frac{1}{1-\rho}}}{\lambda_k} \frac{T_k \lambda_{k}^{1 - \rho}}{\sum_{k}^{K} T_k \lambda_{k}^{1-\rho}}
+\end{align*}
+
+When we solve for city shares, we arrive at the above expression. To further simplify it, we first have to consider occupation specific choice shares.
+
+\begin{align*}
+    \pi_{ck} = \frac{Z_c^{- \theta} G_c^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
+\end{align*}
+
+To obtain occupation specific choice shares, we can evaluate the derivative for city shares at the occupation level. More specifically, rather than $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$, we will be evaluating $G^k(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{c}^{N} (t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}$. This will give us the following:
+
+\begin{align}
+    \pi_{ck} = \frac{(t_{ck} Z_c^{-\theta})^{\frac{1}{1 - \rho}}}{\lambda_k}
+    \label{city_occuaption_shares}
+\end{align}
+
+Moving forward, it will be convenient for us to provide the following definitions. First, we define $\phi_{ck}$ as the comparative advantage of city $c$ in occupation $k$. This can be interpreted as an occupation's within city choice shares. As such $\phi_{ck}$ will be between 0 and 1. We define this formally as:
+
+\begin{align*}
+    \phi_{ck} \equiv \frac{{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}
+\end{align*}
+
+Second, we define an occupation specific choice share which takes into account both the size of each occupation, as measured by productivity $T_k$, and the extent to which individual city-occupation productivities are correlated with overall city attractiveness. This is defined as the following expression:
+
+\begin{align*}
+    \omega_k \equiv \frac{{T_{k}}\lambda_{k}^{1-\rho}}{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}
+\end{align*}
+
+From the perspective of discrete choice demand models, $\omega_k$ can be interpreted as the "market share" of occupation $k$. This is because it captures the extent to which the productivity of occupation $k$ is correlated with overall city attractiveness. The expression is normalized by the sum of all $\omega_k$ to ensure that the sum of all market shares is equal to 1.
+
+\begin{align}
+    \frac{\pi_{ck}}{\pi_c}\equiv \frac{\phi_{ck}}{\omega_k}
+\end{align}
+
+The expression above tells us the extent to which a given occupation $k$ is concentrated in city $c$ above and beyond the predicted concentration, given the size of the city $\pi_c$ is equivalent to the within-city choice share in occupation $k$ divided by the aggregate choice share of that occupation.
+
+\begin{align}
+    \pi_c = \sum_{k}^{K} \pi_{ck} \omega_k
+    \label{city_occupation_shares}
+\end{align}
+
+By using our definitions, we can further simplify the expression for city shares which is simply now the sum of all occupation specific choice shares weighted by the market share of each occupation.
+
+\subsection{Elasticities}
+
+We now turn to the city-occupation derivatives: city $c$'s "own price" elasticity and "cross price" elasticity with respect to another city $c'$. This derivative will be approximated by assuming that each city is small, and therefore $\partial \ln \lambda_k / \partial \ln t_{ck} \approx 0$. That is, the aggregate "price index" associated with location choice in occupation $k$ is not affected by a marginal change in the productivity of a given city-occupation pair.
+
+
+
 \newpage
 \bibliography{latest}
 
