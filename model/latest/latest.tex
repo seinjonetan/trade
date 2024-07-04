@@ -83,13 +83,7 @@ Where $G_c (Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \partial G(Z_1^{- \theta}, 
     \lambda_{k} = \sum_{c}^{N} \left( t_{ck} Z_{c}^{-\theta} \right)^{\frac{1}{1-\rho}}
 \end{align*}
 
-To simplify the final expression of city shares, we introduce the above expression which measures the appeal of occupation $k$. Given that the expression does not include $T_k$, it does not capture the attractiveness of occupation $k$. Instead the expression captures the extent to which a given occupation $k$ exhibits city-specific productivities which are correlated with aggregate city-level attractiveness.
-
-\begin{align*}
-    \pi_{c} = \sum_{k}^{K} \frac{(Z_{c}^{-\theta} t_{ck})^{\frac{1}{1-\rho}}}{\lambda_k} \frac{T_k \lambda_{k}^{1 - \rho}}{\sum_{k}^{K} T_k \lambda_{k}^{1-\rho}}
-\end{align*}
-
-When we solve for city shares, we arrive at the above expression. To further simplify it, we first have to consider occupation specific choice shares.
+We introduce the above expression which measures the appeal of occupation $k$. Given that the expression does not include $T_k$, it does not capture the attractiveness of occupation $k$. Instead the expression captures the extent to which a given occupation $k$ exhibits city-specific productivities which are correlated with aggregate city-level attractiveness. The following definitions will be useful in simplifying the expression for city shares.
 
 \begin{align*}
     \pi_{ck} = \frac{Z_c^{- \theta} G_c^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G^k(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
@@ -122,18 +116,34 @@ From the perspective of discrete choice demand models, $\omega_k$ can be interpr
 
 The expression above tells us the extent to which a given occupation $k$ is concentrated in city $c$ above and beyond the predicted concentration, given the size of the city $\pi_c$ is equivalent to the within-city choice share in occupation $k$ divided by the aggregate choice share of that occupation.
 
+\begin{align*}
+    \pi_{c} = \sum_{k}^{K} \frac{(Z_{c}^{-\theta} t_{ck})^{\frac{1}{1-\rho}}}{\lambda_k} \frac{T_k \lambda_{k}^{1 - \rho}}{\sum_{k}^{K} T_k \lambda_{k}^{1-\rho}}
+\end{align*}
+
 \begin{align}
     \pi_c = \sum_{k}^{K} \pi_{ck} \omega_k
     \label{city_occupation_shares}
 \end{align}
 
-By using our definitions, we can further simplify the expression for city shares which is simply now the sum of all occupation specific choice shares weighted by the market share of each occupation.
+By using our definitions, we arrive at the above expression for city shares, which is now the sum of all occupation specific shares weighted by the market share of each occupation.
 
-\subsection{Elasticities}
+\subsection{City-Occupation Elasticities}
 
-We now turn to the city-occupation derivatives: city $c$'s "own price" elasticity and "cross price" elasticity with respect to another city $c'$. This derivative will be approximated by assuming that each city is small, and therefore $\partial \ln \lambda_k / \partial \ln t_{ck} \approx 0$. That is, the aggregate "price index" associated with location choice in occupation $k$ is not affected by a marginal change in the productivity of a given city-occupation pair.
+We now turn to the city-occupation derivatives: city $c$'s own technology elasticity and cross technology elasticity with respect to another city $c'$. This derivative will be approximated by assuming that each city is small, and therefore $\partial \ln \lambda_k / \partial \ln t_{ck} \approx 0$. That is, the aggregate "price index" associated with location choice in occupation $k$ is not affected by a marginal change in the productivity of a given city-occupation pair. We then obtain the following for the own technology shock:
 
+\begin{align}
+    \frac{\partial \ln \pi_{ck}}{\partial \ln t_{ck}} \approx \phi_{ck} \left( \frac{1}{1 - \rho} \right)
+\end{align}
 
+This elasticity is positive and increasing in a city's comparative advantage in occupation $k$. The intuition is that a city that is more attractive for occupation $k$ will see a larger increase in the choice share of that occupation in response to a marginal increase in the productivity of that occupation. OSo the more specialized the city is in that occupation, the larger the effect of a productivity shock in that occupation. As $\rho \rightarrow 1$, the elasticity approaches infinity, as within any given occupation, if they become more correlated, cities within that given occupation become perfect substitutes for each other.
+
+\begin{align}
+    \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = -{\pi_{c'}}{\phi_{ck}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]
+\end{align}
+
+Turing our attention to the cross city technology elasticity, we see that the first term captures the CES element of consumer choice. As the city $c'$ increases in size and becomes increasingly competitive in that occupation, any shocks to this city-occupation pair will have an increasingly negative effects on all other cities.
+
+How much the other cities will be affected is captured by the second term which captures the unbalanced substitution patterns. If a city is relatively concentrated in occupation $k$, then the affects of a shock in that given occupation will be felt more severely, this is shown by the ratio $\pi_{ck} / \pi_c$. Notice also that if $\rho = 0$, this elasticity simplified to the standard CES elasticity. As $\rho \rightarrow 1$, the elasticity approaches infinity and the correlated choices start to dominate.
 
 \newpage
 \bibliography{latest}
