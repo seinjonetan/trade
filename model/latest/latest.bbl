@@ -1,11 +1,6 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{3}
 \newcommand{\enquote}[1]{``#1''}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-
-\bibitem[\protect\citeauthoryear{Diamond}{Diamond}{2016}]{diamond}
-\textsc{Diamond, R.} (2016): \enquote{The Determinants and Welfare Implications
-  of US Workers' Diverging Location Choices by Skill: 1980-2000,}
-  \emph{American Economic Review}, 106, 479–524.
 
 \bibitem[\protect\citeauthoryear{Eaton and Kortum}{Eaton and Kortum}{2002}]{ek}
 \textsc{Eaton, J. and S.~S. Kortum} (2002): \enquote{Technology, Geography, and
