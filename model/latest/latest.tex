@@ -1,0 +1,51 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\onehalfspacing
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\bibliographystyle{ecta}
+\usepackage[T1]{fontenc}
+\usepackage{titling}
+\usepackage{amsmath}
+\setlength{\droptitle}{-7em}
+\addtolength\abovedisplayskip{-3in}
+\addtolength\belowdisplayskip{-3in}
+
+\title{City Location Choice and Household Productivity}
+\preauthor{}
+\postauthor{}
+\author{Tan Sein Jone}
+\predate{}
+\postdate{}
+\date{}
+%\Today
+
+\begin{document}
+\doublespacing
+\maketitle
+
+\section{Introduction}
+
+Cities capture a disproportionate amount of household location choices in the world. In 2018, 55\% of the world's population lived in urban areas, and this is expected to increase to 68\% by 2050. This is because of the benefits cities provide, such as access to jobs, amenities, and social networks. These benefits are often thought of as universal to all households, regardless of their occupation specific skills. However, the benefits of every city is clearly not the same for every household. An auto worker from Detroit will not view New York as an equivalent substitute for a city to live in as a finance worker from New York. Given the billions of dollars spent on place based policies, it is important for us to separate out this dimension of comparative advantage, where a city is able to provide higher levels of productivity for households working in specific occupations.
+
+A city's comparative advantage exists in three dimensions. First, there is a city specific advantage which makes all occupations more productive in that city. This is due to the city's size, more specifically it's population which results in better amenities, more jobs, and a larger social network. Second, there is an occupation specific advantage which is universal across all cities. Some jobs are simply more productive than others and cities that specialize in that job will be observed as having a nigher overall choice shares of households. Think cities that specialize in highly attractive occupations such as professional services. Finally, there is a city-occupation specific advantage. A city with a comparative advantage in this dimension may have specific policies that make it more attractive for a specific occupation such as tax breaks for mechanics in Chicago. One crucial distinction we need to make is between occupations and sectors. Sectors are broad categories of jobs such as manufacturing, services, and agriculture. Occupations are specific jobs such as mechanic and clerk. Cities can specialize in occupations by specializing in sectors that most intensely use that occupation.
+
+In this paper, we propose a model of city location choices based on a class of models in the quantitative trade literature first proposed by \cite{ek}. These models treat productivity as random draws from Fr/'{e}chet distributions, allowing for a non zero production of goods which will help us to account for small cities. \cite{redding} applies this model to an urban setting by loading city heterogeneity onto amenities, capturing the first dimension of comparative advantage. Both these models however rely on the independence assumption which treats that goods and cities are perfect substitutes for each other. \cite{lindandramondo} break this assumption by introducing a nested CES utility structure which allows for correlated draws of productivity within nests across countries. We will apply this structure to the urban setting by treating occupations as independent nests. This will allow us to capture substitution patterns where cities that have a similar occupational structure will be treated as better substitutes for each other. By doing this, we are able to capture the second and third dimensions of comparative advantage.
+
+We start in the first section by adapting the model of \cite{lindandramondo} to the urban setting. Unlike their original paper where the nests are implied, we will explicitly model the nests as occupations. This allows us to derive both city and city-occupation specific shares of location choices. We will also be able to derive elasticities for all three dimensions of comparative advantage. In the second section, we will recover parameters of the model using data from the American Community Survey. We will then use the model to run counterfactual and simulate the effects of a policy at both the city and occupation level.
+
+Our paper contributes to the literature in three ways. First, we are able to separate out the three dimensions of comparative advantage in the urban setting. This is important as it allows us to understand the effects of policies at the city and occupation level. Second, we are able to recover the parameters of the model using data from the American Community Survey. This is important as it allows us to test the model's predictions against real world data. Finally, we are able to run counterfactuals and simulate the effects of policies at both the city and occupation level. This is important as it allows us to understand the effects of policies on the city and occupation level.
+
+Our paper contributes to the literature by applying the \cite{lindandramondo} framework to the urban setting as proposed by \cite{redding}. This allows us to separately identify the three dimensions of comparative advantage of cities. Our paper relates to the work of \cite{diamond} and contributes to the spacial sorting literature by presenting a flexible model of matching via productivity maximization.
+
+\newpage
+
+\bibliography{latest}
+
+\end{document}

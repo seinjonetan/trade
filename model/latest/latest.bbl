@@ -1,0 +1,23 @@
+\begin{thebibliography}{4}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Diamond}{Diamond}{2016}]{diamond}
+\textsc{Diamond, R.} (2016): \enquote{The Determinants and Welfare Implications
+  of US Workers' Diverging Location Choices by Skill: 1980-2000,}
+  \emph{American Economic Review}, 106, 479–524.
+
+\bibitem[\protect\citeauthoryear{Eaton and Kortum}{Eaton and Kortum}{2002}]{ek}
+\textsc{Eaton, J. and S.~S. Kortum} (2002): \enquote{Technology, Geography, and
+  Trade,} \emph{Econometrica}, 70, 1741--1779.
+
+\bibitem[\protect\citeauthoryear{Lind and Ramondo}{Lind and
+  Ramondo}{2023}]{lindandramondo}
+\textsc{Lind, N. and N.~Ramondo} (2023): \enquote{Trade with Correlation,}
+  \emph{American Economic Review}, 113, 317–53.
+
+\bibitem[\protect\citeauthoryear{Redding}{Redding}{2016}]{redding}
+\textsc{Redding, S.~J.} (2016): \enquote{Goods trade, factor mobility and
+  welfare,} \emph{Journal of International Economics}, 101, 148--167.
+
+\end{thebibliography}
