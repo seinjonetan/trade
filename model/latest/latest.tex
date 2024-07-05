@@ -64,7 +64,7 @@ In order to identify the three dimensions of comparative advantage, we will be s
 
 A household's schedule of productivity is characterized by a vector of draws from different Fr\'{e}chet distributions for each city occupation pair. The realized productivity a household has in city $c$ is the occupation that maximizes the productivity has in the city. Unlike sequential games where households might pick a city before picking an occupation, we assume that households pick both simultaneously. A way to contextualize this is to think of households as already having an ideal occupation in mind when picking a city, hence $Z_c = \max_k \left\{ Z_{ck} \right\}$. This productivity is then scaled by the price index of a city to reflect how high prices reduces the purchasing power of the household within that city, hence making it less attractive.
 
-\subsection{Correlation Function}
+\subsection{Equilibrium}
 
 \begin{align}
     G(Z_1^{- \theta}, \dots, Z_N^{- \theta}) = \sum_{k}^{K} T_k \left[ \sum_{c}^{N} (t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}} \right]^{1 - \rho_k}
@@ -136,14 +136,14 @@ We now turn to the city-occupation derivatives: city $c$'s own technology elasti
     \label{co_own_elasticity}
 \end{align}
 
-This elasticity is positive and increasing in a city's comparative advantage in occupation $k$. The intuition is that a city that is more attractive for occupation $k$ will see a larger increase in the choice share of that occupation in response to a marginal increase in the productivity of that occupation. OSo the more specialized the city is in that occupation, the larger the effect of a productivity shock in that occupation. As $\rho \rightarrow 1$, the elasticity approaches infinity, as within any given occupation, if they become more correlated, cities within that given occupation become perfect substitutes for each other.
+This elasticity is positive and increasing in a city's comparative advantage in occupation $k$. The intuition is that a city that is more attractive for occupation $k$ will see a larger increase in the choice share of that occupation in response to a marginal increase in the productivity of that occupation. The more specialized the city is in that occupation, the larger the effect of a productivity shock in that occupation. As $\rho \rightarrow 1$, the elasticity approaches infinity, as within any given occupation, if they become more correlated, cities within that given occupation become perfect substitutes for each other.
 
 \begin{align}
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{t_{{c'}k}}} = -{\pi_{c'}}{\phi_{ck}}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]
     \label{co_cross_elasticity}
 \end{align}
 
-Turing our attention to the cross city technology elasticity, we see that the first term captures the CES element of consumer choice. As the city $c'$ increases in size and becomes increasingly competitive in that occupation, any shocks to this city-occupation pair will have an increasingly negative effects on all other cities.
+Turning our attention to the cross city technology elasticity, we see that the first term captures the CES element of consumer choice. As the city $c'$ increases in size and becomes increasingly competitive in that occupation, any shocks to this city-occupation pair will have an increasingly negative effects on all other cities.
 
 How much the other cities will be affected is captured by the second term which captures the unbalanced substitution patterns. If a city is relatively concentrated in occupation $k$, then the affects of a shock in that given occupation will be felt more severely, this is shown by the ratio $\pi_{ck} / \pi_c$. Notice also that if $\rho = 0$, this elasticity simplified to the standard CES elasticity. As $\rho \rightarrow 1$, the elasticity approaches infinity and the correlated choices start to dominate.
 
@@ -330,7 +330,7 @@ This will give us:
 \subsection{Technology Elasticity}
 
 \begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
 \end{align*}
 
 Consider the derivative of $\lambda_k$ with respect to $T_k$:
@@ -343,21 +343,21 @@ Consider the derivative of $\lambda_k$ with respect to $T_k$:
 Consider the first term in the derivative:
 
 \begin{align*}
-    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
-                                                                                                                                                                                                 & = \phi_{ck}
+    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
+                                                                                                                                                                                             & = \phi_{ck}
 \end{align*}
 
 Consider the second term in the derivative:
 
 \begin{align*}
-    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial \ln T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{- \rho}} \times T_k \\
-                                                                                                                                     & = \frac{\rho}{1 - \rho} \omega_k
+    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{(1 - \rho) \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} \times T_k \\
+                                                                                                                                 & = - \omega_k
 \end{align*}
 
 This will give us:
 
 \begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} + \frac{\rho}{1 - \rho} \omega_k
+    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} - \omega_k
 \end{align*}
 
 \end{document}
