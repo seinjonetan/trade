@@ -113,15 +113,17 @@ To obtain occupation specific choice shares, we can evaluate the derivative for 
 
 Moving forward, it will be convenient for us to provide the following definitions. First, we define $\phi_{ck}$ as the comparative advantage of city $c$ in occupation $k$. This can be interpreted as an occupation's within city choice shares. As such $\phi_{ck}$ will be between 0 and 1. We define this formally as:
 
-\begin{align*}
+\begin{align}
     \phi_{ck} \equiv \frac{{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}{\sum\limits_{k}{t^{\frac{1}{1-\rho}}_{ck}}{T_{k}}\lambda_{k}^{-\rho}}
-\end{align*}
+    \label{occupation_by_city_shares}
+\end{align}
 
 Second, we define an occupation specific choice share which takes into account both the size of each occupation, as measured by productivity $T_k$, and the extent to which individual city-occupation productivities are correlated with overall city attractiveness. This is defined as the following expression:
 
-\begin{align*}
+\begin{align}
     \omega_k \equiv \frac{{T_{k}}\lambda_{k}^{1-\rho}}{\sum\limits_{k}{T_{k}}\lambda_{k}^{1-\rho}}
-\end{align*}
+    \label{occupation_shares}
+\end{align}
 
 From the perspective of discrete choice demand models, $\omega_k$ can be interpreted as the "market share" of occupation $k$. This is because it captures the extent to which the productivity of occupation $k$ is correlated with overall city attractiveness. The expression is normalized by the sum of all $\omega_k$ to ensure that the sum of all market shares is equal to 1.
 
@@ -203,6 +205,37 @@ By using the identity in expression \ref{identity}, we can rewrite the elasticit
 \end{equation}
 
 You should first notice that the second term in brackets can be either positive or negative depending on the city's relative concentration in that occupation. If the city is relatively concentrated and $\pi_{ck} / \pi_c > 1$, then the city will face a negative shock. If the city is relatively less concentrated and $\pi_{ck} / \pi_c < 1$, then the city will face a negative shock. We can think of this as certain occupations start to become more attractive, cities that are less concentrated in that occupation will face a negative shock as households start to move to cities that are more concentrated in that occupation. This second term is scaled by the market share of that occupation, $\omega_k$, which is simply the market share of that occupation across all cities.
+
+\subsection{Estimation Equations}
+
+Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover our city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
+
+\begin{align*}
+    \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} - \frac{1}{1 - \rho} \ln Z_c^{- \theta} - \ln \lambda_k \\
+                 & = \hat{\epsilon_{ck}} + + \hat{\eta_c^1} + \hat{\delta_k^1}
+\end{align*}
+
+This will be a simple OLS regression with city and occupation level fixed effects. $\hat{\eta_c^1}$ will be our city specific shifter, $\hat{\delta_k^1}$ will be our occupation specific shifter and $\hat{\epsilon_{ck}}$ will be our residuals.
+
+\begin{align*}
+    t_{ck}         & = exp \left(  (1 - \rho) \hat{\epsilon_{ck}}\right)  \\
+    \lambda_k      & = exp \left( (1 - \rho) \hat{\eta_c^1} \right)       \\
+    Z_c^{- \theta} & = exp \left( - \hat{\delta_k^2 }\right)              \\
+    T_c            & = Z_c^{- \theta} \left( \gamma \Phi_c \right)^\theta
+\end{align*}
+
+The equations above allow us to recover our city and city-occupation specific scale parameters. $\lambda_k$ will be used shortly to recover our occupation specific scale parameters.
+
+\begin{align*}
+    \ln \phi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} + \ln T_k \lambda_k^{- \rho} - \ln \left( \sum_k^K t_{ck}^{\frac{1}{1 - \rho}} T_k \lambda_k^{- \rho} \right) \\
+                  & = \hat{\epsilon_{ck}} + \hat{\delta_k^2} + \hat{\eta_c^2}
+\end{align*}
+
+Similarly, we will be using our occupation shares defined in expression \ref{occupation_by_city_shares} and have it be regressed against city and occupation fixed effects. Given that we have already identified $\lambda_k$, we can use this to recover our occupation specific scale parameters which is given by the equation below:
+
+\begin{align*}
+    T_k = \lambda_k^\rho e^{\hat{\delta_k^2}}
+\end{align*}
 
 \newpage
 \bibliography{latest}
