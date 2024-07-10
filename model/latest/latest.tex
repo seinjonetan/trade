@@ -283,7 +283,23 @@ where $\bar{\phi}_{cs}$ is the  share of occupation $k$ in sector $s$ in city $c
 
 \subsection{Data}
 
-We will be using data from the American Community Survey (ACS) which is a survey conducted by the US Census Bureau. The ACS is a survey that collects data on the metropolitan area and occupational level. We will be using data from 2010 to 2022. The ACS provides data on the household level, detailing wages, metropolitan area, occupation and sector of employment based on NAICS codes. We will be using this data to construct our share data $\pi_c$ $\pi_{ck}$, $\omega_k$, $\phi_{ck}$ and $\phi_{cs}$. We will also be using data from the Bureau of Labour Statistics to obtain total factor productivity data at the sector level.
+We will be using data from the American Community Survey (ACS) which is a survey conducted by the US Census Bureau. The ACS is a survey that collects data on the metropolitan area and occupational level. We will be using data from 2010 to 2022. The ACS provides data on the household level, detailing wages, metropolitan area, occupation and sector of employment based on NAICS codes. This will be used to construct our share data $\pi_c$ $\pi_{ck}$, $\omega_k$, $\phi_{ck}$ and $\phi_{cs}$ as well as obtain wage data $w_{ckt}$. We will also be using data from the Bureau of Labour Statistics to obtain total factor productivity data at the sector level $A_{st}$.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{../../estimations/graphs/city_employment_share.png}
+    \caption{City Employment Share}
+    \label{employment_city_share}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_city_heatmap.png}
+    \caption{Occupation Shares by Cities}
+    \label{top_25_city_heatmap}
+\end{figure}
+
+From the data in figure \ref{employment_city_share}, we see that a few metropolitan areas own a disproportionate share of employment which illustrates the sie effects of cities to attract employment and households. Intuitively, we should expect these cities to be very different from each other in terms of their specialization, otherwise we would expect the largest city with a particular composition to dominate in the share of households. When zooming into the compositions of the top 25 cities however, we see a different story. In figure \ref{top_25_city_heatmap}, we see that the top 25 cities are very similar with each other in terms of their specialization. With all cities specializing in occupations like management and professional services. This indicates to us that the occupation shifter will play a large role in determining the attractiveness of a city.
 
 \newpage
 \bibliography{latest}
