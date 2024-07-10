@@ -206,16 +206,18 @@ By using the identity in expression \ref{identity}, we can rewrite the elasticit
 
 You should first notice that the second term in brackets can be either positive or negative depending on the city's relative concentration in that occupation. If the city is relatively concentrated and $\pi_{ck} / \pi_c > 1$, then the city will face a negative shock. If the city is relatively less concentrated and $\pi_{ck} / \pi_c < 1$, then the city will face a negative shock. We can think of this as certain occupations start to become more attractive, cities that are less concentrated in that occupation will face a negative shock as households start to move to cities that are more concentrated in that occupation. This second term is scaled by the market share of that occupation, $\omega_k$, which is simply the market share of that occupation across all cities.
 
-\subsection{Estimation Equations}
+\section{Estimation Strategy}
 
-Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover our city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
+\subsection{Shifters}
+
+Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi_{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
 
 \begin{align*}
     \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} - \frac{1}{1 - \rho} \ln Z_c^{- \theta} - \ln \lambda_k \\
                  & = \hat{\epsilon_{ck}} + + \hat{\eta_c^1} + \hat{\delta_k^1}
 \end{align*}
 
-This will be a simple OLS regression with city and occupation level fixed effects. $\hat{\eta_c^1}$ will be our city specific shifter, $\hat{\delta_k^1}$ will be our occupation specific shifter and $\hat{\epsilon_{ck}}$ will be our residuals.
+This will be a simple OLS regression with city and occupation level fixed effects on city shares by occupation. With $\hat{\eta_c^1}$ being our city specific shifter, $\hat{\delta_k^1}$ being our occupation specific shifter and $\hat{\epsilon_{ck}}$ being our residuals.
 
 \begin{align*}
     t_{ck}         & = exp \left(  (1 - \rho) \hat{\epsilon_{ck}}\right)  \\
@@ -236,6 +238,30 @@ Similarly, we will be using our occupation shares defined in expression \ref{occ
 \begin{align*}
     T_k = \lambda_k^\rho e^{\hat{\delta_k^2}}
 \end{align*}
+
+\subsection{Correlation}
+
+Notice that for us to estimate our shifters, we have to first recover our $\rho$ parameter. To do so, we exploit a variation in city-occupation shares over time. Consider the following equation at the city-occupation-year level. From expression \ref{city_occuaption_shares}, we can get the following:
+
+\begin{align*}
+    \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ckt} - \frac{1}{1 - \rho} \ln Z_{ct}^{- \theta} - \ln \lambda_{kt}
+\end{align*}
+
+Now we assume the following relationship productivity and wages at the city-occupation level: $t_{ckt} = w_{ckt} \eta_{ckt}$. Where $w_{ckt}$ are pages paid and $\eta_{ckt}$ is productivity. This will give us the following model:
+
+\begin{align*}
+    \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \ln w_{ckt} + \delta_{ct} + \delta_{kt} + \eta_{ckt}
+\end{align*}
+
+With some abuse of notation, we have defined $\eta_{ckt} = \ln \eta_{ckt}$. We now take differences over time to eliminate level shifts.
+
+\begin{align*}
+    \Delta_t \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \Delta_t \ln w_{ckt} + \delta_{ct} + \delta_{kt} + \Delta_t \eta_{ckt}
+\end{align*}
+
+We can estimate this equation by regressing wages on city occupation shares and using city and occupation fixed effects at the city-occupation level for every year with $\delta_{ct}$ being city fixed effects and $\delta_{kt}$ being occupation fixed effects. Given that $\hat{\rho} \in (0, 1)$, we will end up with the restriction $\hat{\beta} \in [1, +\infty)$.
+
+With this regression, we are testing whether migration decisions are primarily within occupations rather than across occupations. If the correlation parameter is close to 1, then migration decisions are purely within occupations. Notice that as $\hat{\rho}$ increases, $\hat{\beta}$ increases. From this perspective, we can interpret $\rho$ as governing within-occupation migration and $\theta$ as governing across-occupation migration.
 
 \newpage
 \bibliography{latest}
