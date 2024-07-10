@@ -263,6 +263,28 @@ We can estimate this equation by regressing wages on city occupation shares and 
 
 With this regression, we are testing whether migration decisions are primarily within occupations rather than across occupations. If the correlation parameter is close to 1, then migration decisions are purely within occupations. Notice that as $\hat{\rho}$ increases, $\hat{\beta}$ increases. From this perspective, we can interpret $\rho$ as governing within-occupation migration and $\theta$ as governing across-occupation migration.
 
+\begin{align*}
+    Y_{st} = A_{st} \prod_{k}^{K} Q_{kst}^{\gamma_{ks}}
+\end{align*}
+
+One concern with the initial specification is the endogeneity of wages with the error term,more explicitly $cov[w_{ckt}, \eta_{ckt}] \neq 0$. In order to instrument for the change in wages, we will use a shift share in which we make use of sectors. Here, we define a Cobb-Douglas strcture of production where the intensity of occupation $k$ in sector $s$ is given by $\gamma_{ks}$ such that $\sum_{k}^{K} \gamma_{ks} = 1$. We will use the shift share of occupation $k$ in sector $s$ as an instrument for the change in wages. $A_{st}$ will be the total factor productivity of sector $s$ in year $t$. This will give us the following first stage regression:
+
+\begin{align*}
+    \Delta_t \ln w_{ckt}^{IV} = \sum_{s}^{S} \gamma_{ks} \bar{\phi}_{cs} \Delta_t \ln A_{st}
+\end{align*}
+
+where $\bar{\phi}_{cs}$ is the  share of occupation $k$ in sector $s$ in city $c$. We will then use the predicted values of $\Delta_t \ln w_{ckt}^{IV}$ as our instrument in the second stage regression.
+
+\begin{align*}
+    \Delta_t \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \Delta_t \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt} + \Delta_t \eta_{ckt}
+\end{align*}
+
+\section{Empirical Results}
+
+\subsection{Data}
+
+We will be using data from the American Community Survey (ACS) which is a survey conducted by the US Census Bureau. The ACS is a survey that collects data on the metropolitan area and occupational level. We will be using data from 2010 to 2022. The ACS provides data on the household level, detailing wages, metropolitan area, occupation and sector of employment based on NAICS codes. We will be using this data to construct our share data $\pi_c$ $\pi_{ck}$, $\omega_k$, $\phi_{ck}$ and $\phi_{cs}$. We will also be using data from the Bureau of Labour Statistics to obtain total factor productivity data at the sector level.
+
 \newpage
 \bibliography{latest}
 
