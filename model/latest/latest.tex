@@ -86,7 +86,7 @@ A household's schedule of productivity is characterized by a vector of draws fro
     \label{nested_ces}
 \end{align}
 
-We first define $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta} T_c$ and $\gamma = \Gamma (\frac{\theta - 1}{\theta})$. Given our definition of $Z_c^{- \theta}$, $T_c$ will be absorbed within $Z_c^{- \theta}$, giving us the correlation function $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$ as defined in equation \ref{nested_ces}.
+We first define $Z_c^{- \theta} = (\gamma w_c)^{- \theta} T_c$ and $\gamma = \Gamma (\frac{\theta + 1 - \rho_k}{\theta})^{\frac{1}{1 - \rho_k}}$. Given our definition of $Z_c^{- \theta}$, $T_c$ will be absorbed within $Z_c^{- \theta}$, giving us the correlation function $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$ as defined in equation \ref{nested_ces}.
 
 \begin{align*}
     \pi_c = \frac{Z_c^{- \theta} G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
@@ -208,38 +208,38 @@ You should first notice that the second term in brackets can be either positive 
 
 \section{Estimation Strategy}
 
-\subsection{Shifters}
+% \subsection{Shifters}
 
-Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi_{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
+% Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi_{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
 
-\begin{align*}
-    \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} - \frac{1}{1 - \rho} \ln Z_c^{- \theta} - \ln \lambda_k \\
-                 & = \hat{\epsilon_{ck}} + + \hat{\eta_c^1} + \hat{\delta_k^1}
-\end{align*}
+% \begin{align*}
+%     \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} - \frac{1}{1 - \rho} \ln Z_c^{- \theta} - \ln \lambda_k \\
+%                  & = \hat{\epsilon_{ck}} + + \hat{\eta_c^1} + \hat{\delta_k^1}
+% \end{align*}
 
-This will be a simple OLS regression with city and occupation level fixed effects on city shares by occupation. With $\hat{\eta_c^1}$ being our city specific shifter, $\hat{\delta_k^1}$ being our occupation specific shifter and $\hat{\epsilon_{ck}}$ being our residuals.
+% This will be a simple OLS regression with city and occupation level fixed effects on city shares by occupation. With $\hat{\eta_c^1}$ being our city specific shifter, $\hat{\delta_k^1}$ being our occupation specific shifter and $\hat{\epsilon_{ck}}$ being our residuals.
 
-\begin{align*}
-    t_{ck}         & = exp \left(  (1 - \rho) \hat{\epsilon_{ck}}\right)  \\
-    \lambda_k      & = exp \left( (1 - \rho) \hat{\eta_c^1} \right)       \\
-    Z_c^{- \theta} & = exp \left( - \hat{\delta_k^2 }\right)              \\
-    T_c            & = Z_c^{- \theta} \left( \gamma \Phi_c \right)^\theta
-\end{align*}
+% \begin{align*}
+%     t_{ck}         & = exp \left(  (1 - \rho) \hat{\epsilon_{ck}}\right)  \\
+%     \lambda_k      & = exp \left( (1 - \rho) \hat{\eta_c^1} \right)       \\
+%     Z_c^{- \theta} & = exp \left( - \hat{\delta_k^2 }\right)              \\
+%     T_c            & = Z_c^{- \theta} \left( \gamma \Phi_c \right)^\theta
+% \end{align*}
 
-The equations above allow us to recover our city and city-occupation specific scale parameters. $\lambda_k$ will be used shortly to recover our occupation specific scale parameters.
+% The equations above allow us to recover our city and city-occupation specific scale parameters. $\lambda_k$ will be used shortly to recover our occupation specific scale parameters.
 
-\begin{align*}
-    \ln \phi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} + \ln T_k \lambda_k^{- \rho} - \ln \left( \sum_k^K t_{ck}^{\frac{1}{1 - \rho}} T_k \lambda_k^{- \rho} \right) \\
-                  & = \hat{\epsilon_{ck}} + \hat{\delta_k^2} + \hat{\eta_c^2}
-\end{align*}
+% \begin{align*}
+%     \ln \phi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} + \ln T_k \lambda_k^{- \rho} - \ln \left( \sum_k^K t_{ck}^{\frac{1}{1 - \rho}} T_k \lambda_k^{- \rho} \right) \\
+%                   & = \hat{\epsilon_{ck}} + \hat{\delta_k^2} + \hat{\eta_c^2}
+% \end{align*}
 
-Similarly, we will be using our occupation shares defined in expression \ref{occupation_by_city_shares} and have it be regressed against city and occupation fixed effects. Given that we have already identified $\lambda_k$, we can use this to recover our occupation specific scale parameters which is given by the equation below:
+% Similarly, we will be using our occupation shares defined in expression \ref{occupation_by_city_shares} and have it be regressed against city and occupation fixed effects. Given that we have already identified $\lambda_k$, we can use this to recover our occupation specific scale parameters which is given by the equation below:
 
-\begin{align*}
-    T_k = \lambda_k^\rho e^{\hat{\delta_k^2}}
-\end{align*}
+% \begin{align*}
+%     T_k = \lambda_k^\rho e^{\hat{\delta_k^2}}
+% \end{align*}
 
-\subsection{Correlation}
+\subsection{Within-Occupation Migration}
 
 Notice that for us to estimate our shifters, we have to first recover our $\rho$ parameter. To do so, we exploit a variation in city-occupation shares over time. Consider the following equation at the city-occupation-year level. From expression \ref{city_occuaption_shares}, we can get the following:
 
@@ -278,6 +278,55 @@ where $\bar{\phi}_{cs}$ is the  share of occupation $k$ in sector $s$ in city $c
 \begin{align*}
     \Delta_t \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \Delta_t \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt} + \Delta_t \eta_{ckt}
 \end{align*}
+
+\subsection{Across Occupation Migration}
+
+Given that we've identified $\rho$, we can now proceed to estimate our shape parameter $\theta$ and in the process recover all our scale parameters. We start with occupation market shares $\omega_k$ in expression \ref{occupation_shares}. By taking relative shares, we get the following:
+
+\begin{align*}
+    \frac{\omega_{kt}}{\omega_{k't}} = \frac{T_{kt} \lambda_{kt}^{1 - \rho}}{T_{k't} \lambda_{k't}^{1 - \rho}}
+\end{align*}
+
+Subject to normalization to some base occupation year, we can estimate $T_{kt} \lambda_{kt}^{1 - \rho} \forall (k, t)$. We can then use this to recover the denominator in $\omega_k$ and get $\sum_{k}^{K} T_{kt} \lambda_{kt}^{1 - \rho} \forall t$. This will be useful in recovering our city and city occupation specific scale parameters. Now consider the city-occupation shares from expression \ref{city_occuaption_shares} taken in logs and transformed into a form with fixed effects:
+
+\begin{align*}
+    \ln \pi_{ckt} & = \frac{1}{1 - \rho} \ln t_{ckt} - \frac{1}{1 - \rho} \ln Z_{ct}^{- \theta} - \ln \lambda_{kt} \\
+                  & = \hat{\epsilon}_{ckt} + \hat{\delta}_{ct} + \hat{\delta}_{kt}
+\end{align*}
+
+such that,
+
+\begin{align*}
+    \hat{\lambda}_{kt} & = \exp \left( - \hat{\delta}_{kt} \right)             \\
+    \hat{t}_{ckt}      & = \exp \left( (1 - \rho) \hat{\epsilon}_{ckt} \right) \\
+\end{align*}
+
+We can then use the estimated $\hat{\lambda}_{kt}$ to recover our occupation specific scale parameters:
+
+\begin{align*}
+    \hat{T}_{kt} = \frac{\widehat{\sum_{k}^{K} T_{kt} \lambda_{kt}^{1 - \rho}}}{\hat{\lambda}_{kt}^{1 - \rho}}
+\end{align*}
+
+Now we need some way for us to recover productivity in order to estimate the shape parameter $\theta$. Consider the following modification to city shares using our recovered parameters:
+
+\begin{align*}
+    \tilde{\pi}_{ct} & = \pi_{ct} \frac{\sum_{k}^{K} T_{kt} \lambda_{kt}^{- \rho}}{\sum_{k}^{K} t_{ckt}^{\frac{1}{1 - \rho}} T_{kt} \lambda_{kt}^{1 - \rho}} \\
+                     & = Z_{ct}^{- \frac{\theta}{1 - \rho}}
+\end{align*}
+
+We now take logs and difference the equation to eliminate the level shift. Recalling our definition of $Z_c^{- \theta} = (\gamma w_c)^{- \theta} T_c$, we get the following estimation equation:
+
+\begin{align*}
+    \Delta_t \ln \hat{\pi}_{ct} = \hat{\beta} \Delta_t \ln w_{ct} + \Delta_t \hat{\eta}_{ct}
+\end{align*}
+
+The differencing will eliminate $\gamma$, which is constant over time, leaving us with a regression of changes in wages and city fixed effects over time on changes in city shares. The coefficient $\hat{\beta}$ will be our estimate of $ - \theta / (1 - \rho)$, which when rearranged gives us $\hat{\theta} = - \hat{\beta} (1 - \hat{\rho})$. Note the relationship between $\theta$ and $\rho$ is such that as $\rho$ increases, $\theta$ decreases. This indicates that as the strength of within occupation migration increases, the across occupation migration becomes less important, reinforcing our interpretation of $\rho$ as governing within-occupation migration and $\theta$ as governing across-occupation migration.
+
+\begin{align*}
+    \hat{T}_{ct} = exp \left( (1 - \rho) \hat{\eta}_{ct} \right)
+\end{align*}
+
+Using this regression, we also recover city level shifters from fixed effects estimates.
 
 \section{Empirical Results}
 
