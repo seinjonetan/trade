@@ -4,7 +4,7 @@ Dep. Variable:            wage_change   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                  0.001
 Method:                 Least Squares   F-statistic:                     21.52
 Date:                Tue, 16 Jul 2024   Prob (F-statistic):           3.53e-06
-Time:                        15:49:22   Log-Likelihood:                 1098.8
+Time:                        19:51:08   Log-Likelihood:                 1098.8
 No. Observations:               17160   AIC:                            -2194.
 Df Residuals:                   17158   BIC:                            -2178.
 Df Model:                           1                                         

@@ -4,7 +4,7 @@ Dep. Variable:                 shares   R-squared:                       0.954
 Model:                            OLS   Adj. R-squared:                  0.948
 Method:                 Least Squares   F-statistic:                     159.4
 Date:                Tue, 16 Jul 2024   Prob (F-statistic):               0.00
-Time:                        15:49:17   Log-Likelihood:                 345.07
+Time:                        19:51:04   Log-Likelihood:                 345.07
 No. Observations:               23490   AIC:                             4690.
 Df Residuals:                   20800   BIC:                         2.638e+04
 Df Model:                        2689                                         
