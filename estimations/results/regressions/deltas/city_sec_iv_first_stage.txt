@@ -2,26 +2,26 @@
 ==============================================================================
 Dep. Variable:            wage_change   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                  0.001
-Method:                 Least Squares   F-statistic:                     21.52
-Date:                Tue, 16 Jul 2024   Prob (F-statistic):           3.53e-06
-Time:                        19:51:08   Log-Likelihood:                 1098.8
-No. Observations:               17160   AIC:                            -2194.
-Df Residuals:                   17158   BIC:                            -2178.
+Method:                 Least Squares   F-statistic:                     23.01
+Date:                Wed, 17 Jul 2024   Prob (F-statistic):           1.62e-06
+Time:                        21:37:00   Log-Likelihood:                 1099.5
+No. Observations:               17160   AIC:                            -2195.
+Df Residuals:                   17158   BIC:                            -2179.
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==================================================================================
                      coef    std err          t      P>|t|      [0.025      0.975]
 ----------------------------------------------------------------------------------
-Intercept          0.0243      0.002     13.692      0.000       0.021       0.028
-sim_occ_change     9.8321      2.120      4.639      0.000       5.678      13.987
+Intercept          0.0241      0.002     13.555      0.000       0.021       0.028
+sim_occ_change    10.2656      2.140      4.797      0.000       6.071      14.460
 ==============================================================================
-Omnibus:                     3580.577   Durbin-Watson:                   2.840
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):           141777.274
-Skew:                           0.047   Prob(JB):                         0.00
-Kurtosis:                      17.081   Cond. No.                     1.22e+03
+Omnibus:                     3581.232   Durbin-Watson:                   2.840
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           141835.040
+Skew:                           0.048   Prob(JB):                         0.00
+Kurtosis:                      17.084   Cond. No.                     1.24e+03
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The condition number is large, 1.22e+03. This might indicate that there are
+[2] The condition number is large, 1.24e+03. This might indicate that there are
 strong multicollinearity or other numerical problems.
