@@ -600,13 +600,13 @@ INPUT ../../estimations/graphs/top_25_city_heatmap.png
 INPUT ../../estimations/graphs/top_25_city_heatmap.png
 INPUT ../../estimations/graphs/top_25_city_heatmap.png
 INPUT ../../estimations/graphs/top_25_city_heatmap.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm
 INPUT ./latest.bbl
 INPUT latest.bbl
 INPUT ./latest.bbl
 INPUT latest.bbl
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/eccc1000.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm
 INPUT latest.aux
 INPUT ./latest.out
 INPUT ./latest.out
