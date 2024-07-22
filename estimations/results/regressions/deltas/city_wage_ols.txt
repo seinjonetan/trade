@@ -4,7 +4,7 @@ Dep. Variable:       log_share_change   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                    nan
 Method:                 Least Squares   F-statistic:                       nan
 Date:                Mon, 22 Jul 2024   Prob (F-statistic):                nan
-Time:                        17:44:51   Log-Likelihood:                 81462.
+Time:                        23:19:03   Log-Likelihood:                 81462.
 No. Observations:                2320   AIC:                        -1.583e+05
 Df Residuals:                       0   BIC:                        -1.449e+05
 Df Model:                        2319                                         
