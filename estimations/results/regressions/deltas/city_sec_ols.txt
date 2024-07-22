@@ -3,8 +3,8 @@
 Dep. Variable:      actual_occ_change   R-squared:                       0.121
 Model:                            OLS   Adj. R-squared:                 -0.008
 Method:                 Least Squares   F-statistic:                    0.9359
-Date:                Wed, 17 Jul 2024   Prob (F-statistic):              0.979
-Time:                        21:37:16   Log-Likelihood:                 3316.0
+Date:                Fri, 19 Jul 2024   Prob (F-statistic):              0.979
+Time:                        18:40:25   Log-Likelihood:                 3316.0
 No. Observations:               17160   AIC:                            -2214.
 Df Residuals:                   14951   BIC:                         1.491e+04
 Df Model:                        2208                                         

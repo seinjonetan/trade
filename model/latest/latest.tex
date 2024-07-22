@@ -269,16 +269,22 @@ With this regression, we are testing whether migration decisions are primarily w
     Y_{st} = A_{st} \prod_{k}^{K} Q_{kst}^{\gamma_{ks}}
 \end{align*}
 
-One concern with the initial specification is the endogeneity of wages with the error term,more explicitly $cov[w_{ckt}, \eta_{ckt}] \neq 0$. In order to instrument for the change in wages, we will use a shift share in which we make use of sectors. Here, we define a Cobb-Douglas strcture of production where the intensity of occupation $k$ in sector $s$ is given by $\gamma_{ks}$ such that $\sum_{k}^{K} \gamma_{ks} = 1$. We will use the shift share of occupation $k$ in sector $s$ as an instrument for the change in wages. $A_{st}$ will be the total factor productivity of sector $s$ in year $t$. This will give us the following first stage regression:
+One concern with the initial specification is the endogeneity of wages with the error term,more explicitly $cov[w_{ckt}, \eta_{ckt}] \neq 0$. In order to instrument for the change in wages, we will use a shift share in which we make use of sectors. Here, we define a Cobb-Douglas strcture of production where the intensity of occupation $k$ in sector $s$ is given by $\gamma_{ks}$ such that $\sum_{k}^{K} \gamma_{ks} = 1$. We will use the shift share of occupation $k$ in sector $s$ as an instrument for the change in wages. $A_{st}$ will be the total factor productivity of sector $s$ in year $t$.
 
 \begin{align*}
-    \Delta_t \ln w_{ckt}^{IV} = \sum_{s}^{S} \gamma_{ks} \bar{\phi}_{cs} \Delta_t \ln A_{st}
+    w_{ckt}^{IV} = \sum_{s}^{S} \gamma_{ks} \bar{\phi}_{cs} A_{st}
 \end{align*}
 
-where $\bar{\phi}_{cs}$ is the  share of occupation $k$ in sector $s$ in city $c$. We will then use the predicted values of $\Delta_t \ln w_{ckt}^{IV}$ as our instrument in the second stage regression.
+where $\bar{\phi}_{cs}$ is the  share of occupation $k$ in sector $s$ in city $c$. This will give us the following first stage regression:
 
 \begin{align*}
-    \Delta_t \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \Delta_t \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt} + \Delta_t \eta_{ckt}
+    \ln w_{ckt}^{IV} = \beta^{IV} \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt}^{IV} + \eta_{ckt}^{IV}
+\end{align*}
+
+We will then use the predicted values of $\ln w_{ckt}^{IV}$ as our instrument in the second stage regression.
+
+\begin{align*}
+    \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt} + \eta_{ckt}
 \end{align*}
 
 \subsection{Across Occupation Migration}

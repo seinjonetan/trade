@@ -3,17 +3,17 @@
 Dep. Variable:            wage_change   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                  0.001
 Method:                 Least Squares   F-statistic:                     23.01
-Date:                Wed, 17 Jul 2024   Prob (F-statistic):           1.62e-06
-Time:                        21:37:00   Log-Likelihood:                 1099.5
+Date:                Fri, 19 Jul 2024   Prob (F-statistic):           1.62e-06
+Time:                        18:40:09   Log-Likelihood:                 1099.5
 No. Observations:               17160   AIC:                            -2195.
 Df Residuals:                   17158   BIC:                            -2179.
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
-==================================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-----------------------------------------------------------------------------------
-Intercept          0.0241      0.002     13.555      0.000       0.021       0.028
-sim_occ_change    10.2656      2.140      4.797      0.000       6.071      14.460
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+Intercept           0.0241      0.002     13.555      0.000       0.021       0.028
+sim_wage_change    10.2656      2.140      4.797      0.000       6.071      14.460
 ==============================================================================
 Omnibus:                     3581.232   Durbin-Watson:                   2.840
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):           141835.040
