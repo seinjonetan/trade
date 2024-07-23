@@ -1,16 +1,18 @@
 # Fdb version 3
-["bibtex latest"] 1721675500 "latest.aux" "latest.bbl" "latest" 1721675500
+["bibtex latest"] 1721768989 "latest.aux" "latest.bbl" "latest" 1721769240
   "/usr/share/texlive/texmf-dist/bibtex/bst/economic/ecta.bst" 1389482635 29983 0ef0a2bd678e76d0ae833edd63f5ad06 ""
-  "latest.aux" 1721675500 4487 4eddee1af39f208880900f7e6243fd16 "pdflatex"
+  "latest.aux" 1721769240 4485 34be737823ea1c17fb58f6a99852dd71 "pdflatex"
   "latest.bib" 1720053974 2611 18df6b02240d1581f69b815d165c1184 ""
   (generated)
   "latest.bbl"
   "latest.blg"
-["pdflatex"] 1721675500 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1721675500
+["pdflatex"] 1721769240 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1721769240
   "../../estimations/graphs/city_employment_share.png" 1721253734 24406 c55da95e9f6f3b082ddefb6db3494f0e ""
   "../../estimations/graphs/top_25_city_heatmap.png" 1721253734 70636 cdcffff75b92e975677999780544d69c ""
+  "../../estimations/tables/T_c.tex" 1721768904 437 57b0df7d936851501ed046508b966788 ""
+  "../../estimations/tables/T_k.tex" 1721768904 282 9e5c2061ba0d9ac8a6073f70f34c905b ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/model/latest/latest.tex" 1721675499 57418 696bfdc18ed3d87395ed0607edaf1084 ""
+  "/home/sjone9/school/trade/model/latest/latest.tex" 1721769240 57992 9685f13f953d6fed459ea3d9c17a911d ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -61,6 +63,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty" 1622581934 4946 461cc78f6f26901410d9f1d725079cc6 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty" 1622581934 5049 969aec05d5f39c43f8005910498fcf90 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1636758526 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty" 1561238569 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
@@ -99,10 +102,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "latest.aux" 1721675500 4487 4eddee1af39f208880900f7e6243fd16 "pdflatex"
-  "latest.bbl" 1721675500 794 85fe27edcfd4da585748c803d1df3422 "bibtex latest"
-  "latest.out" 1721675500 2858 ea86cc35986b4bf1a94440811bdc0278 "pdflatex"
-  "latest.tex" 1721675499 57418 696bfdc18ed3d87395ed0607edaf1084 ""
+  "latest.aux" 1721769240 4485 34be737823ea1c17fb58f6a99852dd71 "pdflatex"
+  "latest.bbl" 1721768990 794 85fe27edcfd4da585748c803d1df3422 "bibtex latest"
+  "latest.out" 1721769240 2523 cc483846f9975f19c08941e82d1ca954 "pdflatex"
+  "latest.tex" 1721769240 57992 9685f13f953d6fed459ea3d9c17a911d ""
   (generated)
   "latest.aux"
   "latest.log"

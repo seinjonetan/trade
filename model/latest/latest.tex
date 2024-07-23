@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{natbib}
+\usepackage{booktabs}
 \onehalfspacing
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
@@ -380,11 +381,26 @@ To recover our $\rho$ parameter, we run a two stage least squares regression wit
 
 When taking a look at the regression of wages against city shares, we $\hat{\beta}$ to be fairly low, giving us a resulting $\theta$ of 0.02. This is surprising for a couple of reasons. First, it indicates to us that the shape of the Fr\'{e}chet distributions are mainly controlled by the correlation parameter $\rho$, meaning that across labor migration, meaning migration that is purely due to cities is not that important. Second, it means that migration is mainly within occupations rather than across occupations. Resulting in a dynamic where people are actually very willing to migrate, but only to cities that have the occupations they are looking for.
 
-Given the previous result, we shouldn't be too surprised by the estimates of our shifters. In 2010, we find that occupation shifters are significantly higher compared to city shifters. This is reflective of our initial result indicating that occupations matter more to migration compared to cities themselves. For occupation shifters, what we find surprising is the significantly higher estimate of primary occupations, which suggests that these occupations are highly attractive to households. One interpretation that we can give is that since cities with primary occupations are likely small towns which tends to specialize in these occupations such as farming, while they are unattractive to any household who does not specialize in these occupations, they will be highly attractive to the ones who do. Meaning that since primary occupations can only be done in certain cities, households who specialize in these occupations will move to these cities even if the city itself is highly unattractive.
+\begin{table}
+    \centering
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \caption{Occupation Shifters}
+        \input{../../estimations/tables/T_k.tex}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.55\textwidth}
+        \centering
+        \caption{Top City Shifters}
+        \input{../../estimations/tables/T_c.tex}
+    \end{minipage}
+\end{table}
 
-In contrast, for occupations that can be done in most cities and sometime even remotely like management and professional services, these occupations, while highly attractive in terms of salary, become less of a pull for households since these occupations can found in most cities. So for cities that specialize in these occupations, their elasticities will be higher compared to cities that specialize in primary occupations, which is consistent with the increase in migration between large cities. Unlike in the early 20th century where we observe a lot of rural urban migration, since most urban cities have started to develop similar compositions in terms of their occupations, we see people migrating between large cities due to people looking for the same occupations.
+In 2019, we find that occupation shifters are generally lower when compared to city shifters. Given that cities have to be scaled by an additional factor of theta, this still means that the resulting effect from occupation shifters will still be higher when compared to city shifters. For occupation shifters, it's no surprise that professional and management services have the highest shifter given the portion of households employed in these occupations. Conversely, primary sector occupations will have the lowest shifters, coupled with the fact that these occupations are generally done in cities with low shifters themselves, this will result in cities specializing in primary occupations to have low shares of households. One distinction we have to make however is that while is city occupation pair is generally unattractive to most households, the households to tend to specialize in these occupations will be very willing to move to these cities with occupations that match their abilities.
 
-Unsurprisingly, the high estimates of occupation shifters mean that we obtain fairly low estimates of city shifters. The cities with the highest shifters are dense metropolitan areas such as New York and Los Angeles, reflecting the large population it attracts. Notable in our estimates is the variance in shifter estimates between cities, with some shifters being up to 3 times more than others, indicating significant heterogeneity in the attractiveness of cities. This makes sense as large cities tend to offer more and better amenities as well as better access to jobs, making them more attractive to households. We also find that city shifters tend to be fairly stable over time with changes being generally below 10\% over the 10 year period. Given how long it takes for cities to build infrastructure and other amenities in addition to needing to separate themselves from other cities, this is not surprising.
+Most dense metropolitan areas tend to specialize in occupations that have high shifters, which would explain why there has been a large pattern of rural urban migration to those cities in the past. But now that most cities have started to develop similar compositions in terms of their occupations, we see large cities competing with each other for household shares, which is why we don't see one particular city being the most attractive to all households. While large cities tend to have similar compositions overall, cities still manage to distinguish themselves from each other by having distinct compositions in the other occupations. Even though a city like New York may be concentrated in management and professional services, it has a higher concentration in sales when compared to a city like Los Angeles. This would mean that these cities are large because of their biggest occupations, but they don't compete purely based on scale with other cities.
+
+Unsurprisingly, cities with the highest shifters are dense metropolitan areas such as New York and Los Angeles, reflecting the large population it attracts. Notable in our estimates is the variance in shifter estimates between cities, with some shifters being up to 3 times more than others, indicating significant heterogeneity in the attractiveness of cities. This makes sense as large cities tend to offer more and better amenities as well as better access to jobs, making them more attractive to households. We also find that city shifters tend to be fairly stable over time with changes being generally below 10\% over the 10 year period. Given how long it takes for cities to build infrastructure and other amenities in addition to needing to separate themselves from other cities, this is not surprising.
 
 \section{Quantitative Exercises}
 
@@ -511,74 +527,74 @@ We can therefore solve for this cross-derivative as the following:
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} & = \sum\limits_{k}\Big[-\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}{\pi_{{c'}k}}\Big]+\sum\limits_{k}\Big[-\omega_{k}\pi_{{c'}k}\Big] \\ &= -\sum\limits_{k}{\pi_{{c'}k}}\Big[\omega_{k}+\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}\Big]
 \end{align*}
 
-\subsection{Cross City Elasticity}
+% \subsection{Cross City Elasticity}
 
-\begin{align*}
-    \ln \pi_c = \frac{1}{1 - \rho} \ln Z_c^{- \theta} + \ln \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right) - \ln \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)
-\end{align*}
+% \begin{align*}
+%     \ln \pi_c = \frac{1}{1 - \rho} \ln Z_c^{- \theta} + \ln \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right) - \ln \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)
+% \end{align*}
 
-\begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+% \end{align*}
 
-Consider the derivative of $\lambda_k$ with respect to $T_{c'}$:
+% Consider the derivative of $\lambda_k$ with respect to $T_{c'}$:
 
-\begin{align*}
-    \frac{\partial \lambda_k}{\partial T_{c'}} & = T_k^{\frac{1}{1 - \rho}} \left( \frac{1}{1 - \rho} \right) T_{c'}^{\frac{1}{1 - \rho} - 1} t_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{\rho}{1 - \rho}} \\
-                                               & = \frac{1}{1 - \rho} \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \lambda_k}{\partial T_{c'}} & = T_k^{\frac{1}{1 - \rho}} \left( \frac{1}{1 - \rho} \right) T_{c'}^{\frac{1}{1 - \rho} - 1} t_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{\rho}{1 - \rho}} \\
+%                                                & = \frac{1}{1 - \rho} \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}
+% \end{align*}
 
-Consider the first term in the derivative:
+% Consider the first term in the derivative:
 
-\begin{align*}
-    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} T_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \times T_{c'} \\
-                                                                                                                                                                                                   & = - \frac{\rho}{1 - \rho} \frac{\sum_{k}^{}T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}                                                                                                       \\
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} T_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \times T_{c'} \\
+%                                                                                                                                                                                                    & = - \frac{\rho}{1 - \rho} \frac{\sum_{k}^{}T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}                                                                                                       \\
+% \end{align*}
 
-Now consider the second term in the derivative:
+% Now consider the second term in the derivative:
 
-\begin{align*}
-    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \sum_{k}^{} \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} \lambda_k^{- \theta}} \times T_{c'} \\
-                                                                                                                                       & = \frac{\rho}{1 - \rho} \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k} }{\sum_{k}^{} \lambda_k^{- \rho}}                                                                                              \\
-\end{align*}
+% \begin{align*}
+%     - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \sum_{k}^{} \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} \lambda_k^{- \theta}} \times T_{c'} \\
+%                                                                                                                                        & = \frac{\rho}{1 - \rho} \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k} }{\sum_{k}^{} \lambda_k^{- \rho}}                                                                                              \\
+% \end{align*}
 
-This will give us:
+% This will give us:
 
-\begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\rho}{1 - \rho} \left[ \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{- \rho}} - \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\rho}{1 - \rho} \left[ \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{- \rho}} - \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
+% \end{align*}
 
-\subsection{Technology Elasticity}
+% \subsection{Technology Elasticity}
 
-\begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
+% \end{align*}
 
-Consider the derivative of $\lambda_k$ with respect to $T_k$:
+% Consider the derivative of $\lambda_k$ with respect to $T_k$:
 
-\begin{align*}
-    \frac{\partial \lambda_k}{\partial T_k} & = \frac{1}{1 - \rho} T_k^{\frac{1}{1 -\rho} - 1} \sum_{k}^{} (T_c t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} \\
-                                            & =\frac{1}{1 - \rho} \frac{1}{T_k} \lambda_k
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \lambda_k}{\partial T_k} & = \frac{1}{1 - \rho} T_k^{\frac{1}{1 -\rho} - 1} \sum_{k}^{} (T_c t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} \\
+%                                             & =\frac{1}{1 - \rho} \frac{1}{T_k} \lambda_k
+% \end{align*}
 
-Consider the first term in the derivative:
+% Consider the first term in the derivative:
 
-\begin{align*}
-    \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
-                                                                                                                                                                                             & = \phi_{ck}
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
+%                                                                                                                                                                                              & = \phi_{ck}
+% \end{align*}
 
-Consider the second term in the derivative:
+% Consider the second term in the derivative:
 
-\begin{align*}
-    - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{(1 - \rho) \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} \times T_k \\
-                                                                                                                                 & = - \omega_k
-\end{align*}
+% \begin{align*}
+%     - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{(1 - \rho) \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} \times T_k \\
+%                                                                                                                                  & = - \omega_k
+% \end{align*}
 
-This will give us:
+% This will give us:
 
-\begin{align*}
-    \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} - \omega_k
-\end{align*}
+% \begin{align*}
+%     \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} - \omega_k
+% \end{align*}
 
 \end{document}
