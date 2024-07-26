@@ -3,8 +3,8 @@
 Dep. Variable:      actual_occ_change   R-squared:                       0.121
 Model:                            OLS   Adj. R-squared:                 -0.008
 Method:                 Least Squares   F-statistic:                    0.9359
-Date:                Wed, 24 Jul 2024   Prob (F-statistic):              0.979
-Time:                        00:06:31   Log-Likelihood:                 3316.0
+Date:                Fri, 26 Jul 2024   Prob (F-statistic):              0.979
+Time:                        17:58:55   Log-Likelihood:                 3316.0
 No. Observations:               17160   AIC:                            -2214.
 Df Residuals:                   14951   BIC:                         1.491e+04
 Df Model:                        2208                                         
@@ -2238,5 +2238,5 @@ Kurtosis:                       9.786   Cond. No.                     1.05e+16
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The smallest eigenvalue is 1.58e-28. This might indicate that there are
+[2] The smallest eigenvalue is 1.59e-28. This might indicate that there are
 strong multicollinearity problems or that the design matrix is singular.

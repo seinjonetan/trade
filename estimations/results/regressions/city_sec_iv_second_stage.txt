@@ -3,8 +3,8 @@
 Dep. Variable:          actual_shares   R-squared:                       0.956
 Model:                            OLS   Adj. R-squared:                  0.949
 Method:                 Least Squares   F-statistic:                     145.8
-Date:                Wed, 24 Jul 2024   Prob (F-statistic):               0.00
-Time:                        00:06:57   Log-Likelihood:                 318.35
+Date:                Fri, 26 Jul 2024   Prob (F-statistic):               0.00
+Time:                        17:59:20   Log-Likelihood:                 318.35
 No. Observations:               19280   AIC:                             4325.
 Df Residuals:                   16799   BIC:                         2.384e+04
 Df Model:                        2480                                         
@@ -2506,10 +2506,10 @@ predicted_wage                                                            2.7771
 Omnibus:                     2554.831   Durbin-Watson:                   0.868
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):            21387.971
 Skew:                           0.365   Prob(JB):                         0.00
-Kurtosis:                       8.108   Cond. No.                     1.03e+17
+Kurtosis:                       8.108   Cond. No.                     1.00e+17
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The smallest eigenvalue is 1.91e-28. This might indicate that there are
+[2] The smallest eigenvalue is 2.01e-28. This might indicate that there are
 strong multicollinearity problems or that the design matrix is singular.

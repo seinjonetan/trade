@@ -370,17 +370,17 @@ We will be using data from the American Community Survey (ACS) which is a survey
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_city_heatmap.png}
-        \subcaption{Composition of Top 25 MSAs in 2019}
+        \subcaption{Composition of Top 10 MSAs in 2019}
         \label{top_25_city_heatmap}
     \end{minipage}
     \caption*{\small\textit{Note: We will be referring to MSAs as cities throughout the paper.}}
 \end{figure}
 
-From the data in Figure \ref{employment_city_share}, we see that a few metropolitan areas own a disproportionate share of employment which illustrates the size effects of cities to attract employment and households. Intuitively, we should expect these cities to be very different from each other in terms of their specialization, otherwise we would expect the largest city with a particular composition to dominate in the share of households. When zooming into the compositions of the top 25 cities however, we see a different story. In Figure \ref{top_25_city_heatmap}, we see that the top 25 cities are very similar with each other in terms of their specialization. With all cities specializing in occupations like management and professional services. While there is some heterogeneity in the composition of cities, the specialization of cities is not as pronounced as we would expect. This indicates to us that the occupation shifter will play a large role in determining the attractiveness of a city.
+From the data in Figure \ref{employment_city_share}, we see that a few metropolitan areas own a disproportionate share of employment which illustrates the size effects of cities to attract employment and households. Intuitively, we should expect these cities to be very different from each other in terms of their specialization, otherwise we would expect the largest city with a particular composition to dominate in the share of households. When zooming into the compositions of the top 10 cities however, we see a different story. In Figure \ref{top_25_city_heatmap}, we see that the top 25 cities are very similar with each other in terms of their specialization. With all cities specializing in occupations like management and professional services. While there is some heterogeneity in the composition of cities, the specialization of cities is not as pronounced as we would expect. This indicates to us that the occupation shifter will play a large role in determining the attractiveness of a city.
 
 \subsection{Results}
 
-To recover our $\rho$ parameter, we run a two stage least squares regression with a shift share instrument. We find that this regression yields a high F-Statistic and a significantly higher estimate for $\hat{\beta}$ compared to ols. This ultimately results in a fairly high estimate of $\hat{\rho} = 0.67$. The result means that draws across cities within any given occupation id highly correlated and indicates to us that people are very likely to migrate within occupations. This is consistent with the idea that people are more likely to move to cities where they can find jobs in their occupation.
+To recover our $\rho$ parameter, we run a two stage least squares regression with a shift share instrument. We find that this regression yields a high F-Statistic and a significantly higher estimate for $\hat{\beta}$ compared to ols\footnote{Refer to appendix 8.2 for full regression table}. This ultimately results in a fairly high estimate of $\hat{\rho} = 0.67$. The result means that draws across cities within any given occupation id highly correlated and indicates to us that people are very likely to migrate within occupations. This is consistent with the idea that people are more likely to move to cities where they can find jobs in their occupation.
 
 When taking a look at the regression of wages against city shares, we $\hat{\beta}$ to be fairly low, giving us a resulting $\theta$ of 0.02. This is surprising for a couple of reasons. First, it indicates to us that the shape of the Fr\'{e}chet distributions are mainly controlled by the correlation parameter $\rho$, meaning that across labor migration, meaning migration that is purely due to cities is not that important. Second, it means that migration is mainly within occupations rather than across occupations. Resulting in a dynamic where people are actually very willing to migrate, but only to cities that have the occupations they are looking for.
 
@@ -566,6 +566,14 @@ We can therefore solve for this cross-derivative as the following:
 \begin{align*}
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} & = \sum\limits_{k}\Big[-\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}{\pi_{{c'}k}}\Big]+\sum\limits_{k}\Big[-\omega_{k}\pi_{{c'}k}\Big] \\ &= -\sum\limits_{k}{\pi_{{c'}k}}\Big[\omega_{k}+\Big(\frac{\rho}{1-\rho}\Big)\phi_{ck}\Big]
 \end{align*}
+
+\subsection{Regression Tables}
+
+\subsubsection{First Stage Shift Share Regression}
+\input{../../estimations/tables/city_sec_iv_first_stage.tex}
+
+\subsubsection{OLS vs IV Regression}
+\input{../../estimations/tables/city_sec_iv_ols.tex}
 
 % \subsection{Cross City Elasticity}
 
