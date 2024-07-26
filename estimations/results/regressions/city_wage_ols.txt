@@ -3,10 +3,10 @@
 Dep. Variable:              log_share   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                    nan
 Method:                 Least Squares   F-statistic:                       nan
-Date:                Mon, 22 Jul 2024   Prob (F-statistic):                nan
-Time:                        23:18:59   Log-Likelihood:                 69261.
-No. Observations:                2610   AIC:                        -1.333e+05
-Df Residuals:                       0   BIC:                        -1.180e+05
+Date:                Wed, 24 Jul 2024   Prob (F-statistic):                nan
+Time:                        00:06:09   Log-Likelihood:                 68933.
+No. Observations:                2610   AIC:                        -1.326e+05
+Df Residuals:                       0   BIC:                        -1.173e+05
 Df Model:                        2609                                         
 Covariance Type:            nonrobust                                         
 =========================================================================================================================================
@@ -2624,10 +2624,10 @@ C(city_year)[T.(Yuma, AZ)_2018]                                          -1.5170
 C(city_year)[T.(Yuma, AZ)_2019]                                          -1.4768        inf         -0        nan         nan         nan
 log_wage                                                                  0.3251        inf          0        nan         nan         nan
 ==============================================================================
-Omnibus:                     7696.517   Durbin-Watson:                   0.015
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):        398106571.845
-Skew:                          40.526   Prob(JB):                         0.00
-Kurtosis:                    1914.591   Cond. No.                     3.35e+04
+Omnibus:                     7768.933   Durbin-Watson:                   0.015
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):        427119792.326
+Skew:                          41.571   Prob(JB):                         0.00
+Kurtosis:                    1983.057   Cond. No.                     3.35e+04
 ==============================================================================
 
 Notes:

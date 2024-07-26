@@ -3,8 +3,8 @@
 Dep. Variable:                   wage   R-squared:                       0.881
 Model:                            OLS   Adj. R-squared:                  0.863
 Method:                 Least Squares   F-statistic:                     49.97
-Date:                Mon, 22 Jul 2024   Prob (F-statistic):               0.00
-Time:                        23:19:37   Log-Likelihood:                 5210.0
+Date:                Wed, 24 Jul 2024   Prob (F-statistic):               0.00
+Time:                        00:06:43   Log-Likelihood:                 5210.0
 No. Observations:               19280   AIC:                            -5458.
 Df Residuals:                   16799   BIC:                         1.406e+04
 Df Model:                        2480                                         
@@ -2506,10 +2506,10 @@ sim_wage                                                                  0.5230
 Omnibus:                     3223.465   Durbin-Watson:                   1.372
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):            45098.284
 Skew:                          -0.370   Prob(JB):                         0.00
-Kurtosis:                      10.456   Cond. No.                     1.17e+16
+Kurtosis:                      10.456   Cond. No.                     1.18e+16
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The smallest eigenvalue is 1.93e-28. This might indicate that there are
+[2] The smallest eigenvalue is 1.88e-28. This might indicate that there are
 strong multicollinearity problems or that the design matrix is singular.
