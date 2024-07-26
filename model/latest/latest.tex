@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{booktabs}
+\usepackage{subcaption}
 \onehalfspacing
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
@@ -359,18 +360,20 @@ We will be using data from the American Community Survey (ACS) which is a survey
 
 \begin{figure}[!htb]
     \centering
+    Figure 1: Summary Statistics of Metropolitan Statistical Areas (MSA) in 2019\par\medskip
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../../estimations/graphs/city_employment_share.png}
-        \caption{City Employment Share}
+        \subcaption{Employment Share by MSA in 2019}
         \label{employment_city_share}
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_city_heatmap.png}
-        \caption{Occupation Shares by Cities}
+        \subcaption{Composition of Top 25 MSAs in 2019}
         \label{top_25_city_heatmap}
     \end{minipage}
+    \caption*{\small\textit{Note: We will be referring to MSAs as cities throughout the paper.}}
 \end{figure}
 
 From the data in Figure \ref{employment_city_share}, we see that a few metropolitan areas own a disproportionate share of employment which illustrates the size effects of cities to attract employment and households. Intuitively, we should expect these cities to be very different from each other in terms of their specialization, otherwise we would expect the largest city with a particular composition to dominate in the share of households. When zooming into the compositions of the top 25 cities however, we see a different story. In Figure \ref{top_25_city_heatmap}, we see that the top 25 cities are very similar with each other in terms of their specialization. With all cities specializing in occupations like management and professional services. While there is some heterogeneity in the composition of cities, the specialization of cities is not as pronounced as we would expect. This indicates to us that the occupation shifter will play a large role in determining the attractiveness of a city.
@@ -381,19 +384,21 @@ To recover our $\rho$ parameter, we run a two stage least squares regression wit
 
 When taking a look at the regression of wages against city shares, we $\hat{\beta}$ to be fairly low, giving us a resulting $\theta$ of 0.02. This is surprising for a couple of reasons. First, it indicates to us that the shape of the Fr\'{e}chet distributions are mainly controlled by the correlation parameter $\rho$, meaning that across labor migration, meaning migration that is purely due to cities is not that important. Second, it means that migration is mainly within occupations rather than across occupations. Resulting in a dynamic where people are actually very willing to migrate, but only to cities that have the occupations they are looking for.
 
-\begin{table}
+\begin{table}[!htb]
     \centering
+    \caption{Estimations for $T_c$ and $T_k$ for 2019}
     \begin{minipage}{0.4\textwidth}
         \centering
-        \caption{Occupation Shifters}
+        \caption*{(A) Occupation Shifters}
         \input{../../estimations/tables/T_k.tex}
     \end{minipage}
     \hfill
     \begin{minipage}{0.55\textwidth}
         \centering
-        \caption{Top City Shifters}
+        \caption*{(B) Top City Shifters}
         \input{../../estimations/tables/T_c.tex}
     \end{minipage}
+    \caption*{\small\textit{Note: Occupation and city shifters are not directly comparable. Recall that occupations are scaled only by $\rho$ while occupations are scaled by $\rho$ and $\theta$. Comparisons should only be relative and be made within each table.}}
 \end{table}
 
 In 2019, we find that occupation shifters are generally lower compared to city shifters. However, since cities are scaled by an additional factor of theta, the resulting effect from occupation shifters remains higher than city shifters. For occupation shifters, it's unsurprising that professional and management services have the highest values, given the proportion of households employed in these occupations. Conversely, primary sector occupations have the lowest shifters. Coupled with the fact that these occupations are generally performed in cities with low shifters themselves, this results in cities specializing in primary occupations having low shares of households. It's important to note, however, that while a city-occupation pair may be generally unattractive to most households, those who specialize in these occupations will be very willing to move to cities with occupations matching their abilities.
@@ -410,20 +415,22 @@ Using our parameter and shifter estimates, we can now perform two counterfactual
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=\textwidth]{../../estimations/graphs/ny_counter.png}
-    \caption{Top 10 City Compositions}
-    \label{ny_change_graph}
+    \caption{City Compositions Benefitting from Shocks}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../estimations/graphs/ny_counter.png}
+        \subcaption{Top 10 Cities That Benefitted Most from the New York Shock}
+        \label{ny_change_graph}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../../estimations/graphs/vp_counter.png}
+        \subcaption{Top 10 Cities That Benefitted Most from the Visalia-Porterville Shock}
+        \label{vp_change_graph}
+    \end{minipage}
 \end{figure}
-
 
 Our results from the previous section suggest that while we may observe some migration to large cities purely due to their size, we should expect to see more migration to cities with similar occupational makeups. For this exercise, we induce a negative shock of 50\% to all occupations in New York, a city primarily focused on management and professional services occupations. Analyzing the results, we find that larger cities benefit most from this shock, which is not surprising. However, what's particularly interesting is that the cities benefiting most are those with similar occupational compositions, as shown in Figure \ref{ny_change_graph}. That said, when considering all cities with similar occupational compositions, the size of the city becomes the deciding factor in where people move. Given that all top cities are very similar, it's unsurprising that the vast majority of people will move to the largest city.
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=\textwidth]{../../estimations/graphs/vp_counter.png}
-    \caption{Top 10 City Compositions}
-    \label{vp_change_graph}
-\end{figure}
 
 Now, let's examine the effects of shocking a city that specializes in an occupation least likely to be found in large cities. For this case, we'll shock Visalia-Porterville, CA, a city highly specialized in primary occupations. Households specializing in these occupations are typically very willing to move to even relatively unattractive cities, provided they offer opportunities in their field. Our results confirm this expectation: we observe minimal movement to attractive but dissimilar cities, and substantial movement to cities that have a high concentration of primary occupations. This demonstrates the strong pull of occupation-specific opportunities, even when they exist in less conventionally desirable urban areas.
 
@@ -431,8 +438,8 @@ Now, let's examine the effects of shocking a city that specializes in an occupat
 
 \begin{figure}[!htb]
     \centering
+    \caption{City Compositions of the Top 10 Cities Benefitting from the Management Occupation Shock}
     \includegraphics[width=\textwidth]{../../estimations/graphs/man_counter.png}
-    \caption{Top 10 City Compositions}
     \label{man_change_graph}
 \end{figure}
 
