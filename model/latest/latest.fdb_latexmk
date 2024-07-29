@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex latest"] 1722017080 "latest.aux" "latest.bbl" "latest" 1722017081
+["bibtex latest"] 1722017080 "latest.aux" "latest.bbl" "latest" 1722017573
   "/usr/share/texlive/texmf-dist/bibtex/bst/economic/ecta.bst" 1389482635 29983 0ef0a2bd678e76d0ae833edd63f5ad06 ""
-  "latest.aux" 1722017080 5922 134b4a4d2ed4d41670cc38fd3bfb6a48 "pdflatex"
+  "latest.aux" 1722017573 5922 134b4a4d2ed4d41670cc38fd3bfb6a48 "pdflatex"
   "latest.bib" 1720053974 2611 18df6b02240d1581f69b815d165c1184 ""
   (generated)
   "latest.bbl"
   "latest.blg"
-["pdflatex"] 1722017080 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1722017081
+["pdflatex"] 1722017573 "/home/sjone9/school/trade/model/latest/latest.tex" "latest.pdf" "latest" 1722017573
   "../../estimations/graphs/city_employment_share.png" 1722012385 24406 c55da95e9f6f3b082ddefb6db3494f0e ""
   "../../estimations/graphs/man_counter.png" 1721861378 42527 c3553f89a979ff18eb716a21a20b3821 ""
   "../../estimations/graphs/ny_counter.png" 1721861378 53666 dd9d72c5381516ec37dac13e23790ee7 ""
@@ -15,7 +15,7 @@
   "../../estimations/tables/T_c.tex" 1721768904 437 57b0df7d936851501ed046508b966788 ""
   "../../estimations/tables/T_k.tex" 1721768904 282 9e5c2061ba0d9ac8a6073f70f34c905b ""
   "../../estimations/tables/city_sec_iv_first_stage.tex" 1722016747 582 e9fe933dffa1507b556094e85532188a ""
-  "../../estimations/tables/city_sec_iv_ols.tex" 1722016772 796 cba14fbcc23e311eb79266033f3c29c7 ""
+  "../../estimations/tables/city_sec_iv_ols.tex" 1722017573 2324 e2964db75c68d3f60b46b3ed2578f437 ""
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/sjone9/school/trade/model/latest/latest.tex" 1722017079 60186 028c890228320f5f835f78ed886460fc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -134,9 +134,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "latest.aux" 1722017080 5922 134b4a4d2ed4d41670cc38fd3bfb6a48 "pdflatex"
+  "latest.aux" 1722017573 5922 134b4a4d2ed4d41670cc38fd3bfb6a48 "pdflatex"
   "latest.bbl" 1722017080 794 85fe27edcfd4da585748c803d1df3422 "bibtex latest"
-  "latest.out" 1722017080 3096 32579da8f204fdb64e1ecec8892f82fa "pdflatex"
+  "latest.out" 1722017573 3096 32579da8f204fdb64e1ecec8892f82fa "pdflatex"
   "latest.tex" 1722017079 60186 028c890228320f5f835f78ed886460fc ""
   (generated)
   "latest.aux"
