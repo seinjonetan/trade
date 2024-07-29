@@ -77,11 +77,33 @@ We will assume that productivity is distributed max stable multivariate Fr\'{e}c
 
 In order to identify the three dimensions of comparative advantage, we will be separating out the scale parameter into three components where $T_{ck} = T_c T_k t_{ck}$. $T_c$ is the city specific scale parameter which captures the attractiveness of a city, shifting the distribution of all productivity draws within that city upwards. $T_k$ is the occupation specific scale parameter which is common across all cities, this captures the effect that any occupation has across all cities. $t_{ck}$ is the city-occupation specific scale parameter which captures the effect of a city on a specific occupation. This will give us the final dimension of comparative advantage.
 
-\begin{align}
+\begin{align*}
     Z = \max_c \left\{ \frac{Z_c}{\Phi_c} \right\}
-\end{align}
+\end{align*}
 
 A household's schedule of productivity is characterized by a vector of draws from different Fr\'{e}chet distributions for each city occupation pair. The realized productivity a household has in city $c$ is the occupation that maximizes the productivity has in the city. Unlike sequential games where households might pick a city before picking an occupation, we assume that households pick both simultaneously. A way to contextualize this is to think of households as already having an ideal occupation in mind when picking a city, hence $Z_c = \max_k \left\{ Z_{ck} \right\}$. This productivity is then scaled by the price index of a city to reflect how high prices reduces the purchasing power of the household within that city, hence making it less attractive.
+
+\subsection{Household Problem}
+
+\begin{align}
+    \max_{c, k} \left\{U(\nu) = \frac{y(\nu)}{\Phi_c} \right\}
+\end{align}
+
+Now assume that the economy has households of type $\nu \in [0, 1]$ who earn an income $y(\nu)$. The household's utility is given by the ratio of income to the price index of the city. Each household will simultaneously choose a city occupation pair that maximizes their utility. Given that all goods are traded freely and all firms operate in perfect competition, we will make the assumption that all cities will have a common price index $\Phi_c = \Phi$. This will allow us to simplify the household's problem to the following:
+
+\begin{align*}
+    \max_{c, k} \left\{U(\nu) = \frac{L(\nu) w_{ck}(\nu) Z_{ck}(\nu)}{\Phi} \right\}
+\end{align*}
+
+where $y(\nu) = L(\nu) w_{ck}(\nu) Z_{ck}(\nu)$, $L(\nu)$ is the time dedicated to labor, $w_{ck}(\nu)$ is the wage of the household in city $c$ working in occupation $k$, and $Z_{ck}(\nu)$ is the productivity of the household in city $c$ working in occupation $k$. We will now assume that households spend all their time working $L(\nu) = 1$ and that the wage is the only source of income. Expanding $w_{ck} = T_c T_k t_{ck}$, we wil get the final household maximization problem.
+
+\begin{align*}
+    U^{\star}(\nu) = \max_{c, k} \frac{1}{\Phi} \left\{T_c T_k t_{ck} Z_{ck}(\nu) \right\}
+\end{align*}
+
+Here, we can see that the household maximization problem is separated into two components. The first being the expected wage which households will receive in a given city-occupation pair, determined by the scale parameters $T_c$, $T_k$, and $t_{ck}$. And the second is the idiosyncratic productivity draw $Z_{ck}(\nu)$ which is drawn from a Fr\'{e}chet distribution which is unique to each household type and results in deviations from the expected choice shares. The household will choose the city-occupation pair that maximizes their utility.
+
+Due to our assumption of a common price index, we will end up with a partial equilibrium model where cities are assumed to be unable to affect the price index and that migration will not affect a particular city's price index. This is a reasonable assumption given that we are assuming that all goods are freely traded and that firms operate under perfect competition.
 
 \subsection{Equilibrium}
 
@@ -90,7 +112,7 @@ A household's schedule of productivity is characterized by a vector of draws fro
     \label{nested_ces}
 \end{align}
 
-We first define $Z_c^{- \theta} = (\gamma w_c)^{- \theta} T_c$ and $\gamma = \Gamma (\frac{\theta + 1 - \rho_k}{\theta})^{\frac{1}{1 - \rho_k}}$. Given our definition of $Z_c^{- \theta}$, $T_c$ will be absorbed within $Z_c^{- \theta}$, giving us the correlation function $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$ as defined in equation \ref{nested_ces}.
+We first define $Z_c^{- \theta} = (\gamma)^{- \theta} (T_c)^{\theta}$ and $\gamma = \Gamma (\frac{\theta + 1 - \rho_k}{\theta})^{\frac{1}{1 - \rho_k}}$. Given our definition of $Z_c^{- \theta}$, $T_c$ will be absorbed within $Z_c^{- \theta}$, giving us the correlation function $G(Z_1^{- \theta}, \dots, Z_N^{- \theta})$ as defined in equation \ref{nested_ces}.
 
 \begin{align*}
     \pi_c = \frac{Z_c^{- \theta} G_c(Z_1^{- \theta}, \dots, Z_N^{- \theta})}{G(Z_1^{- \theta}, \dots, Z_N^{- \theta})}
@@ -295,7 +317,7 @@ Now we need some way for us to recover productivity. Consider the following modi
                      & = Z_{ct}^{- \frac{\theta}{1 - \rho}}
 \end{align*}
 
-We now take logs and difference the equation to eliminate the level shift. Recalling our definition of $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta} (T_c)^{\theta}$, we get the following estimation equation:
+We now take logs and difference the equation to eliminate the level shift. Recalling our definition of $Z_c^{- \theta} = (\gamma)^{- \theta} (T_c)^{\theta}$, we get the following estimation equation:
 
 \begin{align*}
     \Delta_t \ln \hat{\pi}_{ct} = \hat{\beta} \Delta_t \ln w_{ct} + \Delta_t \hat{\eta}_{ct}
