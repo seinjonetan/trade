@@ -186,6 +186,7 @@ The result tells us that if $\rho = 0$ and there's no correlation between occupa
 
 \begin{align}
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{c'}}} = -\pi_{c'}\Bigg[\sum\limits_{k}\phi_{{c'}k}\Big[1+\Big(\frac{\rho}{1-\rho}\Big)\Big(\frac{\pi_{ck}}{\pi_{c}}\Big)\Big]\Bigg]
+    \label{city_cross_elasticity}
 \end{align}
 
 Similarly, this is simply the sum over all city-occupation elasticities derived in expression \ref{co_cross_elasticity}. This is shown in the following derivation:
@@ -206,42 +207,12 @@ By using the identity in expression \ref{identity}, we can rewrite the elasticit
 
 \begin{equation}
     \frac{\partial\ln{\pi_{c}}}{\partial\ln{T_{k}}} = {\omega_{k}}\Bigg[\frac{\pi_{ck}}{\pi_{c}}-1\Bigg]
+    \label{city_occupation_elasticity}
 \end{equation}
 
 You should first notice that the second term in brackets can be either positive or negative depending on the city's relative concentration in that occupation. If the city is relatively concentrated and $\pi_{ck} / \pi_c > 1$, then the city will face a negative shock. If the city is relatively less concentrated and $\pi_{ck} / \pi_c < 1$, then the city will face a negative shock. We can think of this as certain occupations start to become more attractive, cities that are less concentrated in that occupation will face a negative shock as households start to move to cities that are more concentrated in that occupation. This second term is scaled by the market share of that occupation, $\omega_k$, which is simply the market share of that occupation across all cities.
 
 \section{Estimation Strategy}
-
-% \subsection{Shifters}
-
-% Given our model, we have 4 sets of shares that we can consider. City shares $\pi_c$, city shares for each occupation $\pi_{ck}$, occupation market shares $\omega_k$ and occupation shares for each city $\phi_{ck}$. In order for us to recover city and city-occupation specific shifters, consider the following estimation equation derived from expression \ref{city_occuaption_shares}:
-
-% \begin{align*}
-%     \ln \pi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} - \frac{1}{1 - \rho} \ln Z_c^{- \theta} - \ln \lambda_k \\
-%                  & = \hat{\epsilon_{ck}} + + \hat{\eta_c^1} + \hat{\delta_k^1}
-% \end{align*}
-
-% This will be a simple OLS regression with city and occupation level fixed effects on city shares by occupation. With $\hat{\eta_c^1}$ being our city specific shifter, $\hat{\delta_k^1}$ being our occupation specific shifter and $\hat{\epsilon_{ck}}$ being our residuals.
-
-% \begin{align*}
-%     t_{ck}         & = exp \left(  (1 - \rho) \hat{\epsilon_{ck}}\right)  \\
-%     \lambda_k      & = exp \left( (1 - \rho) \hat{\eta_c^1} \right)       \\
-%     Z_c^{- \theta} & = exp \left( - \hat{\delta_k^2 }\right)              \\
-%     T_c            & = Z_c^{- \theta} \left( \gamma \Phi_c \right)^\theta
-% \end{align*}
-
-% The equations above allow us to recover our city and city-occupation specific scale parameters. $\lambda_k$ will be used shortly to recover our occupation specific scale parameters.
-
-% \begin{align*}
-%     \ln \phi_{ck} & = \frac{1}{1 - \rho} \ln t_{ck} + \ln T_k \lambda_k^{- \rho} - \ln \left( \sum_k^K t_{ck}^{\frac{1}{1 - \rho}} T_k \lambda_k^{- \rho} \right) \\
-%                   & = \hat{\epsilon_{ck}} + \hat{\delta_k^2} + \hat{\eta_c^2}
-% \end{align*}
-
-% Similarly, we will be using our occupation shares defined in expression \ref{occupation_by_city_shares} and have it be regressed against city and occupation fixed effects. Given that we have already identified $\lambda_k$, we can use this to recover our occupation specific scale parameters which is given by the equation below:
-
-% \begin{align*}
-%     T_k = \lambda_k^\rho e^{\hat{\delta_k^2}}
-% \end{align*}
 
 \subsection{Within-Occupation Migration}
 
@@ -289,9 +260,9 @@ We will then use the predicted values of $\ln w_{ckt}^{IV}$ as our instrument in
     \ln \pi_{ckt} = \left( \frac{1}{1 - \rho} \right) \ln w_{ckt}^{IV} + \delta_{ct} + \delta_{kt} + \eta_{ckt}
 \end{align*}
 
-\subsection{Across Occupation Migration}
+\subsection{City Shifters}
 
-Given that we've identified $\rho$, we can now proceed to estimate our shape parameter $\theta$ and in the process recover all our scale parameters. We start with occupation market shares $\omega_k$ in expression \ref{occupation_shares}. By taking relative shares, we get the following:
+Given that we've identified $\rho$, we can now proceed to estimate our city scale parameter $T_c$. We start with occupation market shares $\omega_k$ in expression \ref{occupation_shares}. By taking relative shares, we get the following:
 
 \begin{align*}
     \frac{\omega_{kt}}{\omega_{k't}} = \frac{T_{kt} \lambda_{kt}^{1 - \rho}}{T_{k't} \lambda_{k't}^{1 - \rho}}
@@ -317,46 +288,30 @@ We can then use the estimated $\hat{\lambda}_{kt}$ to recover our occupation spe
     \hat{T}_{kt} = \frac{\widehat{\sum_{k}^{K} T_{kt} \lambda_{kt}^{1 - \rho}}}{\hat{\lambda}_{kt}^{1 - \rho}}
 \end{align*}
 
-Now we need some way for us to recover productivity in order to estimate the shape parameter $\theta$. Consider the following modification to city shares using our recovered parameters:
+Now we need some way for us to recover productivity. Consider the following modification to city shares using our recovered parameters:
 
 \begin{align*}
     \tilde{\pi}_{ct} & = \pi_{ct} \frac{\sum_{k}^{K} T_{kt} \lambda_{kt}^{- \rho}}{\sum_{k}^{K} t_{ckt}^{\frac{1}{1 - \rho}} T_{kt} \lambda_{kt}^{1 - \rho}} \\
                      & = Z_{ct}^{- \frac{\theta}{1 - \rho}}
 \end{align*}
 
-We now take logs and difference the equation to eliminate the level shift. Recalling our definition of $Z_c^{- \theta} = (\gamma w_c)^{- \theta} T_c$, we get the following estimation equation:
+We now take logs and difference the equation to eliminate the level shift. Recalling our definition of $Z_c^{- \theta} = (\gamma \Phi_c)^{- \theta} (T_c)^{\theta}$, we get the following estimation equation:
 
 \begin{align*}
     \Delta_t \ln \hat{\pi}_{ct} = \hat{\beta} \Delta_t \ln w_{ct} + \Delta_t \hat{\eta}_{ct}
 \end{align*}
 
-The differencing will eliminate $\gamma$, which is constant over time, leaving us with a regression of changes in wages and city fixed effects over time on changes in city shares. The coefficient $\hat{\beta}$ will be our estimate of $ - \theta / (1 - \rho)$, which when rearranged gives us $\hat{\theta} = - \hat{\beta} (1 - \hat{\rho})$. Note the relationship between $\theta$ and $\rho$ is such that as $\rho$ increases, $\theta$ decreases. This indicates that as the strength of within occupation migration increases, the across occupation migration becomes less important, reinforcing our interpretation of $\rho$ as governing within-occupation migration and $\theta$ as governing across-occupation migration.
+The differencing will eliminate $\gamma$, which is constant over time, leaving us with a regression of changes in wages and city fixed effects over time on changes in city shares. Using this regression, we recover city level shifters from fixed effects estimates.
 
 \begin{align*}
     \hat{T}_{ct} = exp \left( (1 - \rho) \hat{\eta}_{ct} \right)
 \end{align*}
-
-Using this regression, we also recover city level shifters from fixed effects estimates.
 
 \section{Empirical Results}
 
 \subsection{Data}
 
 We will be using data from the American Community Survey (ACS) which is a survey conducted by the US Census Bureau. The ACS is a survey that collects data on the metropolitan area and occupational level. We will be using data from 2010 to 2022. The ACS provides data on the household level, detailing wages, metropolitan area, occupation and sector of employment based on NAICS codes. This will be used to construct our share data $\pi_c$ $\pi_{ck}$, $\omega_k$, $\phi_{ck}$ and $\phi_{cs}$ as well as obtain wage data $w_{ckt}$. We will also be using data from the Bureau of Labour Statistics to obtain total factor productivity data at the sector level $A_{st}$.
-
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=\textwidth]{../../estimations/graphs/city_employment_share.png}
-%     \caption{City Employment Share}
-%     \label{employment_city_share}
-% \end{figure}
-
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=\textwidth]{../../estimations/graphs/top_25_city_heatmap.png}
-%     \caption{Occupation Shares by Cities}
-%     \label{top_25_city_heatmap}
-% \end{figure}
 
 \begin{figure}[!htb]
     \centering
@@ -373,7 +328,7 @@ We will be using data from the American Community Survey (ACS) which is a survey
         \subcaption{Composition of Top 10 MSAs in 2019}
         \label{top_25_city_heatmap}
     \end{minipage}
-    \caption*{\small\textit{Note: We will be referring to MSAs as cities throughout the paper.}}
+    \caption*{\small\textit{Note: We will be referring to MSAs as cities throughout the paper. MSAs in Figure \ref{employment_city_share} are arranged in alphabeltical order on the x axis.}}
 \end{figure}
 
 From the data in Figure \ref{employment_city_share}, we see that a few metropolitan areas own a disproportionate share of employment which illustrates the size effects of cities to attract employment and households. Intuitively, we should expect these cities to be very different from each other in terms of their specialization, otherwise we would expect the largest city with a particular composition to dominate in the share of households. When zooming into the compositions of the top 10 cities however, we see a different story. In Figure \ref{top_25_city_heatmap}, we see that the top 25 cities are very similar with each other in terms of their specialization. With all cities specializing in occupations like management and professional services. While there is some heterogeneity in the composition of cities, the specialization of cities is not as pronounced as we would expect. This indicates to us that the occupation shifter will play a large role in determining the attractiveness of a city.
@@ -381,8 +336,6 @@ From the data in Figure \ref{employment_city_share}, we see that a few metropoli
 \subsection{Results}
 
 To recover our $\rho$ parameter, we run a two stage least squares regression with a shift share instrument. We find that this regression yields a high F-Statistic and a significantly higher estimate for $\hat{\beta}$ compared to ols\footnote{Refer to appendix 8.2 for full regression table}. This ultimately results in a fairly high estimate of $\hat{\rho} = 0.67$. The result means that draws across cities within any given occupation id highly correlated and indicates to us that people are very likely to migrate within occupations. This is consistent with the idea that people are more likely to move to cities where they can find jobs in their occupation.
-
-When taking a look at the regression of wages against city shares, we $\hat{\beta}$ to be fairly low, giving us a resulting $\theta$ of 0.02. This is surprising for a couple of reasons. First, it indicates to us that the shape of the Fr\'{e}chet distributions are mainly controlled by the correlation parameter $\rho$, meaning that across labor migration, meaning migration that is purely due to cities is not that important. Second, it means that migration is mainly within occupations rather than across occupations. Resulting in a dynamic where people are actually very willing to migrate, but only to cities that have the occupations they are looking for.
 
 \begin{table}[!htb]
     \centering
@@ -411,50 +364,39 @@ Unsurprisingly, cities with the highest shifters are dense metropolitan areas su
 
 Using our parameter and shifter estimates, we can now perform two counterfactual exercises. First, we will simulate a city-specific shock to observe migration patterns across cities, focusing on the unbalanced substitution patterns that favor similar cities. Second, we will examine the migration patterns resulting from a shock to a particular occupation. This effectively simulates the effects of a trade shock that impacts some occupations more than others, such as the China shock. These exercises will provide insights into how different types of economic shocks affect urban migration and occupation choices.
 
+In order to perform these exercises, we will assume aa parameter $\theta$ of 3 which is an estimate used by \cite{redding} that is obtained from the literature. This will give us our across occupation elasticity.
+
 \subsection{City Specific Shock}
 
 \begin{figure}[!htb]
     \centering
-    \caption{City Compositions Benefitting from Shocks}
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../../estimations/graphs/ny_counter.png}
-        \subcaption{Top 10 Cities That Benefitted Most from the New York Shock}
-        \label{ny_change_graph}
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../../estimations/graphs/vp_counter.png}
-        \subcaption{Top 10 Cities That Benefitted Most from the Visalia-Porterville Shock}
-        \label{vp_change_graph}
-    \end{minipage}
+    \caption{Relative Change in City Shares Following New York Shock ($\rho = 0$ vs $\rho = 0.64$)}
+    \includegraphics[width=\textwidth]{../../estimations/graphs/city_shock.png}
+    \label{ny_change_graph}
+    \caption*{\small\textit{Note: The x axis represents the correlation of city compositions of other cities relative to New York. New York is excluded from the plot. The size of each plot is relative to the size of each city before the shock. $\pi_{c_0}$ is the city share before the shock, and $\pi_{c_1}$ is the city share after the shock. $\phi_{c, k}$ is the share of occupation $k$ in city $c$. Notable cities are pointed out with a red arrow with the name annotated.}}
 \end{figure}
 
-Our results from the previous section suggest that while we may observe some migration to large cities purely due to their size, we should expect to see more migration to cities with similar occupational makeups. For this exercise, we induce a negative shock of 50\% to all occupations in New York, a city primarily focused on management and professional services occupations. Analyzing the results, we find that larger cities benefit most from this shock, which is not surprising. However, what's particularly interesting is that the cities benefiting most are those with similar occupational compositions, as shown in Figure \ref{ny_change_graph}. That said, when considering all cities with similar occupational compositions, the size of the city becomes the deciding factor in where people move. Given that all top cities are very similar, it's unsurprising that the vast majority of people will move to the largest city.
+Our results from the previous section suggest that while we may observe some migration to large cities purely due to their size, we should expect to see more migration to cities with similar occupational makeups. For this exercise, we induce a negative shock of 5\% to all occupations in New York, a city primarily focused on management and professional services occupations. The results are shown in Figure \ref{ny_change_graph}. Analyzing the results, we find that the cities which benefit the most from this shock are cities with occupational compositions that are highly correlated with New York, meaning that the cities which are most similar to New York benefit the most from this negative shock. This is consistent with our previous results that households are more likely to move to cities with similar occupational compositions. Correlation in city composition is however not the only determinant of household migration. The size of the city also plays a large role in determining where households move. This is why we see that at the top end of the correlation, it's large cities such as Los Angeles and Chicago that benefit the most from the New York shock. One interpretation of this is that households who are looking to relocate will want to move to cities that are similar to New York, but given that all cities are very similar, the determining factor in where they move is the size of the city, which in our case is perfectly correlated with the benefits each city provides.
 
-Now, let's examine the effects of shocking a city that specializes in an occupation least likely to be found in large cities. For this case, we'll shock Visalia-Porterville, CA, a city highly specialized in primary occupations. Households specializing in these occupations are typically very willing to move to even relatively unattractive cities, provided they offer opportunities in their field. Our results confirm this expectation: we observe minimal movement to attractive but dissimilar cities, and substantial movement to cities that have a high concentration of primary occupations. This demonstrates the strong pull of occupation-specific opportunities, even when they exist in less conventionally desirable urban areas.
+What's interesting is when we turn off within-occupation migration by setting $\rho = 0$. Recalling our discussion in section 2.1, when $\rho = 0$, we should expect the distribution to reduce to a standard CES model. This is exactly what we see in the results. When $\rho = 0$, we see that households are much more evenly redistributed across cities. Given that all occupations are equally attractive to all households, all cities will hence become perfect substitutes for each other\footnote{Expression \ref{city_cross_elasticity} tells us that the elasticity of each city is governed by $\rho$. When $\rho = 0$, $\sum_{k}^{K} \phi_{c'k} = 1$, all cities will share the same elasticity of $\pi_{c'}.$}.
+
+This exercise perfectly illustrates the goal of the model, which is to simulate better match the substitution patterns of households across cities. The model illustrates that migration patterns of households are mainly determined by the occupational composition of each city. Meaning that households are very willing to relocate, but only to cities which offer opportunities in their field. But within the set of cities which meet this criteria, the size of the city becomes the deciding factor in where households move. This is in contrast to the standard QSM model proposed by \cite{redding} which would predict that households will simply move to the city with the highest amenity value.
 
 \subsection{Occupation Specific Shock}
 
 \begin{figure}[!htb]
     \centering
-    \caption{City Compositions of the Top 10 Cities Benefitting from the Management Occupation Shock}
-    \includegraphics[width=\textwidth]{../../estimations/graphs/man_counter.png}
+    \caption{Relative Change in City Shares Following A Shock in Management Occupations ($\rho = 0$ vs $\rho = 0.64$)}
+    \includegraphics[width=\textwidth]{../../estimations/graphs/occ_shock.png}
     \label{man_change_graph}
+    \caption*{\small\textit{Note: $\pi_{c_0}$ is the share of households in city $c$ before the shock, and $\pi_{c_1}$ is the share of households in city $c$ after the shock. The size of each plot represents the size of each city before the shock. The green line is a 45 degree line. The plot does not start from 1, some cities have experienced a decrease in the share of households and some have experienced an increase. Notable cities are pointed out with a red arrow with their name annotated.}}
 \end{figure}
 
-What happens when there's a shock to particular occupations? We've established that households move to cities with similar occupational profiles when there's a negative shock to specific cities, but how do they respond when a shock affects all cities in a particular occupation? To explore this, we induce a negative shock of 50\% to management occupations across all cities.
+What happens when there's a shock to particular occupations? We've established that households move to cities with similar occupational profiles when there's a negative shock to specific cities, but how do they respond when a shock affects all cities in a particular occupation? To explore this, we induce a negative shock of 5\% to management occupations across all cities.
 
-Initially, we expected occupations with the largest shifter to be most attractive to households looking to switch careers. Surprisingly, we found an even redistribution of households across all occupations. Even more intriguing are the destination choices of these households. While we observe significant movement to large cities, we also see substantial migration to cities with different occupational compositions, even if they're relatively small. This aligns with the notion that households are willing to relocate and change occupations to secure employment, even at the cost of overall productivity.
+Naturally, we see a decrease in city shares for the cities that are relatively more concentrated in management occupations. This is regardless of the value of $\rho$, with large cities that are the least concentrated gaining the most from this shock. In Figure \ref{man_change_graph}, we can see that cities such as San Francisco and New York lose out from this shock, while cities such as Michigan tend to benefit. One additional observation is that the relative change for each city is the same regardless of the value of $\rho$, which we can see when looking at the 45 degree line. This is consistent with our findings in city technology elasticities.
 
-This outcome challenges our initial hypothesis that trade shocks would result in minimal migration due to limited opportunities elsewhere. However, we believe these results can be rationalized in two ways:
-
-\begin{itemize}
-    \item The model lacks an unemployment option, potentially failing to capture households' decisions to remain jobless in certain cities while hoping for future employment.
-    \item The model doesn't account for frictions like moving costs and retraining expenses. While our results may represent the eventual equilibrium, the model can't capture the potentially lengthy transitionary period.
-\end{itemize}
-
-These findings highlight the complex relationship between occupation-specific shocks, city attractiveness, and household migration decisions. They also point to areas where our model could be refined in future research to better capture real-world dynamics.
+Recall Expression \ref{city_occupation_elasticity}, which tells us that the elasticity of a city with respect to an occupation shock is governed by the relative concentration of that occupation in the city. Crucially, this elasticity is not governed by $\rho$, meaning that it should be consistent across different values of $\rho$. The interpretation is that when there is a shock in cities, households will be able to find employment in the same occupation in other cities, leading to a migration to cities of similar compositions. But when there is a shock in occupations, employment within that given occupation will be equally affected across all cities, which will lead to migration across occupations to cities that are less affected by the shock. This is exactly what we see, an even redistribution of households to all other occupations, leading to cities that are less concentrated in management occupations to benefit the most from this shock, which in our case tend to be smaller cities.
 
 \section{Discussion}
 
