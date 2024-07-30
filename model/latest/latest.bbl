@@ -1,10 +1,90 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{18}
 \newcommand{\enquote}[1]{``#1''}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Albert and Monras}{Albert and
+  Monras}{2022}]{albert_monras2022}
+\textsc{Albert, C. and J.~Monras} (2022): \enquote{Immigration and Spatial
+  Equilibrium: The Role of Expenditures in the Country of Origin,}
+  \emph{American Economic Review}, 112, 3763–3802.
+
+\bibitem[\protect\citeauthoryear{Artuç, Chaudhuri, and McLaren}{Artuç
+  et~al.}{2010}]{acm2010}
+\textsc{Artuç, E., S.~Chaudhuri, and J.~McLaren} (2010): \enquote{Trade Shocks
+  and Labor Adjustment: A Structural Empirical Approach,} \emph{American
+  Economic Review}, 100, 1008–45.
+
+\bibitem[\protect\citeauthoryear{Autor, Dorn, and Hanson}{Autor
+  et~al.}{2013}]{adh2013}
+\textsc{Autor, D.~H., D.~Dorn, and G.~H. Hanson} (2013): \enquote{The China
+  Syndrome: Local Labor Market Effects of Import Competition in the United
+  States,} \emph{American Economic Review}, 103, 2121–68.
+
+\bibitem[\protect\citeauthoryear{Bartik}{Bartik}{1991}]{bartik1991}
+\textsc{Bartik, T.~J.} (1991): \emph{Who Benefits from State and Local Economic
+  Development Policies?}, W.E. Upjohn Institute.
+
+\bibitem[\protect\citeauthoryear{Behrens, Duranton, and Robert-Nicoud}{Behrens
+  et~al.}{2014}]{behrens2014}
+\textsc{Behrens, K., G.~Duranton, and F.~Robert-Nicoud} (2014):
+  \enquote{Productive Cities: Sorting, Selection, and Agglomeration,}
+  \emph{Journal of Political Economy}, 122, 507--553.
+
+\bibitem[\protect\citeauthoryear{Behrens and Robert-Nicoud}{Behrens and
+  Robert-Nicoud}{2015}]{br2015}
+\textsc{Behrens, K. and F.~Robert-Nicoud} (2015): \enquote{Chapter 4 -
+  Agglomeration Theory with Heterogeneous Agents,} in \emph{Handbook of
+  Regional and Urban Economics}, ed. by G.~Duranton, J.~V. Henderson, and W.~C.
+  Strange, Elsevier, vol.~5 of \emph{Handbook of Regional and Urban Economics},
+  171--245.
+
+\bibitem[\protect\citeauthoryear{Borusyak, Hull, and Jaravel}{Borusyak
+  et~al.}{2021}]{bhj2020}
+\textsc{Borusyak, K., P.~Hull, and X.~Jaravel} (2021):
+  \enquote{{Quasi-Experimental Shift-Share Research Designs},} \emph{The Review
+  of Economic Studies}, 89, 181--213.
+
+\bibitem[\protect\citeauthoryear{Davis and Dingel}{Davis and
+  Dingel}{2019}]{dandd}
+\textsc{Davis, D.~R. and J.~I. Dingel} (2019): \enquote{A Spatial Knowledge
+  Economy,} \emph{American Economic Review}, 109, 153–70.
+
+\bibitem[\protect\citeauthoryear{Diamond}{Diamond}{2016}]{diamond}
+\textsc{Diamond, R.} (2016): \enquote{The Determinants and Welfare Implications
+  of US Workers' Diverging Location Choices by Skill: 1980-2000,}
+  \emph{American Economic Review}, 106, 479–524.
+
+\bibitem[\protect\citeauthoryear{Diamond and Gaubert}{Diamond and
+  Gaubert}{2022}]{diamond2022}
+\textsc{Diamond, R. and C.~Gaubert} (2022): \enquote{Spatial Sorting and
+  Inequality,} \emph{Annual review of economics}, 14, 795--819.
 
 \bibitem[\protect\citeauthoryear{Eaton and Kortum}{Eaton and Kortum}{2002}]{ek}
 \textsc{Eaton, J. and S.~S. Kortum} (2002): \enquote{Technology, Geography, and
   Trade,} \emph{Econometrica}, 70, 1741--1779.
+
+\bibitem[\protect\citeauthoryear{Galle, Rodríguez-Clare, and Yi}{Galle
+  et~al.}{2022}]{galle2023}
+\textsc{Galle, S., A.~Rodríguez-Clare, and M.~Yi} (2022): \enquote{{Slicing
+  the Pie: Quantifying the Aggregate and Distributional Effects of Trade},}
+  \emph{The Review of Economic Studies}, 90, 331--375.
+
+\bibitem[\protect\citeauthoryear{Goldsmith-Pinkham, Sorkin, and
+  Swift}{Goldsmith-Pinkham et~al.}{2020}]{pssh2020}
+\textsc{Goldsmith-Pinkham, P., I.~Sorkin, and H.~Swift} (2020): \enquote{Bartik
+  Instruments: What, When, Why, and How,} \emph{American Economic Review}, 110,
+  2586–2624.
+
+\bibitem[\protect\citeauthoryear{Kim and Vogel}{Kim and
+  Vogel}{2021}]{kim_vogel2020}
+\textsc{Kim, R. and J.~Vogel} (2021): \enquote{Trade Shocks and Labor Market
+  Adjustment,} \emph{American Economic Review: Insights}, 3, 115–30.
+
+\bibitem[\protect\citeauthoryear{Lagakos and Waugh}{Lagakos and
+  Waugh}{2013}]{lagakos_waugh2013}
+\textsc{Lagakos, D. and M.~E. Waugh} (2013): \enquote{Selection, Agriculture,
+  and Cross-Country Productivity Differences,} \emph{American Economic Review},
+  103, 948–80.
 
 \bibitem[\protect\citeauthoryear{Lind and Ramondo}{Lind and
   Ramondo}{2023}]{lindandramondo}
@@ -14,5 +94,10 @@
 \bibitem[\protect\citeauthoryear{Redding}{Redding}{2016}]{redding}
 \textsc{Redding, S.~J.} (2016): \enquote{Goods trade, factor mobility and
   welfare,} \emph{Journal of International Economics}, 101, 148--167.
+
+\bibitem[\protect\citeauthoryear{Redding and Rossi-Hansberg}{Redding and
+  Rossi-Hansberg}{2017}]{redding2017}
+\textsc{Redding, S.~J. and E.~Rossi-Hansberg} (2017): \enquote{Quantitative
+  Spatial Economics,} \emph{Annual review of economics}, 9, 21--58.
 
 \end{thebibliography}

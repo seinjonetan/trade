@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: latest.aux
 The style file: ecta.bst
 Database file #1: latest.bib
-You've used 3 entries,
+You've used 18 entries,
             2849 wiz_defined-function locations,
-            619 strings with 4966 characters,
-and the built_in function-call counts, 1788 in all, are:
-= -- 152
-> -- 58
-< -- 6
-+ -- 18
-- -- 15
-* -- 155
-:= -- 275
-add.period$ -- 6
-call.type$ -- 3
-change.case$ -- 17
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 127
-empty$ -- 141
-format.name$ -- 33
-if$ -- 358
+            720 strings with 7147 characters,
+and the built_in function-call counts, 11336 in all, are:
+= -- 941
+> -- 445
+< -- 25
++ -- 144
+- -- 120
+* -- 1013
+:= -- 1704
+add.period$ -- 35
+call.type$ -- 18
+change.case$ -- 111
+chr.to.int$ -- 18
+cite$ -- 18
+duplicate$ -- 818
+empty$ -- 870
+format.name$ -- 223
+if$ -- 2275
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 23
-newline$ -- 14
-num.names$ -- 15
-pop$ -- 35
+missing$ -- 153
+newline$ -- 59
+num.names$ -- 91
+pop$ -- 263
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 111
 quote$ -- 0
-skip$ -- 49
+skip$ -- 292
 stack$ -- 0
-substring$ -- 108
-swap$ -- 66
-text.length$ -- 0
+substring$ -- 643
+swap$ -- 435
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 212
 warning$ -- 0
-while$ -- 12
+while$ -- 74
 width$ -- 0
-write$ -- 40
+write$ -- 221
