@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  30 JUL 2024 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  30 JUL 2024 23:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -291,24 +291,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 ) (./latest.aux)
 \openout1 = `latest.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -344,7 +344,7 @@ LaTeX Font Info:    ... okay on input line 31.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 26.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -354,9 +354,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+LaTeX Info: Redefining \nameref on input line 26.
  (./latest.out) (./latest.out)
 \@outlinefile=\write3
 \openout3 = `latest.out'.
@@ -384,46 +384,46 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
-<../../estimations/graphs/city_employment_share.png, id=261, 722.7pt x 433.62pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+<../../estimations/graphs/city_employment_share.png, id=272, 722.7pt x 433.62pt>
 File: ../../estimations/graphs/city_employment_share.png Graphic file (type png)
 <use ../../estimations/graphs/city_employment_share.png>
-Package pdftex.def Info: ../../estimations/graphs/city_employment_share.png  used on input line 343.
+Package pdftex.def Info: ../../estimations/graphs/city_employment_share.png  used on input line 361.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<../../estimations/graphs/top_25_city_heatmap.png, id=263, 722.7pt x 433.62pt>
+<../../estimations/graphs/top_25_city_heatmap.png, id=274, 722.7pt x 433.62pt>
 File: ../../estimations/graphs/top_25_city_heatmap.png Graphic file (type png)
 <use ../../estimations/graphs/top_25_city_heatmap.png>
-Package pdftex.def Info: ../../estimations/graphs/top_25_city_heatmap.png  used on input line 349.
+Package pdftex.def Info: ../../estimations/graphs/top_25_city_heatmap.png  used on input line 367.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
- [16 <../../estimations/graphs/city_employment_share.png> <../../estimations/graphs/top_25_city_heatmap.png>] (../../estimations/tables/T_k.tex) (../../estimations/tables/T_c.tex) [17]
-<../../estimations/graphs/city_shock.png, id=292, 675.0018pt x 387.3672pt>
+ [17 <../../estimations/graphs/city_employment_share.png> <../../estimations/graphs/top_25_city_heatmap.png>] (../../estimations/tables/T_k.tex) (../../estimations/tables/T_c.tex) [18]
+<../../estimations/graphs/city_shock.png, id=302, 675.0018pt x 387.3672pt>
 File: ../../estimations/graphs/city_shock.png Graphic file (type png)
 <use ../../estimations/graphs/city_shock.png>
-Package pdftex.def Info: ../../estimations/graphs/city_shock.png  used on input line 394.
+Package pdftex.def Info: ../../estimations/graphs/city_shock.png  used on input line 412.
 (pdftex.def)             Requested size: 469.75502pt x 269.57703pt.
- [18] [19 <../../estimations/graphs/city_shock.png>]
-<../../estimations/graphs/occ_shock.png, id=311, 640.3122pt x 391.7034pt>
+ [19] [20 <../../estimations/graphs/city_shock.png>]
+<../../estimations/graphs/occ_shock.png, id=321, 640.3122pt x 391.7034pt>
 File: ../../estimations/graphs/occ_shock.png Graphic file (type png)
 <use ../../estimations/graphs/occ_shock.png>
-Package pdftex.def Info: ../../estimations/graphs/occ_shock.png  used on input line 410.
+Package pdftex.def Info: ../../estimations/graphs/occ_shock.png  used on input line 430.
 (pdftex.def)             Requested size: 469.75502pt x 287.37555pt.
- [20] [21 <../../estimations/graphs/occ_shock.png>] [22] (./latest.bbl [23]) [24] [25] [26] [27] (../../estimations/tables/city_sec_iv_first_stage.tex) [28] (../../estimations/tables/city_sec_iv_ols.tex) [29] (./latest.aux)
+ [21] [22 <../../estimations/graphs/occ_shock.png>] [23] (./latest.bbl [24]) [25] [26] [27] [28] (../../estimations/tables/city_sec_iv_first_stage.tex) [29] (../../estimations/tables/city_sec_iv_ols.tex) [30] (./latest.aux)
 Package rerunfilecheck Info: File `latest.out' has not changed.
 (rerunfilecheck)             Checksum: 50F16E3804999614BD9CB1DF13F56069;3169.
  ) 
 Here is how much of TeX's memory you used:
- 11953 strings out of 478287
- 191968 string characters out of 5849289
- 500039 words of memory out of 5000000
- 29889 multiletter control sequences out of 15000+600000
- 483621 words of font info for 56 fonts, out of 8000000 for 9000
+ 11966 strings out of 478287
+ 192124 string characters out of 5849289
+ 500126 words of memory out of 5000000
+ 29896 multiletter control sequences out of 15000+600000
+ 485534 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,12n,77p,1777b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on latest.pdf (29 pages, 596623 bytes).
+ 67i,12n,77p,1777b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on latest.pdf (30 pages, 629646 bytes).
 PDF statistics:
- 504 PDF objects out of 1000 (max. 8388607)
- 405 compressed objects within 5 object streams
- 93 named destinations out of 1000 (max. 500000)
+ 521 PDF objects out of 1000 (max. 8388607)
+ 417 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
