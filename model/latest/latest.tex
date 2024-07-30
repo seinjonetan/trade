@@ -36,19 +36,17 @@
 
 Cities capture a disproportionate amount of household location choices in the world. In 2018, 55\% of the world's population lived in urban areas, and this is expected to increase to 68\% by 2050. This trend is driven by the benefits cities provide, such as access to jobs, amenities, and social networks. While these advantages are often considered universal to all households, regardless of their occupation-specific skills, the benefits of each city clearly vary for different households. For instance, an auto worker from Detroit will not view New York as an equivalent substitute for a city to live in compared to a finance worker from New York. Given the billions of dollars spent on place-based policies, it is crucial to understand this dimension of comparative advantage, where a city can provide higher levels of productivity for households working in specific occupations.
 
-Forces of spacial inequality and agglomeration forces have been well documented in the literature (\cite{behrens2014}; \cite{br2015}) where large, dense cities have been shown to have higher levels of productivity, resulting in higher wages. These cities however tend to attract households with specific skills, reflected by the occupational composition of the cities. As seen in \cite{lagakos_waugh2013}, households will self select into occupations that they are most productive in, which in the case of large cities are occupations that disproportionately benefit from co location effects. The effect is however also seen in smaller cities which specialize in occupations such as farming, where the households who choose to locate in these cities are those who are most productive in farming. One benefit to this self selection is the co-location with households who are also productive in that occupation leading to knowledge spillovers. \cite{dandd} show that the exchange of ideas plays an important role as an agglomeration force in cities. Aside from occupations, education has also been documented to be one important factor of sorting even within a given city, where highly educated households tend to live in areas of high productivity and wages (\cite{diamond}; \cite{diamond2022}).
+Forces of spacial inequality and agglomeration forces have been well documented in the literature (\cite{behrens2014}; \cite{br2015}) where large, dense cities have been shown to have higher levels of productivity, resulting in higher wages. These cities however tend to attract households with specific skills, reflected by the occupational composition of the cities. As seen in \cite{lagakos_waugh2013}, households will self select into occupations that they are most productive in, which in the case of large cities are occupations that disproportionately benefit from access to amenities that come with dense urban areas. The effect is however also seen in smaller cities which specialize in occupations such as farming, where the households who are particularly productive in those occupations choose to live there. One benefit to this self selection is the co-location with households who are also productive in that occupation leading to knowledge spillovers. \cite{dandd} show that the exchange of ideas plays an important role as an agglomeration force in cities. Aside from occupations, education has also been documented to be one important factor of sorting even within a given city, where highly educated households tend to live in areas of high productivity and wages (\cite{diamond}; \cite{diamond2022}).
 
 A city's comparative advantage exists in three dimensions. First, there is a city-specific advantage that makes all occupations more productive in that city, primarily due to its size and population, which results in better amenities, more jobs, and a larger social network. Second, there is an occupation-specific advantage that is universal across all cities; some jobs are simply more productive than others, and cities specializing in these jobs will be observed as having higher overall choice shares of households. Third, there is a city-occupation specific advantage, where a city may have specific policies that make it more attractive for a particular occupation, such as tax breaks for mechanics in Chicago. It is crucial to distinguish between occupations and sectors: sectors are broad categories of jobs (e.g., manufacturing, services, agriculture), while occupations are specific jobs (e.g., mechanic, clerk). Cities can specialize in occupations by focusing on sectors that intensively use those occupations.
 
 In this paper, we propose a model of city location choices based on a class of models in the quantitative trade literature first proposed by \cite{ek}. These models treat productivity as random draws from Fr\'{e}chet distributions, allowing for a non zero production of goods which will help us to account for small cities. \cite{redding} applies this model to an urban setting by loading city heterogeneity onto amenities, capturing the first dimension of comparative advantage. However, both these models rely on the independence assumption which treats that goods and cities are perfect substitutes for each other. \cite{lindandramondo} break this assumption by introducing a nested CES utility structure which allows for correlated draws of productivity within nests across countries. We apply this structure to the urban setting by treating occupations as independent nests, capturing substitution patterns where cities with similar occupational structures are treated as better substitutes for each other. This approach enables us to capture all three dimensions of comparative advantage.
 
-Our model is a part of the larger class of quantitative spacial models as proposed by \cite{redding2017}, with modifications that allow us to capture the effects of trade shocks at the group level, similar to the work of \cite{galle2023}. As shown by \cite{adh2013}, trade shocks have heterogenous effects on industries with differing exposure to trade shocks, leading to an sharp movements in wages but slow adjustments in labor market outcomes (\cite{acm2010}). We will be able to capture these effects in counterfactual exercises once we have estimated the parameters of our model. Given our class of model, we will be able to draw from techniques and estimations which already exist in the literature such as \cite{albert_monras2022} who estimate migration elasticity and \cite{kim_vogel2020} who estimate the elasticity of labor market adjustments to trade shocks. We also make use of shift share instruments (\cite{bartik1991}), specifically shifts in total factor productivity for industries which have different shares of occupations, that's widely used in trade to estimate our parameters. This type will require us to base our identification on either exogenous shares (\cite{pssh2020}) or exogenous shifts (\cite{bhj2020}).
+Our model is a part of the larger class of quantitative spacial models as proposed by \cite{redding2017}, with modifications that allow us to capture the effects of trade shocks at the group level, similar to the work of \cite{galle2023}. As shown by \cite{adh2013}, trade shocks have heterogenous effects on industries with differing exposure to trade shocks, leading to an sharp movements in wages but slow adjustments in labor market outcomes (\cite{acm2010}). We will be able to capture these effects in counterfactual exercises once we have estimated the parameters of our model. Given our class of model, we will be able to draw from techniques and estimations which already exist in the literature such as \cite{albert_monras2022} who estimate migration elasticity and \cite{kim_vogel2020} who estimate the elasticity of labor market adjustments to trade shocks. We also make use of shift share instruments (\cite{bartik1991}), specifically shifts in total factor productivity for industries which have different shares of occupations, that's widely used in the trade literature to estimate our parameters. This type will require us to base our identification on either exogenous shares (\cite{pssh2020}) or exogenous shifts (\cite{bhj2020}).
 
 We begin in the first section by adapting the model of \cite{lindandramondo} to the urban setting. Unlike their original paper where nests are implied, we explicitly model the nests as occupations. This specification yields several implications. First, we will be able to observe both overall city shares and city shares specific to each occupation, as well as city occupation compositions, which can be used as a measure of similarity between cities. Second, using this data, we will derive elasticities for all three dimensions of comparative advantage: city-specific, occupation-specific, and city-occupation specific elasticities. The last elasticity will serve as a sanity check for the direction of substitution, while city and occupation elasticities will be used to verify our claim of unbalanced substitution patterns that favor similar cities. In other words, shocks to cities with a certain occupational composition will have larger effects on cities with similar compositions due to correlations in productivity draws.
 
-In the second section, we present our estimation strategy, exploiting variation over time to recover two important parameters of our model: the correlation parameter $\rho$ and the shape parameter $\theta$. As we will discuss later, these parameters determine the within and across occupation migration patterns. In this process, we will also recover our city, occupation, and city-occupation specific shifters.
-
-In the third section, we apply our estimation equations to data from the American Community Survey at the metropolitan area and occupational level. We begin by presenting stylized facts about cities and their compositions, comparing similarities among top cities. We then discuss our estimation results, focusing on the correlation parameter $\rho$, as well as our city, occupation, and city-occupation specific shifters. As we will demonstrate, $\rho$ can be interpreted as the degree of within-occupation migration, while $\rho$ represents the degree of across-occupation migration. Using this fully calibrated model, we conduct counterfactual analyses and simulate the effects of shocks at both the city and occupation level. This analysis allows us to evaluate the effectiveness of place-based policies and provide recommendations for designing such policies to maximize their impact.
+In the second section, we present our estimation strategy, exploiting variation over time to recover an important parameters of our model: the correlation parameter $\rho$. As we will discuss later, this parameter determines the within occupation migration patterns. We will be using previously estimated parameters of across occupation migration elasticity $\theta$ from \cite{redding}. In this process, we will also recover our city, occupation, and city-occupation specific shifters. In the third section, we apply our estimation equations to data from the American Community Survey at the metropolitan area and occupational level. We begin by presenting stylized facts about cities and their compositions, comparing similarities among top cities. We then discuss our estimation results, focusing on the correlation parameter $\rho$, as well as our city, occupation, and city-occupation specific shifters. As we will demonstrate, $\rho$ can be interpreted as the degree of within-occupation migration, while $\rho$ represents the degree of across-occupation migration. Using this fully calibrated model, we conduct counterfactual analyses and simulate the effects of shocks at both the city and occupation level. This analysis allows us to evaluate the effectiveness of place-based policies and provide recommendations for designing such policies to maximize their impact.
 
 \section{Model}
 
@@ -292,7 +290,7 @@ Given that we've identified $\rho$, we can now proceed to estimate our city scal
     \frac{\omega_{kt}}{\omega_{k't}} = \frac{T_{kt} \lambda_{kt}^{1 - \rho}}{T_{k't} \lambda_{k't}^{1 - \rho}}
 \end{align*}
 
-Subject to normalization to some base occupation year, we can estimate $T_{kt} \lambda_{kt}^{1 - \rho} \forall (k, t)$. We can then use this to recover the denominator in $\omega_k$ and get $\sum_{k}^{K} T_{kt} \lambda_{kt}^{1 - \rho} \forall t$. This will be useful in recovering our city and city occupation specific scale parameters. Now consider the city-occupation shares from expression \ref{city_occuaption_shares} taken in logs and transformed into a form with fixed effects:
+Subject to normalization to some base occupation year, we can estimate $T_{kt} \lambda_{kt}^{1 - \rho} \forall (k, t)$. We can then use this to recover the denominator in $\omega_k$ and get $\sum_{k}^{K} T_{kt} \lambda_{kt}^{1 - \rho} \forall t$. Now consider the city-occupation shares from expression \ref{city_occuaption_shares} taken in logs and transformed into a form with fixed effects:
 
 \begin{align*}
     \ln \pi_{ckt} & = \frac{1}{1 - \rho} \ln t_{ckt} - \frac{1}{1 - \rho} \ln Z_{ct}^{- \theta} - \ln \lambda_{kt} \\
@@ -386,9 +384,7 @@ Unsurprisingly, cities with the highest shifters are dense metropolitan areas su
 
 \section{Quantitative Exercises}
 
-Using our parameter and shifter estimates, we can now perform two counterfactual exercises. First, we will simulate a city-specific shock to observe migration patterns across cities, focusing on the unbalanced substitution patterns that favor similar cities. Second, we will examine the migration patterns resulting from a shock to a particular occupation. This effectively simulates the effects of a trade shock that impacts some occupations more than others, such as the China shock. These exercises will provide insights into how different types of economic shocks affect urban migration and occupation choices.
-
-In order to perform these exercises, we will assume aa parameter $\theta$ of 3 which is an estimate used by \cite{redding} that is obtained from the literature. This will give us our across occupation elasticity.
+Using our parameter and shifter estimates, we can now perform two counterfactual exercises. First, we will simulate a city-specific shock to observe migration patterns across cities, focusing on the unbalanced substitution patterns that favor similar cities. Second, we will examine the migration patterns resulting from a shock to a particular occupation. This effectively simulates the effects of a trade shock that impacts some occupations more than others, such as the China shock (\cite{adh2013}). These exercises will provide insights into how different types of economic shocks affect urban migration and occupation choices. In order to perform these exercises, we will assume a parameter $\theta$ of 3 which is an estimate used by \cite{redding} that is obtained from the literature. This will give us our across occupation elasticity.
 
 \subsection{City Specific Shock}
 
@@ -402,7 +398,7 @@ In order to perform these exercises, we will assume aa parameter $\theta$ of 3 w
 
 Our results from the previous section suggest that while we may observe some migration to large cities purely due to their size, we should expect to see more migration to cities with similar occupational makeups. For this exercise, we induce a negative shock of 5\% to all occupations in New York, a city primarily focused on management and professional services occupations. The results are shown in Figure \ref{ny_change_graph}. Analyzing the results, we find that the cities which benefit the most from this shock are cities with occupational compositions that are highly correlated with New York, meaning that the cities which are most similar to New York benefit the most from this negative shock. This is consistent with our previous results that households are more likely to move to cities with similar occupational compositions. Correlation in city composition is however not the only determinant of household migration. The size of the city also plays a large role in determining where households move. This is why we see that at the top end of the correlation, it's large cities such as Los Angeles and Chicago that benefit the most from the New York shock. One interpretation of this is that households who are looking to relocate will want to move to cities that are similar to New York, but given that all cities are very similar, the determining factor in where they move is the size of the city, which in our case is perfectly correlated with the benefits each city provides.
 
-What's interesting is when we turn off within-occupation migration by setting $\rho = 0$. Recalling our discussion in section 2.1, when $\rho = 0$, we should expect the distribution to reduce to a standard CES model. This is exactly what we see in the results. When $\rho = 0$, we see that households are much more evenly redistributed across cities. Given that all occupations are equally attractive to all households, all cities will hence become perfect substitutes for each other\footnote{Expression \ref{city_cross_elasticity} tells us that the elasticity of each city is governed by $\rho$. When $\rho = 0$, $\sum_{k}^{K} \phi_{c'k} = 1$, all cities will share the same elasticity of $\pi_{c'}.$}.
+What's interesting is when we turn off within-occupation migration by setting $\rho = 0$. Recalling our discussion in section 2.1, when $\rho = 0$, we should expect the distribution to reduce to a standard CES model, which is exactly what we see in the results. When $\rho = 0$, we see that households are much more evenly redistributed across cities. Given that all occupations are equally attractive to all households, all cities will hence become perfect substitutes for each other\footnote{Expression \ref{city_cross_elasticity} tells us that the elasticity of each city is governed by $\rho$. When $\rho = 0$, $\sum_{k}^{K} \phi_{c'k} = 1$, all cities will share the same elasticity of $\pi_{c'}.$}.
 
 This exercise perfectly illustrates the goal of the model, which is to simulate better match the substitution patterns of households across cities. The model illustrates that migration patterns of households are mainly determined by the occupational composition of each city. Meaning that households are very willing to relocate, but only to cities which offer opportunities in their field. But within the set of cities which meet this criteria, the size of the city becomes the deciding factor in where households move. This is in contrast to the standard QSM model proposed by \cite{redding} which would predict that households will simply move to the city with the highest amenity value.
 
@@ -418,7 +414,7 @@ This exercise perfectly illustrates the goal of the model, which is to simulate 
 
 What happens when there's a shock to particular occupations? We've established that households move to cities with similar occupational profiles when there's a negative shock to specific cities, but how do they respond when a shock affects all cities in a particular occupation? To explore this, we induce a negative shock of 5\% to management occupations across all cities.
 
-Naturally, we see a decrease in city shares for the cities that are relatively more concentrated in management occupations. This is regardless of the value of $\rho$, with large cities that are the least concentrated gaining the most from this shock. In Figure \ref{man_change_graph}, we can see that cities such as San Francisco and New York lose out from this shock, while cities such as Michigan tend to benefit. One additional observation is that the relative change for each city is the same regardless of the value of $\rho$, which we can see when looking at the 45 degree line. This is consistent with our findings in city technology elasticities.
+Naturally, we see a decrease in city shares for the cities that are relatively more concentrated in management occupations. This is regardless of the value of $\rho$, with large cities that are the least concentrated in this occupation gaining the most from this shock. In Figure \ref{man_change_graph}, we can see that cities such as San Francisco and New York lose out from this shock, while cities such as Michigan tend to benefit. One additional observation is that the relative change for each city is the same regardless of the value of $\rho$, which we can see when looking at the 45 degree line. This is consistent with our findings in city technology elasticities.
 
 Recall Expression \ref{city_occupation_elasticity}, which tells us that the elasticity of a city with respect to an occupation shock is governed by the relative concentration of that occupation in the city. Crucially, this elasticity is not governed by $\rho$, meaning that it should be consistent across different values of $\rho$. The interpretation is that when there is a shock in cities, households will be able to find employment in the same occupation in other cities, leading to a migration to cities of similar compositions. But when there is a shock in occupations, employment within that given occupation will be equally affected across all cities, which will lead to migration across occupations to cities that are less affected by the shock. This is exactly what we see, an even redistribution of households to all other occupations, leading to cities that are less concentrated in management occupations to benefit the most from this shock, which in our case tend to be smaller cities.
 
@@ -538,77 +534,9 @@ We can therefore solve for this cross-derivative as the following:
 \subsubsection{First Stage Shift Share Regression}
 \input{../../estimations/tables/city_sec_iv_first_stage.tex}
 
+\newpage
+
 \subsubsection{OLS vs IV Regression}
 \input{../../estimations/tables/city_sec_iv_ols.tex}
-
-% \subsection{Cross City Elasticity}
-
-% \begin{align*}
-%     \ln \pi_c = \frac{1}{1 - \rho} \ln Z_c^{- \theta} + \ln \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right) - \ln \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)
-% \end{align*}
-
-% \begin{align*}
-%     \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}}
-% \end{align*}
-
-% Consider the derivative of $\lambda_k$ with respect to $T_{c'}$:
-
-% \begin{align*}
-%     \frac{\partial \lambda_k}{\partial T_{c'}} & = T_k^{\frac{1}{1 - \rho}} \left( \frac{1}{1 - \rho} \right) T_{c'}^{\frac{1}{1 - \rho} - 1} t_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{\rho}{1 - \rho}} \\
-%                                                & = \frac{1}{1 - \rho} \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}
-% \end{align*}
-
-% Consider the first term in the derivative:
-
-% \begin{align*}
-%     \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} T_{c'k}^{\frac{1}{1 - \rho}} (Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \times T_{c'} \\
-%                                                                                                                                                                                                    & = - \frac{\rho}{1 - \rho} \frac{\sum_{k}^{}T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}}                                                                                                       \\
-% \end{align*}
-
-% Now consider the second term in the derivative:
-
-% \begin{align*}
-%     - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_{c'}} \frac{T_{c'}}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{- \sum_{k}^{} \rho \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_{c'}} (T_{c'k} Z_c^{- \theta})^{\frac{1}{1 - \rho}}}{\sum_{k}^{} \lambda_k^{- \theta}} \times T_{c'} \\
-%                                                                                                                                        & = \frac{\rho}{1 - \rho} \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k} }{\sum_{k}^{} \lambda_k^{- \rho}}                                                                                              \\
-% \end{align*}
-
-% This will give us:
-
-% \begin{align*}
-%     \frac{\partial \ln \pi_c}{\partial \ln T_{c'}} = \frac{\rho}{1 - \rho} \left[ \frac{\sum_{k}^{} \lambda_k^{- \rho} \pi_{c'k}}{\sum_{k}^{} \lambda_k^{- \rho}} - \frac{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho} \pi_{c'k}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{-\rho}} \right]
-% \end{align*}
-
-% \subsection{Technology Elasticity}
-
-% \begin{align*}
-%     \frac{\partial \ln \pi_c}{\partial \ln T_k} = \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}}
-% \end{align*}
-
-% Consider the derivative of $\lambda_k$ with respect to $T_k$:
-
-% \begin{align*}
-%     \frac{\partial \lambda_k}{\partial T_k} & = \frac{1}{1 - \rho} T_k^{\frac{1}{1 -\rho} - 1} \sum_{k}^{} (T_c t_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho}} \\
-%                                             & =\frac{1}{1 - \rho} \frac{1}{T_k} \lambda_k
-% \end{align*}
-
-% Consider the first term in the derivative:
-
-% \begin{align*}
-%     \frac{\partial \left( \sum_{k}^{} (T_c T_k t_{ck})^{\frac{1}{1 - \rho}} \lambda_k^{- \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} & = \frac{T_k^{\frac{1}{1 - \rho}} (T_c t_{ck})^{\frac{1}{1 - \rho}} (- \rho) \lambda_k^{- \rho - 1} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k + \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} T_{ck}^{\frac{1}{1 - \rho}}}{\sum_{k}^{} T_{ck}^{\frac{1}{1 - \rho}} \lambda_k^{- \rho}} \\
-%                                                                                                                                                                                              & = \phi_{ck}
-% \end{align*}
-
-% Consider the second term in the derivative:
-
-% \begin{align*}
-%     - \frac{\partial \left( \sum_{k}^{} \lambda_k^{1 - \rho} \right)}{\partial T_k} \frac{T_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} & = - \frac{(1 - \rho) \lambda_k^{- \rho} \left( \frac{1}{1 - \rho} \right) \frac{1}{T_k} \lambda_k}{\sum_{k}^{} \lambda_k^{1 - \rho}} \times T_k \\
-%                                                                                                                                  & = - \omega_k
-% \end{align*}
-
-% This will give us:
-
-% \begin{align*}
-%     \frac{\partial \ln \pi_c}{\partial \ln T_k} = \phi_{ck} - \omega_k
-% \end{align*}
 
 \end{document}
