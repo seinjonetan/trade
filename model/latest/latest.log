@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  1 AUG 2024 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.22)  1 AUG 2024 19:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,33 +385,33 @@ Package caption Info: End \AtBeginDocument code.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
-<../../estimations/graphs/city_employment_share.png, id=308, 722.7pt x 433.62pt>
+<../../estimations/graphs/city_employment_share.png, id=304, 722.7pt x 433.62pt>
 File: ../../estimations/graphs/city_employment_share.png Graphic file (type png)
 <use ../../estimations/graphs/city_employment_share.png>
-Package pdftex.def Info: ../../estimations/graphs/city_employment_share.png  used on input line 391.
+Package pdftex.def Info: ../../estimations/graphs/city_employment_share.png  used on input line 395.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<../../estimations/graphs/top_25_city_heatmap.png, id=310, 722.7pt x 433.62pt>
+<../../estimations/graphs/top_25_city_heatmap.png, id=306, 722.7pt x 433.62pt>
 File: ../../estimations/graphs/top_25_city_heatmap.png Graphic file (type png)
 <use ../../estimations/graphs/top_25_city_heatmap.png>
-Package pdftex.def Info: ../../estimations/graphs/top_25_city_heatmap.png  used on input line 397.
+Package pdftex.def Info: ../../estimations/graphs/top_25_city_heatmap.png  used on input line 401.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
  [16 <../../estimations/graphs/city_employment_share.png> <../../estimations/graphs/top_25_city_heatmap.png>] (../../estimations/tables/city_sec_iv_ols.tex) [17]
-<../../estimations/graphs/city_shock.png, id=340, 634.5306pt x 387.3672pt>
+<../../estimations/graphs/city_shock.png, id=337, 634.5306pt x 387.3672pt>
 File: ../../estimations/graphs/city_shock.png Graphic file (type png)
 <use ../../estimations/graphs/city_shock.png>
-Package pdftex.def Info: ../../estimations/graphs/city_shock.png  used on input line 444.
+Package pdftex.def Info: ../../estimations/graphs/city_shock.png  used on input line 448.
 (pdftex.def)             Requested size: 469.75502pt x 286.78319pt.
  [18]
-<../../estimations/graphs/city_shock_s.png, id=349, 628.0263pt x 398.2077pt>
+<../../estimations/graphs/city_shock_s.png, id=346, 628.0263pt x 398.2077pt>
 File: ../../estimations/graphs/city_shock_s.png Graphic file (type png)
 <use ../../estimations/graphs/city_shock_s.png>
-Package pdftex.def Info: ../../estimations/graphs/city_shock_s.png  used on input line 458.
+Package pdftex.def Info: ../../estimations/graphs/city_shock_s.png  used on input line 462.
 (pdftex.def)             Requested size: 469.75502pt x 297.86514pt.
  [19 <../../estimations/graphs/city_shock.png>] [20 <../../estimations/graphs/city_shock_s.png>]
-<../../estimations/graphs/occ_shock_t.png, id=368, 634.5306pt x 391.7034pt>
+<../../estimations/graphs/occ_shock_t.png, id=365, 634.5306pt x 391.7034pt>
 File: ../../estimations/graphs/occ_shock_t.png Graphic file (type png)
 <use ../../estimations/graphs/occ_shock_t.png>
-Package pdftex.def Info: ../../estimations/graphs/occ_shock_t.png  used on input line 472.
+Package pdftex.def Info: ../../estimations/graphs/occ_shock_t.png  used on input line 476.
 (pdftex.def)             Requested size: 469.75502pt x 289.99344pt.
  [21 <../../estimations/graphs/occ_shock_t.png>] [22] [23] (./latest.bbl
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 52.
@@ -423,10 +423,10 @@ Underfull \hbox (badness 1515) in paragraph at lines 50--54
  []
 
 [24]) [25] [26] [27] [28] (../../estimations/tables/city_sec_iv_first_stage.tex) [29] (../../estimations/tables/T_k.tex) (../../estimations/tables/T_c.tex) [30]
-<../../estimations/graphs/occ_shock.png, id=422, 640.3122pt x 391.7034pt>
+<../../estimations/graphs/occ_shock.png, id=419, 640.3122pt x 391.7034pt>
 File: ../../estimations/graphs/occ_shock.png Graphic file (type png)
 <use ../../estimations/graphs/occ_shock.png>
-Package pdftex.def Info: ../../estimations/graphs/occ_shock.png  used on input line 627.
+Package pdftex.def Info: ../../estimations/graphs/occ_shock.png  used on input line 631.
 (pdftex.def)             Requested size: 469.75502pt x 287.37555pt.
  [31 <../../estimations/graphs/occ_shock.png>] (./latest.aux)
 Package rerunfilecheck Info: File `latest.out' has not changed.
@@ -435,16 +435,16 @@ Package rerunfilecheck Info: File `latest.out' has not changed.
 Here is how much of TeX's memory you used:
  12013 strings out of 478287
  193471 string characters out of 5849289
- 500586 words of memory out of 5000000
+ 500624 words of memory out of 5000000
  29931 multiletter control sequences out of 15000+600000
  485847 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,12n,77p,1662b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on latest.pdf (31 pages, 764907 bytes).
+Output written on latest.pdf (31 pages, 762705 bytes).
 PDF statistics:
- 590 PDF objects out of 1000 (max. 8388607)
- 473 compressed objects within 5 object streams
+ 587 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
  102 named destinations out of 1000 (max. 500000)
  215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
