@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{20}
 \newcommand{\enquote}[1]{``#1''}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
@@ -43,6 +43,14 @@
 \textsc{Borusyak, K., P.~Hull, and X.~Jaravel} (2021):
   \enquote{{Quasi-Experimental Shift-Share Research Designs},} \emph{The Review
   of Economic Studies}, 89, 181--213.
+
+\bibitem[\protect\citeauthoryear{{Bureau of Labor Statistics, U.S. Department
+  of Labor}}{{Bureau of Labor Statistics, U.S. Department of
+  Labor}}{2024}]{bls}
+\textsc{{Bureau of Labor Statistics, U.S. Department of Labor}} (2024):
+  \enquote{Occupational Outlook Handbook, OOH Data Access and Republishing
+  Information,} \url{https://www.bls.gov/ooh/about/ooh-developer-info.htm},
+  visited July 11, 2024.
 
 \bibitem[\protect\citeauthoryear{Davis and Dingel}{Davis and
   Dingel}{2019}]{dandd}
@@ -99,5 +107,11 @@
   Rossi-Hansberg}{2017}]{redding2017}
 \textsc{Redding, S.~J. and E.~Rossi-Hansberg} (2017): \enquote{Quantitative
   Spatial Economics,} \emph{Annual review of economics}, 9, 21--58.
+
+\bibitem[\protect\citeauthoryear{Ruggles, Flood, Sobek, Backman, Chen, Cooper,
+  Richards, Rogers, and Schouweiler}{Ruggles et~al.}{2024}]{acs}
+\textsc{Ruggles, S., S.~Flood, M.~Sobek, D.~Backman, A.~Chen, G.~Cooper,
+  S.~Richards, R.~Rogers, and M.~Schouweiler} (2024): \enquote{{IPUMS USA:
+  Version 15.0 [dataset]},} .
 
 \end{thebibliography}
