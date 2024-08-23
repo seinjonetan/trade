@@ -1,12 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1722451014 "/home/sjone9/school/trade/model/old/model.tex" "model.pdf" "model" 1722451014
-  "../../simulations/graphs/c_shock.png" 1719439319 25995 d7069ab1f00aa14a0c825bface465ce2 ""
-  "../../simulations/graphs/city_pop.png" 1719439281 29057 9a8dc8c85747f49e9ee3aa7453f2cab4 ""
-  "../../simulations/graphs/sim_city_shares.png" 1719439281 27966 eaf47a7340c96a93d3fc4966578e52ee ""
-  "../../simulations/graphs/sim_services.png" 1719439281 26618 e6b1dde55068c74ae26d173f268bf76e ""
-  "../../simulations/graphs/sim_trade.png" 1719439281 26775 b8cbd12f0fdd01cb61ffd4aa052cae38 ""
+["pdflatex"] 1724251789 "/home/sjone9/school/trade/model/old/model.tex" "model.pdf" "model" 1724251789
   "/etc/texmf/web2c/texmf.cnf" 1695173623 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/sjone9/school/trade/model/old/model.tex" 1722451013 39480 668e518e2ed75b9f7487467d57f6388e ""
+  "/home/sjone9/school/trade/model/old/model.tex" 1724251789 39900 8d20d65c14cddd8bb9ee84cd3bee2299 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -90,9 +85,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708461188 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716345046 2800201 cddebe4358212a15764e55ccdc48a1b1 ""
-  "model.aux" 1722451014 3529 5a968d8ef0718eb4f5bcf458be864ac9 "pdflatex"
-  "model.out" 1722451014 2053 4318b0e915011a02dfdb93be85f7e8cb "pdflatex"
-  "model.tex" 1722451013 39480 668e518e2ed75b9f7487467d57f6388e ""
+  "model.aux" 1724251789 2523 46fb3ba14026cd9e7395510692056c25 "pdflatex"
+  "model.out" 1724251789 2053 4318b0e915011a02dfdb93be85f7e8cb "pdflatex"
+  "model.tex" 1724251789 39900 8d20d65c14cddd8bb9ee84cd3bee2299 ""
   (generated)
   "model.aux"
   "model.log"

@@ -373,19 +373,19 @@ For each household, the draws will produce a $K \times N$ matrix which reflects 
 %     \end{minipage}
 % \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{../../simulations/graphs/city_pop.png}
-    \caption{Initial Distribution of Populations}
-    \label{city_pop}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=\textwidth]{../../simulations/graphs/city_pop.png}
+%     \caption{Initial Distribution of Populations}
+%     \label{city_pop}
+% \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{../../simulations/graphs/c_shock.png}
-    \caption{Post Detroit Shock}
-    \label{c_shock}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=\textwidth]{../../simulations/graphs/c_shock.png}
+%     \caption{Post Detroit Shock}
+%     \label{c_shock}
+% \end{figure}
 
 We now draw 10000 households, simulating the dtstribution of location choices across cities. As shown in figure 1, the city with the highest population is New York, with the majority of service focused households choosing to locate in the city. Detriot and Chicago have a more even distribution of trades focused households.
 
@@ -395,31 +395,31 @@ We then shock Detriot's productivities, reducing it by $50\%$ and observe the ch
 
 Given the generation of synthetic reuslts, this gives us the opportunity to compare the numerical results with the analytical results. We can compare the choice shares of each city as given by the analytical model with the choice shares of each city as given by the numerical model. This will allow us to validate the analytical model and see if it is able to capture the distribution of location choices across cities.
 
-\begin{figure}
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../../simulations/graphs/sim_services.png}
-        \caption{Service Choice Shares}
-        \label{sim_services}
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../../simulations/graphs/sim_trade.png}
-        \caption{Trades Choice Shares}
-        \label{sim_trades}
-    \end{minipage}
-\end{figure}
+% \begin{figure}
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../../simulations/graphs/sim_services.png}
+%         \caption{Service Choice Shares}
+%         \label{sim_services}
+%     \end{minipage}
+%     \begin{minipage}{0.5\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../../simulations/graphs/sim_trade.png}
+%         \caption{Trades Choice Shares}
+%         \label{sim_trades}
+%     \end{minipage}
+% \end{figure}
 
 As you can see in figures 3 and 4, the analytical model is able to capture the distribution of location choices across cities. The choice shares of each city as given by the analytical model are very simillar to the choice shares of each city as given by the numerical model. This validates the analytical model and shows that it is able to capture the distribution of location choices across cities.
 
 The same excercise can be done for the choice shares for each city. We compare the choice shares for each city as given by the analytical model with the choice shares for each city as given by the numerical model in order to validate the analytical model.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{../../simulations/graphs/sim_city_shares.png}
-    \caption{City Choice Shares}
-    \label{sim_city_shares}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=\textwidth]{../../simulations/graphs/sim_city_shares.png}
+%     \caption{City Choice Shares}
+%     \label{sim_city_shares}
+% \end{figure}
 
 As shown in figure 5, the analytical model is able to capture the distribution of location choices across cities. While the shares are not exactly the same, the analytical model is able to capture the general distribution of location choices across cities. This validates the analytical model and shows that it is able to capture the distribution of location choices across cities.
 
@@ -612,5 +612,13 @@ Where $\Lambda_k = \sum_{c}^{N} (T_{ck} Z_c^{- \theta})^{\frac{1}{1 - \rho_k}}$.
 %     \pi_c & = \int_{0}^{1} \frac{w_c^{-\theta} (\nu)}{\sum_{c}^{} w_c^{-\theta} (\nu)} d\nu \\
 %           & = \frac{W_c^{-\theta}}{\sum_{c}^{} W_c^{-\theta}}
 % \end{align*}
+
+\begin{align*}
+    Q = \sum_{c}^{} \sum_{k}^{} T_{ck} \Gamma \left( \frac{\theta - 1}{\theta} \right) t_{ck} w_{ck}^{\theta - 1} \lambda_k^{- \rho}
+\end{align*}
+
+\begin{align*}
+    Y = \sum_{c}^{} \frac{\sum_{k}^{} \Gamma \left( \frac{\theta - 1}{\theta}  \right) t_{ck} e_{ck}^{\theta} \lambda_k^{- \rho}}{\sum_{k}^{} \frac{w_{ck}}{T_{ck}}}
+\end{align*}
 
 \end{document}
