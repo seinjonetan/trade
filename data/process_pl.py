@@ -113,8 +113,8 @@ for year in tqdm(years, desc='Generating datasets: '):
 
     city_occ = current.pivot_table(index=area, columns='occupation', values='HHWT', aggfunc='sum')
     city_occ_wage = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='mean')
-    city_sector_wage = current.pivot_table(index=area, columns='INDNAICS', values='INCWAGE', aggfunc='sum')
-    sector_occ_wage = current.pivot_table(index=area, columns='occupation', values='INCWAGE', aggfunc='sum')
+    city_sector = current.pivot_table(index=area, columns='INDNAICS', values='HHWT', aggfunc='sum')
+    sector_occ_wage = current.pivot_table(index='INDNAICS', columns='occupation', values='INCWAGE', aggfunc='sum')
     city_occ_wb = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='sum')
 
     city_rent = current.pivot_table(index=area, values='RENT', aggfunc='sum')
@@ -132,7 +132,7 @@ for year in tqdm(years, desc='Generating datasets: '):
 
     city_occ = city_occ[~city_occ.index.isin(['Not in identifiable area'])]
     try:
-        city_sector_wage = city_sector_wage.drop(columns=['N/A', 'Unemployed'])
+        city_sector = city_sector.drop(columns=['N/A', 'Unemployed'])
         sector_occ_wage = sector_occ_wage[~sector_occ_wage.index.isin(['N/A', 'Unemployed'])]
     except:
         pass
@@ -140,14 +140,14 @@ for year in tqdm(years, desc='Generating datasets: '):
     print('Saving datasets...')
     city_occ.to_csv(f'processed/city_occ_employment/city_occ_e_{year}.csv')
     city_occ_wage.to_csv(f'processed/city_occ_wage/city_occ_w_{year}.csv')
-    city_sector_wage.to_csv(f'processed/city_sec_wage/city_sec_w_{year}.csv')
+    city_sector.to_csv(f'processed/city_sec_employment/city_sec_e_{year}.csv')
     sector_occ_wage.to_csv(f'processed/sec_occ_wage/sec_occ_w_{year}.csv')
     city_occ_wb.to_csv(f'processed/city_occ_wb/city_occ_wb_{year}.csv')
 
     total_pop.append({'year': year, 'pop': current['HHWT'].sum()})
 
     print('Dumping cache...')
-    del current, city_occ, city_occ_wage, city_sector_wage, city_rent, city_pop
+    del current, city_occ, city_occ_wage, city_sector, city_rent, city_pop
 
 total_pop = pd.DataFrame(total_pop)
 total_pop.to_csv('processed/total_pop.csv', index=False)
