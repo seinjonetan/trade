@@ -50,7 +50,7 @@ def expand_ranges(df):
     return pd.DataFrame(expanded_rows, columns=['Sector', 'Name']).set_index('Sector')
 
 print('Reading data...')
-df = pl.scan_csv('raw/usa_00015.csv')
+df = pl.scan_csv('raw/usa_00017.csv')
 met_codes = pd.read_csv('raw/met_codes.csv')
 met_codes.set_index('code', inplace=True)
 
