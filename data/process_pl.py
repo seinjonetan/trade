@@ -50,7 +50,7 @@ def expand_ranges(df):
     return pd.DataFrame(expanded_rows, columns=['Sector', 'Name']).set_index('Sector')
 
 print('Reading data...')
-df = pl.scan_csv('raw/usa_00017.csv')
+df = pl.scan_csv('raw/usa_00018.csv')
 met_codes = pd.read_csv('raw/met_codes.csv')
 met_codes.set_index('code', inplace=True)
 
@@ -60,18 +60,26 @@ df = df.with_columns(
 )
 
 print('Creating area mappings...')
-df_cz = pd.read_csv('raw/cz_mappings.csv')
-df_cz = df_cz[['LMA/CZ', 'FIPS']]
-cz_names = pd.read_csv('../data/raw/archive/cz_county.csv')
-cz_names = cz_names.dropna()
-cz_names['LMA/CZ'] = cz_names['LMA/CZ'].astype(str).str[:-2].astype(int)
-idx = cz_names.groupby(['LMA/CZ'])['Labor Force'].idxmax()
-cz_names = cz_names.loc[idx].reset_index(drop=True)
-cz_names = cz_names[['LMA/CZ', 'County Name']].set_index('LMA/CZ')
-cz_names['County Name'] = cz_names['County Name'].str.replace('"', '')
-df_cz = df_cz.merge(cz_names, left_on='LMA/CZ', right_index=True)
+# df_cz = pd.read_csv('raw/cz_mappings.csv')
+# df_cz = df_cz[['LMA/CZ', 'FIPS']]
+df_cz = pd.read_csv('raw/cw_puma1990_czone.csv', encoding='latin1')
+df_cz = df_cz[['czone', 'puma1990']]
+df_cz = df_cz.drop_duplicates(subset=['puma1990'])
+df_cz_1990 = df_cz.rename(columns={'czone': 'LMA/CZ', 'puma1990': 'FIPS'})
+df_cz = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
+df_cz = df_cz[['czone', 'puma2000']]
+df_cz = df_cz.drop_duplicates(subset=['puma2000'])
+df_cz_2000 = df_cz.rename(columns={'czone': 'LMA/CZ', 'puma2000': 'FIPS'})
+# cz_names = pd.read_csv('../data/raw/archive/cz_county.csv')
+# cz_names = cz_names.dropna()
+# cz_names['LMA/CZ'] = cz_names['LMA/CZ'].astype(str).str[:-2].astype(int)
+# idx = cz_names.groupby(['LMA/CZ'])['Labor Force'].idxmax()
+# cz_names = cz_names.loc[idx].reset_index(drop=True)
+# cz_names = cz_names[['LMA/CZ', 'County Name']].set_index('LMA/CZ')
+# cz_names['County Name'] = cz_names['County Name'].str.replace('"', '')
+# df_cz = df_cz.merge(cz_names, left_on='LMA/CZ', right_index=True)
 df = df.with_columns(
-    (pl.col('STATEFIP').cast(pl.Int32) * 1000 + pl.col('COUNTYFIP').cast(pl.Int32)).alias('FIPS')
+    (pl.col('STATEFIP').cast(pl.Int32) * 10000 + pl.col('PUMA').cast(pl.Int32)).alias('FIPS')
 )
 
 print('Creating sector mappings...')
@@ -109,7 +117,11 @@ for year in tqdm(years, desc='Generating datasets: '):
 
     print('Applying maps...')
     current['INDNAICS'] = current['INDNAICS'].map(naics_codes['Name'])
-    current['COMZONE'] = current['FIPS'].map(df_cz.set_index('FIPS')['County Name'])
+    # current['COMZONE'] = current['FIPS'].map(df_cz.set_index('FIPS')['County Name'])
+    if year == 1990:
+        current['COMZONE'] = current['FIPS'].map(df_cz_1990.set_index('FIPS')['LMA/CZ'])
+    else:
+        current['COMZONE'] = current['FIPS'].map(df_cz_2000.set_index('FIPS')['LMA/CZ'])
 
     city_occ = current.pivot_table(index=area, columns='occupation', values='HHWT', aggfunc='sum')
     city_occ_wage = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='mean')
