@@ -62,14 +62,8 @@ df = df.with_columns(
 print('Creating area mappings...')
 # df_cz = pd.read_csv('raw/cz_mappings.csv')
 # df_cz = df_cz[['LMA/CZ', 'FIPS']]
-df_cz = pd.read_csv('raw/cw_puma1990_czone.csv', encoding='latin1')
-df_cz = df_cz[['czone', 'puma1990']]
-df_cz = df_cz.drop_duplicates(subset=['puma1990'])
-df_cz_1990 = df_cz.rename(columns={'czone': 'LMA/CZ', 'puma1990': 'FIPS'})
-df_cz = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
-df_cz = df_cz[['czone', 'puma2000']]
-df_cz = df_cz.drop_duplicates(subset=['puma2000'])
-df_cz_2000 = df_cz.rename(columns={'czone': 'LMA/CZ', 'puma2000': 'FIPS'})
+df_cz_1990 = pd.read_csv('raw/cw_puma1990_czone.csv', encoding='latin1')
+df_cz_2000 = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
 # cz_names = pd.read_csv('../data/raw/archive/cz_county.csv')
 # cz_names = cz_names.dropna()
 # cz_names['LMA/CZ'] = cz_names['LMA/CZ'].astype(str).str[:-2].astype(int)
@@ -97,6 +91,7 @@ naics_codes.loc['3M'] = 'Manufacturing'
 naics_codes = expand_ranges(naics_codes)
 
 years = df.filter(pl.col('YEAR').is_not_null()).select(pl.col('YEAR').unique()).collect().to_series()
+# years = pd.Series(years)[years >= 2010].to_list()
 
 total_pop = []
 city_rent_all = pd.DataFrame()
@@ -118,10 +113,14 @@ for year in tqdm(years, desc='Generating datasets: '):
     print('Applying maps...')
     current['INDNAICS'] = current['INDNAICS'].map(naics_codes['Name'])
     # current['COMZONE'] = current['FIPS'].map(df_cz.set_index('FIPS')['County Name'])
-    if year == 1990:
-        current['COMZONE'] = current['FIPS'].map(df_cz_1990.set_index('FIPS')['LMA/CZ'])
+    if year <= 1990:
+        # current = current.rename(columns={'FIPS': 'puma1990'})
+        current = current.merge(df_cz_1990, left_on='FIPS', right_on='puma1990', how='left')
+        current['COMZONE'] = current['czone']
     else:
-        current['COMZONE'] = current['FIPS'].map(df_cz_2000.set_index('FIPS')['LMA/CZ'])
+        # current = current.rename(columns={'FIPS': 'puma2000'})
+        current = current.merge(df_cz_2000, left_on='FIPS', right_on='puma2000', how='left')
+        current['COMZONE'] = current['czone']
 
     city_occ = current.pivot_table(index=area, columns='occupation', values='HHWT', aggfunc='sum')
     city_occ_wage = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='mean')
