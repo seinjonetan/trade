@@ -1,6 +1,9 @@
 import pandas as pd
 from tqdm import tqdm
 import polars as pl
+import glob
+import os
+import re
 
 mappings = [
     ((405, 408), 'occ3_clean'),
@@ -50,9 +53,9 @@ def expand_ranges(df):
     return pd.DataFrame(expanded_rows, columns=['Sector', 'Name']).set_index('Sector')
 
 print('Reading data...')
-df = pl.scan_csv('raw/usa_00018.csv')
-met_codes = pd.read_csv('raw/met_codes.csv')
-met_codes.set_index('code', inplace=True)
+df = pl.scan_csv('raw/usa_00019.csv')
+# met_codes = pd.read_csv('raw/met_codes.csv')
+# met_codes.set_index('code', inplace=True)
 
 print('Mapping occpations...')
 df = df.with_columns(
@@ -64,6 +67,7 @@ print('Creating area mappings...')
 # df_cz = df_cz[['LMA/CZ', 'FIPS']]
 df_cz_1990 = pd.read_csv('raw/cw_puma1990_czone.csv', encoding='latin1')
 df_cz_2000 = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
+df_cz_1980 = pd.read_stata('raw/cw_ctygrp1980_czone_corr.dta')
 # cz_names = pd.read_csv('../data/raw/archive/cz_county.csv')
 # cz_names = cz_names.dropna()
 # cz_names['LMA/CZ'] = cz_names['LMA/CZ'].astype(str).str[:-2].astype(int)
@@ -73,7 +77,8 @@ df_cz_2000 = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
 # cz_names['County Name'] = cz_names['County Name'].str.replace('"', '')
 # df_cz = df_cz.merge(cz_names, left_on='LMA/CZ', right_index=True)
 df = df.with_columns(
-    (pl.col('STATEFIP').cast(pl.Int32) * 10000 + pl.col('PUMA').cast(pl.Int32)).alias('FIPS')
+    (pl.col('STATEFIP').cast(pl.Int32) * 10000 + pl.col('PUMA').cast(pl.Int32)).alias('FIPS'),
+    (pl.col('STATEFIP').cast(pl.Int32) * 1000 + pl.col('CNTYGP98').cast(pl.Int32)).alias('ctygrp1980'),
 )
 
 print('Creating sector mappings...')
@@ -113,12 +118,13 @@ for year in tqdm(years, desc='Generating datasets: '):
     print('Applying maps...')
     current['INDNAICS'] = current['INDNAICS'].map(naics_codes['Name'])
     # current['COMZONE'] = current['FIPS'].map(df_cz.set_index('FIPS')['County Name'])
-    if year <= 1990:
-        # current = current.rename(columns={'FIPS': 'puma1990'})
+    if year == 1990:
         current = current.merge(df_cz_1990, left_on='FIPS', right_on='puma1990', how='left')
         current['COMZONE'] = current['czone']
+    elif year == 1980:
+        current = current.merge(df_cz_1980, on='ctygrp1980', how='left')
+        current['COMZONE'] = current['czone']
     else:
-        # current = current.rename(columns={'FIPS': 'puma2000'})
         current = current.merge(df_cz_2000, left_on='FIPS', right_on='puma2000', how='left')
         current['COMZONE'] = current['czone']
 
@@ -176,4 +182,43 @@ tfp.rename(index={'MN': '33', 'DM': '33', 'ND': '33'}, inplace=True)
 tfp.index = tfp.index.map(naics_codes['Name'])
 tfp = tfp.groupby(tfp.index, axis=0).mean()
 tfp.to_csv('processed/tfp.csv')
+
+print('Creating master dataset...')
+def get_data(directory, field_name):
+    files = glob.glob(directory)
+    files = [f for f in files if re.search(r'_(1980|199[0-9]|20[0-9]{2})\.csv$', f)]
+
+    data = pd.DataFrame()
+
+    for file in files:
+        year = int(os.path.basename(file)[-8:-4])
+        current = pd.read_csv(file)
+        current['city_total'] = current.iloc[:, 1:].sum(axis=1)
+        current = current.melt(id_vars=['COMZONE'], var_name='Occupation', value_name=field_name)
+        current['Year'] = year
+        data = pd.concat([data, current], ignore_index=True)
+
+    return data
+
+df_cw = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
+df_names = pd.read_csv('raw/puma_names.csv')
+df_names['puma2000'] = df_names['State10'] * 10000 + df_names['PUMA10']
+df_names = df_names[['puma2000', 'PUMA10_Name']]
+df_cw = df_cw.merge(df_names, on='puma2000', how='left')
+df_cw = df_cw.sort_values(by=['czone', 'afactor'])
+df_cw = df_cw.drop_duplicates(subset=['czone'])
+df_cw = df_cw[['czone', 'PUMA10_Name']]
+df_cw = df_cw.rename(columns={'czone': 'COMZONE', 'PUMA10_Name': 'NAME'})
+
+employment = get_data('processed/city_occ_employment/*.csv', 'Employed')
+employment = employment.merge(df_cw, on='COMZONE', how='left')
+employment = employment[['Year', 'COMZONE', 'NAME', 'Occupation', 'Employed']]
+
+wage = get_data('processed/city_occ_wage/*.csv', 'Wage')
+wb = get_data('processed/city_occ_wb/*.csv', 'Wage_Bill')
+
+final = employment.merge(wage, on=['Year', 'COMZONE', 'Occupation'], how='left')
+final = final.merge(wb, on=['Year', 'COMZONE', 'Occupation'], how='left')
+final.to_csv('master.csv', index=False)
+
 print('Done!')
