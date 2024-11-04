@@ -33,6 +33,7 @@ mappings = [
     ((628, 699), 'occ2_product'),
     ((703, 799), 'occ2_operator'),
     ((803, 889), 'occ2_transp'),
+    ((991, 991), 'unemployed'),
 ]
 
 def map_occupations(occ1990dd):
@@ -54,8 +55,6 @@ def expand_ranges(df):
 
 print('Reading data...')
 df = pl.scan_csv('raw/usa_00019.csv')
-# met_codes = pd.read_csv('raw/met_codes.csv')
-# met_codes.set_index('code', inplace=True)
 
 print('Mapping occpations...')
 df = df.with_columns(
@@ -63,19 +62,9 @@ df = df.with_columns(
 )
 
 print('Creating area mappings...')
-# df_cz = pd.read_csv('raw/cz_mappings.csv')
-# df_cz = df_cz[['LMA/CZ', 'FIPS']]
 df_cz_1990 = pd.read_csv('raw/cw_puma1990_czone.csv', encoding='latin1')
 df_cz_2000 = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
 df_cz_1980 = pd.read_stata('raw/cw_ctygrp1980_czone_corr.dta')
-# cz_names = pd.read_csv('../data/raw/archive/cz_county.csv')
-# cz_names = cz_names.dropna()
-# cz_names['LMA/CZ'] = cz_names['LMA/CZ'].astype(str).str[:-2].astype(int)
-# idx = cz_names.groupby(['LMA/CZ'])['Labor Force'].idxmax()
-# cz_names = cz_names.loc[idx].reset_index(drop=True)
-# cz_names = cz_names[['LMA/CZ', 'County Name']].set_index('LMA/CZ')
-# cz_names['County Name'] = cz_names['County Name'].str.replace('"', '')
-# df_cz = df_cz.merge(cz_names, left_on='LMA/CZ', right_index=True)
 df = df.with_columns(
     (pl.col('STATEFIP').cast(pl.Int32) * 10000 + pl.col('PUMA').cast(pl.Int32)).alias('FIPS'),
     (pl.col('STATEFIP').cast(pl.Int32) * 1000 + pl.col('CNTYGP98').cast(pl.Int32)).alias('ctygrp1980'),
@@ -129,7 +118,7 @@ for year in tqdm(years, desc='Generating datasets: '):
         current['COMZONE'] = current['czone']
 
     city_occ = current.pivot_table(index=area, columns='occupation', values='HHWT', aggfunc='sum')
-    city_occ_wage = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='mean')
+    # city_occ_wage = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='mean')
     city_sector = current.pivot_table(index=area, columns='INDNAICS', values='HHWT', aggfunc='sum')
     sector_occ_wage = current.pivot_table(index='INDNAICS', columns='occupation', values='INCWAGE', aggfunc='sum')
     city_occ_wb = current.pivot_table(index=area, columns='occupation', values='AVERAGE INCWAGE', aggfunc='sum')
@@ -156,15 +145,15 @@ for year in tqdm(years, desc='Generating datasets: '):
 
     print('Saving datasets...')
     city_occ.to_csv(f'processed/city_occ_employment/city_occ_e_{year}.csv')
-    city_occ_wage.to_csv(f'processed/city_occ_wage/city_occ_w_{year}.csv')
+    # city_occ_wage.to_csv(f'processed/city_occ_wage/city_occ_w_{year}.csv')
     city_sector.to_csv(f'processed/city_sec_employment/city_sec_e_{year}.csv')
-    sector_occ_wage.to_csv(f'processed/sec_occ_wage/sec_occ_w_{year}.csv')
+    sector_occ_wage.to_csv(f'processed/sec_occ_wb/sec_occ_w_{year}.csv')
     city_occ_wb.to_csv(f'processed/city_occ_wb/city_occ_wb_{year}.csv')
 
     total_pop.append({'year': year, 'pop': current['HHWT'].sum()})
 
     print('Dumping cache...')
-    del current, city_occ, city_occ_wage, city_sector, city_rent, city_pop
+    del current, city_occ, city_sector, city_rent, city_pop
 
 total_pop = pd.DataFrame(total_pop)
 total_pop.to_csv('processed/total_pop.csv', index=False)
@@ -184,7 +173,18 @@ tfp = tfp.groupby(tfp.index, axis=0).mean()
 tfp.to_csv('processed/tfp.csv')
 
 print('Creating master dataset...')
-def get_data(directory, field_name):
+df_cw = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
+# df_names = pd.read_csv('raw/puma_names.csv')
+# df_names['puma2000'] = df_names['State10'] * 10000 + df_names['PUMA10']
+# df_names = df_names[['puma2000', 'PUMA10_Name']]
+df_names = pd.read_csv('raw/cz_names.csv')
+df_cw = df_cw.merge(df_names, on='czone', how='left')
+df_cw = df_cw.sort_values(by=['czone', 'afactor'])
+df_cw = df_cw.drop_duplicates(subset=['czone'])
+df_cw = df_cw[['czone', 'County Name']]
+df_cw = df_cw.rename(columns={'czone': 'COMZONE', 'County Name': 'NAME'})
+
+def get_data(directory, field_name, id_vars=['COMZONE'], var_name='Occupation'):
     files = glob.glob(directory)
     files = [f for f in files if re.search(r'_(1980|199[0-9]|20[0-9]{2})\.csv$', f)]
 
@@ -194,31 +194,51 @@ def get_data(directory, field_name):
         year = int(os.path.basename(file)[-8:-4])
         current = pd.read_csv(file)
         current['city_total'] = current.iloc[:, 1:].sum(axis=1)
-        current = current.melt(id_vars=['COMZONE'], var_name='Occupation', value_name=field_name)
+        current = current.melt(id_vars=id_vars, var_name=var_name, value_name=field_name)
         current['Year'] = year
         data = pd.concat([data, current], ignore_index=True)
 
     return data
 
-df_cw = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
-df_names = pd.read_csv('raw/puma_names.csv')
-df_names['puma2000'] = df_names['State10'] * 10000 + df_names['PUMA10']
-df_names = df_names[['puma2000', 'PUMA10_Name']]
-df_cw = df_cw.merge(df_names, on='puma2000', how='left')
-df_cw = df_cw.sort_values(by=['czone', 'afactor'])
-df_cw = df_cw.drop_duplicates(subset=['czone'])
-df_cw = df_cw[['czone', 'PUMA10_Name']]
-df_cw = df_cw.rename(columns={'czone': 'COMZONE', 'PUMA10_Name': 'NAME'})
-
 employment = get_data('processed/city_occ_employment/*.csv', 'Employed')
 employment = employment.merge(df_cw, on='COMZONE', how='left')
 employment = employment[['Year', 'COMZONE', 'NAME', 'Occupation', 'Employed']]
-
-wage = get_data('processed/city_occ_wage/*.csv', 'Wage')
 wb = get_data('processed/city_occ_wb/*.csv', 'Wage_Bill')
+final = employment.merge(wb, on=['Year', 'COMZONE', 'Occupation'], how='left')
+final['Wage'] = final['Wage_Bill'] / final['Employed']
 
-final = employment.merge(wage, on=['Year', 'COMZONE', 'Occupation'], how='left')
-final = final.merge(wb, on=['Year', 'COMZONE', 'Occupation'], how='left')
-final.to_csv('master.csv', index=False)
+city_sec_employment = get_data('processed/city_sec_employment/*.csv', 'Employed', id_vars=['COMZONE'], var_name='Sector')
+sec_occ_wb = get_data('processed/sec_occ_wb/*.csv', 'Wage_Bill', id_vars=['INDNAICS'], var_name='Occupation')
+
+df_cpi = pd.read_csv('raw/CPI.csv')
+df_cpi['DATE'] = pd.to_datetime(df_cpi['DATE'])
+df_cpi['Year'] = df_cpi['DATE'].dt.year
+df_cpi['month'] = df_cpi['DATE'].dt.month
+df_cpi = df_cpi[df_cpi['month'] == 12]
+df_cpi = df_cpi.rename(columns={'CPIAUCSL': 'CPI'})
+df_cpi = df_cpi[['Year', 'CPI']]
+
+base_year = 1990
+
+final = final.merge(df_cpi, on='Year', how='left')
+final['Wage'] = (final['Wage'] / final['CPI']) * df_cpi[df_cpi['Year'] == base_year]['CPI'].values[0]
+final['Wage_Bill'] = (final['Wage_Bill'] / final['CPI']) * df_cpi[df_cpi['Year'] == base_year]['CPI'].values[0]
+
+sec_occ_wb = sec_occ_wb.merge(df_cpi, on='Year', how='left')
+sec_occ_wb['Wage_Bill'] = (sec_occ_wb['Wage_Bill'] / sec_occ_wb['CPI']) * df_cpi[df_cpi['Year'] == base_year]['CPI'].values[0]
+
+print('Saving datasets...')
+
+final.to_csv('processed/master.csv', index=False)
+city_sec_employment.to_csv('processed/city_sec_employment.csv', index=False)
+sec_occ_wb.to_csv('processed/sec_occ_wb.csv', index=False)
+
+years = [1990, 2000, 2010, 2018]
+final = final[final['Year'].isin(years)]
+city_sec_employment = city_sec_employment[city_sec_employment['Year'].isin(years)]
+sec_occ_wb = sec_occ_wb[sec_occ_wb['Year'].isin(years)]
+final.to_csv('output/master_subset.csv', index=False)
+city_sec_employment.to_csv('output/city_sec_employment_subset.csv', index=False)
+sec_occ_wb.to_csv('output/sec_occ_wb_subset.csv', index=False)
 
 print('Done!')
