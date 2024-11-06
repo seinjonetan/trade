@@ -170,7 +170,7 @@ tfp = tfp.groupby('two_digit_naics').mean()
 tfp.rename(index={'MN': '33', 'DM': '33', 'ND': '33'}, inplace=True)
 tfp.index = tfp.index.map(naics_codes['Name'])
 tfp = tfp.groupby(tfp.index, axis=0).mean()
-tfp.to_csv('processed/tfp.csv')
+tfp.to_csv('output/tfp.csv')
 
 print('Creating master dataset...')
 df_cw = pd.read_csv('raw/cw_puma2000_czone.csv', encoding='latin1')
@@ -193,7 +193,7 @@ def get_data(directory, field_name, id_vars=['COMZONE'], var_name='Occupation'):
     for file in files:
         year = int(os.path.basename(file)[-8:-4])
         current = pd.read_csv(file)
-        current['city_total'] = current.iloc[:, 1:].sum(axis=1)
+        # current['city_total'] = current.iloc[:, 1:].sum(axis=1)
         current = current.melt(id_vars=id_vars, var_name=var_name, value_name=field_name)
         current['Year'] = year
         data = pd.concat([data, current], ignore_index=True)
@@ -207,8 +207,14 @@ wb = get_data('processed/city_occ_wb/*.csv', 'Wage_Bill')
 final = employment.merge(wb, on=['Year', 'COMZONE', 'Occupation'], how='left')
 final['Wage'] = final['Wage_Bill'] / final['Employed']
 
+total_years = final['Year'].nunique()
+occupation_counts = final.groupby('Occupation')['Year'].nunique()
+valid_occupations = occupation_counts[occupation_counts == total_years].index
+final = final[final['Occupation'].isin(valid_occupations)]
+
 city_sec_employment = get_data('processed/city_sec_employment/*.csv', 'Employed', id_vars=['COMZONE'], var_name='Sector')
 sec_occ_wb = get_data('processed/sec_occ_wb/*.csv', 'Wage_Bill', id_vars=['INDNAICS'], var_name='Occupation')
+sec_occ_wb = sec_occ_wb[sec_occ_wb['Occupation'].isin(valid_occupations)]
 
 df_cpi = pd.read_csv('raw/CPI.csv')
 df_cpi['DATE'] = pd.to_datetime(df_cpi['DATE'])
